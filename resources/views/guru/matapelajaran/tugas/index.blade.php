@@ -50,7 +50,7 @@
                             Genap
                         @endif
                     </td>
-                    <td><a class="btn btn-default btn-xs" href="{{url('guru/matapelajaran/tugas/'.$mapelBuka->id.'/kd/'.$kompetensiDasar->id)}}"><span class="fa fa-edit"></span></a></td>
+                    <td><a data-toggle="tooltip" title="Input Nilai" class="btn btn-default btn-xs" href="{{url('guru/matapelajaran/tugas/'.$mapelBuka->id.'/kd/'.$kompetensiDasar->id)}}"><span class="fa fa-edit"></span></a></td>
                     </tr>
                   @endforeach
                 </tbody>

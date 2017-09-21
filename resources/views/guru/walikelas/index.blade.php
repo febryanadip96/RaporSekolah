@@ -48,7 +48,7 @@
                         <td>{{$semesterSiswa->siswa->user->name}}</td>
                         <td>{{$semesterSiswa->nilaiSikap->nilai_spiritual}}</td>
                         <td>{{$semesterSiswa->nilaiSikap->nilai_sosial}}</td>
-                        <td><a class="btn btn-default btn-xs" href="{{url('guru/walikelas/nilaisikap/'.$semesterSiswa->nilaiSikap->id)}}"><span class="fa fa-edit"></span></a></td>
+                        <td><a data-toggle="tooltip" title="Input Nilai" class="btn btn-default btn-xs" href="{{url('guru/walikelas/nilaisikap/'.$semesterSiswa->nilaiSikap->id)}}"><span class="fa fa-edit"></span></a></td>
                         </tr>
                       @endforeach
                     </tbody>
@@ -81,7 +81,7 @@
                                 @endif
                             @endforeach
                         </td>
-                        <td><a class="btn btn-default btn-xs" href="{{url('guru/walikelas/ekstrakulikuler/'.$semesterSiswa->id)}}"><span class="fa fa-edit"></span></a></td>
+                        <td><a data-toggle="tooltip" title="Input Nilai" class="btn btn-default btn-xs" href="{{url('guru/walikelas/ekstrakulikuler/'.$semesterSiswa->id)}}"><span class="fa fa-edit"></span></a></td>
                         </tr>
                       @endforeach
                     </tbody>
@@ -142,7 +142,7 @@
                                 @endif
                             @endforeach
                         </td>
-                        <td><a class="btn btn-default btn-xs" href="{{url('guru/walikelas/prestasi/'.$semesterSiswa->id)}}"><span class="fa fa-edit"></span></a></td>
+                        <td><a data-toggle="tooltip" title="Input Prestasi" class="btn btn-default btn-xs" href="{{url('guru/walikelas/prestasi/'.$semesterSiswa->id)}}"><span class="fa fa-edit"></span></a></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -170,7 +170,7 @@
                             Izin: {{count($semesterSiswa->ketidakhadiran->where('status',1))}}<br>
                             Tanpa Keterangan: {{count($semesterSiswa->ketidakhadiran->where('status',2))}}<br>
                         </td>
-                        <td><a class="btn btn-default btn-xs" href="{{url('guru/walikelas/ketidakhadiran/'.$semesterSiswa->id)}}"><span class="fa fa-edit"></span></a></td>
+                        <td><a data-toggle="tooltip" title="Input Ketidakhadiran" class="btn btn-default btn-xs" href="{{url('guru/walikelas/ketidakhadiran/'.$semesterSiswa->id)}}"><span class="fa fa-edit"></span></a></td>
                         </tr>
                       @endforeach
                     </tbody>
@@ -194,7 +194,7 @@
                         <td>{{$semesterSiswa->siswa->nis}}</td>
                         <td>{{$semesterSiswa->siswa->user->name}}</td>
                         <td>{{$semesterSiswa->catatan_walikelas}}</td>
-                        <td><a class="btn btn-default btn-xs" href="{{url('guru/walikelas/catatan/'.$semesterSiswa->id)}}"><span class="fa fa-edit"></span></a></td>
+                        <td><a data-toggle="tooltip" title="Input Catatan" class="btn btn-default btn-xs" href="{{url('guru/walikelas/catatan/'.$semesterSiswa->id)}}"><span class="fa fa-edit"></span></a></td>
                         </tr>
                       @endforeach
                     </tbody>
@@ -207,22 +207,25 @@
                       <th>No</th>
                       <th>NIS</th>
                       <th>Nama</th>
+											<th>Kelulusan</th>
                       <th class="no-sort">Rapor</th>
                     </tr>
                     </thead>
                     <tbody>
                       @foreach($semesterSiswas as $index => $semesterSiswa)
                         <tr>
-                        <td>{{$index+1}}</td>
-                        <td>{{$semesterSiswa->siswa->nis}}</td>
-                        <td>{{$semesterSiswa->siswa->user->name}}</td>
-                        <td>
-                            @if($semesterSiswa->semester->gasal_genap==2)
-                                <a class="btn btn-info btn-xs" href="{{url('guru/walikelas/aturkelulusan/'.$semesterSiswa->id)}}"><span class="fa fa-balance-scale"></span> Atur Kelulusan</a>
-                            @endif
-                            <a class="btn btn-warning btn-xs" href="{{url('guru/walikelas/cetakraportengahsemester/'.$semesterSiswa->id)}}"><span class="fa fa-print"></span> Tengah Semester</a>
-                            <a class="btn btn-danger btn-xs" href="{{url('guru/walikelas/cetakraporakhirsemester/'.$semesterSiswa->id)}}"><span class="fa fa-print"></span> Akhir Semester</a>
-                        </td>
+	                        <td>{{$index+1}}</td>
+	                        <td>{{$semesterSiswa->siswa->nis}}</td>
+	                        <td>{{$semesterSiswa->siswa->user->name}}</td>
+													<td>
+														@if($semesterSiswa->semester->gasal_genap==2)
+																<a class="btn btn-info btn-xs" href="{{url('guru/walikelas/aturkelulusan/'.$semesterSiswa->id)}}"><span class="fa fa-balance-scale"></span> Atur Kelulusan</a>
+														@endif
+													</td>
+	                        <td>
+	                            <a class="btn btn-warning btn-xs" href="{{url('guru/walikelas/cetakraportengahsemester/'.$semesterSiswa->id)}}"><span class="fa fa-print"></span> Tengah Semester</a>
+	                            <a class="btn btn-danger btn-xs" href="{{url('guru/walikelas/cetakraporakhirsemester/'.$semesterSiswa->id)}}"><span class="fa fa-print"></span> Akhir Semester</a>
+	                        </td>
                         </tr>
                       @endforeach
                     </tbody>

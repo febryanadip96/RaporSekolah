@@ -39,7 +39,7 @@
                     <td>{{$index+1}}</td>
                     <td>{{$mapelBuka->mataPelajaran->nama}} {{$mapelBuka->mataPelajaran->keterangan}}</td>
                     <td>{{$mapelBuka->kkm}}</td>
-                    <td><a class="btn btn-default btn-xs" href="{{url('guru/matapelajaran/'.$mapelBuka->id)}}"><span class="fa fa-edit"></span></a></td>
+                    <td><a data-toggle="tooltip" title="Masuk" class="btn btn-default btn-xs" href="{{url('guru/matapelajaran/'.$mapelBuka->id)}}"><span class="fa fa-edit"></span></a></td>
                     </tr>
                   @endforeach
                 </tbody>

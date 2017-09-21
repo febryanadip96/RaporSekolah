@@ -50,10 +50,11 @@
                       @endif
                   </td>
                   <td>
-                      <a class="btn btn-warning btn-xs" href="{{url('guru/walikelas/ketidakhadiran/'.$ketidakhadiran->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
+                      <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('guru/walikelas/ketidakhadiran/'.$ketidakhadiran->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
                       <form  style="display: inline-block" method="post" class="form-delete" action="{{url('guru/walikelas/ketidakhadiran/'.$ketidakhadiran->id)}}">
-                      {{ method_field('DELETE') }}{{ csrf_field() }}
-                      <a class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a></form></span></a>
+	                      {{ method_field('DELETE') }}{{ csrf_field() }}
+	                      <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
+											</form>
                   </td>
                   </tr>
                 @endforeach
