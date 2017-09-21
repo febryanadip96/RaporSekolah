@@ -7,6 +7,7 @@ use App\User;
 use App\Karyawan;
 use App\Kota;
 use App\Ijazah;
+use Auth;
 
 class AdminKaryawanController extends Controller
 {
@@ -169,9 +170,12 @@ class AdminKaryawanController extends Controller
      */
     public function destroy($id)
     {
-        $karyawan = Karyawan::findOrFail($id);
-        $karyawan->delete();
-        $karyawan->user->delete();
-        return redirect(action('AdminKaryawanController@index'))->with('status','Guru telah dikeluarkan');
+      $karyawan = Karyawan::findOrFail($id);
+			if(Auth::user()->id==$karyawan->user->id){
+				return redirect(action('AdminKaryawanController@index'))->with('status','Data Guru gagal dihapus');
+			}
+      $karyawan->delete();
+      $karyawan->user->delete();
+      return redirect(action('AdminKaryawanController@index'))->with('status','Guru telah dikeluarkan');
     }
 }
