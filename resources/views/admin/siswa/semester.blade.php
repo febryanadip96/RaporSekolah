@@ -40,7 +40,7 @@
 					<td>{{$index+1}}</td>
 					<td>{{$semesterSiswa->semester->gasal_genap === 1? "Gasal" : "Genap" }} {{$semesterSiswa->semester->tahunAjar->nama}}</td>
 					<td>
-						<a class="btn btn-default btn-xs" href="{{url('admin/siswa/rapor/'.$semesterSiswa->id)}}"><span class="fa fa-eye"></span></a>
+						<a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/siswa/rapor/'.$semesterSiswa->id)}}"><span class="fa fa-eye"></span></a>
 					</td>
 					</tr>
 				  @endforeach

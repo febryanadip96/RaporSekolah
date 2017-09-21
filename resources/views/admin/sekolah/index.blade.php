@@ -42,7 +42,7 @@
                   <td>{{$sekolah->nama}}</td>
                   <td>{{$sekolah->negeri_swasta}}</td>
                   <td>{{$sekolah->alamat}}</td>
-                  <td><a class="btn btn-warning btn-xs" href="{{url('admin/sekolah/'.$sekolah->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
+                  <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/sekolah/'.$sekolah->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
                   </tr>
                 @endforeach
               </tbody>

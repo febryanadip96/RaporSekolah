@@ -46,9 +46,12 @@
                   <td>{{$predikat->predikat_ki3_ki4}}</td>
                   <td>{{$predikat->predikat_ki1_ki2}}</td>
                   <td>@if($predikat->lulus_ki1_ki2==1) Ya @else Tidak @endif</td>
-                  <td><a class="btn btn-warning btn-xs" href="{{url('admin/predikat/'.$predikat->id.'/edit')}}"><span class="fa fa-pencil"></span></a> <form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/predikat/'.$predikat->id)}}">
-                  {{ method_field('DELETE') }}{{ csrf_field() }}
-                  <a class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a></form></td>
+                  <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/predikat/'.$predikat->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
+										<form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/predikat/'.$predikat->id)}}">
+		                  {{ method_field('DELETE') }}{{ csrf_field() }}
+		                  <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
+										</form>
+									</td>
                   </tr>
                 @endforeach
               </tbody>

@@ -57,12 +57,12 @@
                     <td>{{date('m/d/Y',strtotime($siswa->tanggal_lahir))}}</td>
                     <td>{{$siswa->asal->nama}}</td>
                     <td>
-						<a class="btn btn-default btn-xs" href="{{url('admin/siswa/semester/'.$siswa->id)}}"><span class="fa fa-file-o"></span></a>
+											<a data-toggle="tooltip" title="Rapor" class="btn btn-info btn-xs" href="{{url('admin/siswa/semester/'.$siswa->id)}}"><span class="fa fa-file-o"></span></a>
                     </td>
-                    <td><a class="btn btn-default btn-xs" href="{{url('admin/siswa/'.$siswa->id)}}"><span class="fa fa-eye"></span></a> <a class="btn btn-warning btn-xs" href="{{url('admin/siswa/'.$siswa->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
+                    <td><a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/siswa/'.$siswa->id)}}"><span class="fa fa-eye"></span></a> <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/siswa/'.$siswa->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
                     <form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/siswa/'.$siswa->id)}}">
                       {{ method_field('DELETE') }}{{ csrf_field() }}
-                      <a class="delete-modal btn btn-xs btn-danger"><span class='fa fa-sign-out'></span></a>
+                      <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-xs btn-danger"><span class='fa fa-sign-out'></span></a>
                     </form>
                     </td>
                     </tr>

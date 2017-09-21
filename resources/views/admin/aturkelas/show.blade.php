@@ -45,9 +45,12 @@
                   <td>{{$daftarKelas->siswa->nis}}</td>
                   <td>{{$daftarKelas->siswa->user->name}}</td>
                   <td>@if($daftarKelas->status_lulus==1) Lulus @else Belum Lulus @endif</td>
-                  <td><form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/aturkelas/'.$daftarKelas->id)}}">
-                  {{ method_field('DELETE') }}{{ csrf_field() }}
-                  <a class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a></form></span></a></td>
+                  <td>
+										<form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/aturkelas/'.$daftarKelas->id)}}">
+		                  {{ method_field('DELETE') }}{{ csrf_field() }}
+		                  <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
+										</form></a>
+									</td>
                   </tr>
                 @endforeach
               </tbody>

@@ -44,7 +44,7 @@
                     <td>{{$semester->status === 1? "Aktif" : "Tidak Aktif"}}</td>
                     <td>{{$semester->awal_tutup_tengah_semester==null && $semester->akhir_tutup_tengah_semester==null? '':date('m/d/Y h:i A',strtotime($semester->awal_tutup_tengah_semester)).' - '.date('m/d/Y h:i A',strtotime($semester->akhir_tutup_tengah_semester))}}</td>
                     <td>{{$semester->awal_tutup_akhir_semester==null && $semester->akhir_tutup_akhir_semester==null? '':date('m/d/Y h:i A',strtotime($semester->awal_tutup_akhir_semester)).' - '.date('m/d/Y h:i A',strtotime($semester->akhir_tutup_akhir_semester))}}</td>
-                    <td><a class="btn btn-warning btn-xs" href="{{url('admin/semester/'.$semester->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
+                    <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/semester/'.$semester->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
                     </tr>
                   @endforeach
                 </tbody>

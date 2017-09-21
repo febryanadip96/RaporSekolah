@@ -39,7 +39,7 @@
                     <tr>
                     <td>{{$index+1}}</td>
                     <td>{{$kelas1->tingkat}}</td>
-                    <td><a class="btn btn-warning btn-xs" href="{{url('admin/kelas/'.$kelas1->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
+                    <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/kelas/'.$kelas1->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
                     </tr>
                   @endforeach
                 </tbody>

@@ -50,7 +50,7 @@
                     <td>@if($mapel->jenis==0) Umum @else Khusus @endif</td>
                     <td>{{$mapel->kelompok->nama}}</td>
                     <td>{{$mapel->urutan}}</td>
-                    <td><a class="btn btn-default btn-xs" href="{{url('admin/kd/'.$mapel->id)}}"><span class="fa fa-eye"></span></a></td>
+                    <td><a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/kd/'.$mapel->id)}}"><span class="fa fa-eye"></span></a></td>
                     </tr>
                   @endforeach
                 </tbody>

@@ -38,7 +38,7 @@
                   <tr>
                   <td>{{$index+1}}</td>
                   <td>{{$ekskul->nama}}</td>
-                  <td><a class="btn btn-warning btn-xs" href="{{url('admin/ekskul/'.$ekskul->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
+                  <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/ekskul/'.$ekskul->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
                   </tr>
                 @endforeach
               </tbody>

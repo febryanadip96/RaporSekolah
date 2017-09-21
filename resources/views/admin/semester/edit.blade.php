@@ -30,7 +30,7 @@
           <!-- form start -->
           <form role="form"  class="form-update" action="{{url('admin/semester/'.$semester->id)}}" method="post">
             {{ csrf_field() }}
-              {{method_field("PUT")}}
+            {{method_field("PUT")}}
             <div class="box-body">
               <div class="form-group">
                 <label for="nama">Nama</label>

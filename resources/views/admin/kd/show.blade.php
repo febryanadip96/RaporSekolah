@@ -40,12 +40,15 @@
               <tbody>
                 @foreach($mapel->kompetensiDasar as $kompetensiDasar)
                   <tr>
-                  <th>{{$kompetensiDasar->nomor}}</th>
-                  <th>{{$kompetensiDasar->deskripsi}}</th>
-                  <th>@if($kompetensiDasar->gasal_genap==1) Gasal @else Genap @endif</th>
-                  <th><form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/kd/'.$kompetensiDasar->id)}}">
-                  {{ method_field('DELETE') }}{{ csrf_field() }}
-                  <a class="delete-modal btn-danger btn-xs"><span class='fa fa-trash-o'></span></a></form></th>
+	                  <td>{{$kompetensiDasar->nomor}}</td>
+	                  <td>{{$kompetensiDasar->deskripsi}}</td>
+	                  <td>@if($kompetensiDasar->gasal_genap==1) Gasal @else Genap @endif</td>
+	                  <td>
+											<form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/kd/'.$kompetensiDasar->id)}}">
+			                  {{ method_field('DELETE') }}{{ csrf_field() }}
+			                  <a data-toggle="tooltip" title="Hapus" class="delete-modal btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
+											</form>
+										</td>
                   </tr>
                 @endforeach
               </tbody>

@@ -52,10 +52,10 @@
                       @endif
                     </td>
                     <td>@if($keluarPindah->status==0) Keluar @elseif($keluarPindah->status==1) Pindah @endif</td>
-                    <td><a class="btn btn-default btn-xs" href="{{url('admin/keluarpindah/'.$keluarPindah->id)}}"><span class="fa fa-eye"></span></a> <a class="btn btn-warning btn-xs" href="{{url('admin/keluarpindah/'.$keluarPindah->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
+                    <td><a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/keluarpindah/'.$keluarPindah->id)}}"><span class="fa fa-eye"></span></a> <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/keluarpindah/'.$keluarPindah->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
                         <form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/keluarpindah/'.$keluarPindah->id)}}">
                           {{ method_field('DELETE') }}{{ csrf_field() }}
-                          <a class="update-modal btn btn-xs btn-default"><span class='fa fa-history'></span></a>
+                          <a data-toggle="tooltip" title="Restore" class="update-modal btn btn-xs btn-default"><span class='fa fa-history'></span></a>
                         </form>
                     </td>
                     </tr>

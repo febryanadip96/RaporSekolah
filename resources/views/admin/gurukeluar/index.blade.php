@@ -48,10 +48,10 @@
                         Perempuan
                       @endif
                     </td>
-                    <td><a class="btn btn-default btn-xs" href="{{url('admin/gurukeluar/'.$karyawan->id)}}"><span class="fa fa-eye"></span></a>
-                        <form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/gurukeluar/'.$karyawan->id)}}">
+                    <td><a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/gurukeluar/'.$karyawan->id)}}"><span class="fa fa-eye"></span></a>
+                        <form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/gurukeluar/'.$karyawan->id)}}">
                           {{ method_field('DELETE') }}{{ csrf_field() }}
-                          <a class="update-modal btn btn-xs btn-default"><span class='fa fa-history'></span></a>
+                          <a data-toggle="tooltip" title="Restore" class="update-modal btn btn-xs btn-default"><span class='fa fa-history'></span></a>
                         </form>
                     </td>
                     </tr>

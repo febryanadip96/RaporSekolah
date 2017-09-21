@@ -77,7 +77,7 @@
             <!-- /.box-body -->
 
             <div class="box-footer">
-              <a class="update-modal btn btn-primary">Simpan</a>
+              <a class="update-modal btn btn-warning">Simpan</a>
             </div>
           </form>
         </div>

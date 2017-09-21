@@ -40,7 +40,7 @@
                     <td>{{$index+1}}</td>
                     <td>{{$tahunAjar->nama}}</td>
                     <td>{{$tahunAjar->total_hari_efektif}} hari</td>
-                    <td><a class="btn btn-warning btn-xs" href="{{url('admin/tahunajar/'.$tahunAjar->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
+                    <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/tahunajar/'.$tahunAjar->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
                     </tr>
                   @endforeach
                 </tbody>
