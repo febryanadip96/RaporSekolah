@@ -17,11 +17,11 @@ class Ijazah extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'ijazahs';
     protected $primaryKey = 'id';
-	protected $fillable=['nama'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+		protected $fillable=['nama'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function karyawan()
+		public function karyawan()
     {
     	return $this->hasMany('App\Karyawan','ijazah_id');
     }

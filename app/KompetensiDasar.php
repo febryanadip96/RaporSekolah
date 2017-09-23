@@ -17,11 +17,11 @@ class KompetensiDasar extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'kompetensi_dasars';
     protected $primaryKey = 'id';
-	protected $fillable=['nomor','deskripsi','gasal_genap','mata_pelajaran_id'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+		protected $fillable=['nomor','deskripsi','gasal_genap','mata_pelajaran_id'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function ketrampilan()
+		public function ketrampilan()
     {
         return $this->hasMany('App\Ketrampilan','kompetensi_dasar_id');
     }

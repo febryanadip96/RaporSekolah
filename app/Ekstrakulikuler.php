@@ -7,22 +7,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ekstrakulikuler extends Model
 {
-	use SoftDeletes;
+		use SoftDeletes;
 
-    /**
-    * The attributes that should be mutated to dates.
-    *
-    * @var array
-    */
-	protected $dates = ['deleted_at'];
-	protected $table = 'ekstrakulikulers';
-	protected $primaryKey = 'id';
-	protected $fillable=['nama'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+	    /**
+	    * The attributes that should be mutated to dates.
+	    *
+	    * @var array
+	    */
+		protected $dates = ['deleted_at'];
+		protected $table = 'ekstrakulikulers';
+		protected $primaryKey = 'id';
+		protected $fillable=['nama', 'jenis'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function nilaiEkstrakulikuler()
-	{
-		return $this->hasMany('App\NilaiEkstrakulikuler','ekstrakulikuler_id');
-	}
+		public function nilaiEkstrakulikuler()
+		{
+			return $this->hasMany('App\NilaiEkstrakulikuler','ekstrakulikuler_id');
+		}
 }

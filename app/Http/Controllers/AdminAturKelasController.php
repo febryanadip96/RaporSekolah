@@ -12,6 +12,8 @@ use App\Semester;
 use App\SemesterSiswa;
 use App\NilaiSikap;
 use App\Predikat;
+use App\Ekstrakulikuler;
+use App\NilaiEkstrakulikuler;
 
 class AdminAturKelasController extends Controller
 {
@@ -60,7 +62,7 @@ class AdminAturKelasController extends Controller
         $daftarKelas=DaftarKelas::where('siswa_id',$request['siswa_id'])->where('kelas_buka_id',$request['kelas_buka_id'])->get();
         $kelasBuka = KelasBuka::findOrFail($request['kelas_buka_id']);
         $semesters = Semester::where('tahun_ajar_id',$kelasBuka->tahun_ajar_id)->get();
-				echo $semesters;
+				$ekskulsWajib = Ekstrakulikuler::where('jenis',1)->get();
         if(count($daftarKelas)==0)
         {
             DaftarKelas::create([
@@ -81,6 +83,14 @@ class AdminAturKelasController extends Controller
 		                'predikat_sosial_id'=>$this->getNilaiPredikat(0),
                     'semester_siswa_id'=>$semesterSiswaId,
                 ]);
+								foreach ($ekskulsWajib as $key => $ekskulWajib) {
+									NilaiEkstrakulikuler::create([
+										'nilai'=>0,
+										'predikat_id'=>$this->getNilaiPredikat(0),
+										'semester_siswa_id'=>$semesterSiswaId,
+										'ekstrakulikuler_id'=>$ekskulWajib->id,
+									]);
+								}
             }
             return redirect(action('AdminAturKelasController@show',['id' => $request['kelas_buka_id']]))->with('error','Siswa sudah terdaftar');
         }
@@ -141,6 +151,7 @@ class AdminAturKelasController extends Controller
         foreach ($semesterSiswas as $key => $semesterSiswa) {
             $semesterSiswa->delete();
             $semesterSiswa->nilaiSikap()->delete();
+						$semesterSiswa->nilaiEkstrakulikuler()->delete();
         }
         $daftarKelas->delete();
         return redirect(action('AdminAturKelasController@show',['id' => $kelasBukaId]))->with('status','Siswa berhasil dihapus');

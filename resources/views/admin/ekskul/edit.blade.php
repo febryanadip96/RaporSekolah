@@ -37,6 +37,16 @@
                 <label for="nama">Nama</label>
                 <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama" value="{{$ekskul->nama}}" required>
               </div>
+							<!-- radio -->
+              <div class="form-group">
+                  <label>Jenis</label><br>
+                  <label class="radio-inline">
+                      <input type="radio" name="jenis" class="minimal" value="0" @if($ekskul->jenis==0) checked @endif> Tidak Wajib
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="jenis" class="minimal" value="1" @if($ekskul->jenis==1) checked @endif> Wajib
+                  </label>
+              </div>
             </div>
             <!-- /.box-body -->
 

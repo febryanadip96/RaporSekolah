@@ -17,11 +17,11 @@ class SemesterSiswa extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'semester_siswas';
     protected $primaryKey = 'id';
-	protected $fillable=['semester_id','kelas_buka_id','siswa_id','catatan_walikelas'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+		protected $fillable=['semester_id','kelas_buka_id','siswa_id','catatan_walikelas'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function kelasBuka()
+		public function kelasBuka()
     {
         return $this->belongsTo('App\KelasBuka','kelas_buka_id');
     }

@@ -17,11 +17,11 @@ class KeluarPindah extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'keluar_pindahs';
     protected $primaryKey = 'id';
-	protected $fillable=['siswa_id','tanggal','status','alasan'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+		protected $fillable=['siswa_id','tanggal','status','alasan'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function siswa()
+		public function siswa()
     {
         return $this->belongsTo('App\Siswa','siswa_id')->onlyTrashed();
     }

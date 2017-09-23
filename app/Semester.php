@@ -17,9 +17,9 @@ class Semester extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'semesters';
     protected $primaryKey = 'id';
-	protected $fillable=['tahun_ajar_id','gasal_genap','status','awal_tutup_tengah_semester','akhir_tutup_tengah_semester','awal_tutup_akhir_semester','akhir_tutup_akhir_semester'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+		protected $fillable=['tahun_ajar_id','gasal_genap','status','awal_tutup_tengah_semester','akhir_tutup_tengah_semester','awal_tutup_akhir_semester','akhir_tutup_akhir_semester'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
     public function tahunAjar()
     {

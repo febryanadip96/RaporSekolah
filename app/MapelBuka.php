@@ -17,11 +17,11 @@ class MapelBuka extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'mapel_bukas';
     protected $primaryKey = 'id';
-	protected $fillable=['kkm','mata_pelajaran_id','kelas_buka_id','pengajar_id'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+		protected $fillable=['kkm','mata_pelajaran_id','kelas_buka_id','pengajar_id'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function pengajar()
+		public function pengajar()
     {
         return $this->belongsTo('App\Karyawan','pengajar_id')->withTrashed();
     }

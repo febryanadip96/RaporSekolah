@@ -17,11 +17,11 @@ class Kelas extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'kelas';
     protected $primaryKey = 'id';
-	protected $fillable=['tingkat'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+		protected $fillable=['tingkat'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function kelasBuka()
+		public function kelasBuka()
     {
     	return $this->hasMany('App\KelasBuka','kelas_id');
     }

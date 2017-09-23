@@ -17,11 +17,11 @@ class KelasBuka extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'kelas_bukas';
     protected $primaryKey = 'id';
-	protected $fillable=['nama','wali_kelas_id','tahun_ajar_id','kelas_id'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+		protected $fillable=['nama','wali_kelas_id','tahun_ajar_id','kelas_id'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function daftarKelas()
+		public function daftarKelas()
     {
     	return $this->hasMany('App\DaftarKelas','kelas_buka_id');
     }

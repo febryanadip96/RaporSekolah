@@ -17,11 +17,11 @@ class IdentitasSekolah extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'identitas_sekolahs';
     protected $primaryKey = 'id';
-	protected $fillable=['nama','nis','email','alamat','kelurahan','kecamatan','provinsi','kota_id','website'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+		protected $fillable=['nama','nis','email','alamat','kelurahan','kecamatan','provinsi','kota_id','website'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function kota()
+		public function kota()
     {
         return $this->belongsTo('App\Kota','kota_id');
     }

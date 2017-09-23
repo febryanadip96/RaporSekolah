@@ -14,10 +14,13 @@ class EkstrakulikulerSeeder extends Seeder
 			DB::table('ekstrakulikulers')->insert([
 				[
 					'nama' => 'Pramuka',
+					'jenis'=>1,
 				],[
 					'nama' => 'Science Club',
+					'jenis'=>0,
 				],[
 					'nama' => 'Matematic Club',
+					'jenis'=>0,
 				]
 			]);
     }

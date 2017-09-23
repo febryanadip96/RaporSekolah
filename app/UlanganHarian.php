@@ -16,12 +16,12 @@ class UlanganHarian extends Model
      */
     protected $dates = ['deleted_at'];
     protected $table = 'ulangan_harians';
-    protected $primaryKey = 'id'; 
-	protected $fillable=['nilai','remidi','nilai_akhir','nilai_rapor_id','kompetensi_dasar_id'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+    protected $primaryKey = 'id';
+		protected $fillable=['nilai','remidi','nilai_akhir','nilai_rapor_id','kompetensi_dasar_id'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function kompetensiDasar()
+		public function kompetensiDasar()
     {
         return $this->belongsTo('App\KompetensiDasar','kompetensi_dasar_id');
     }

@@ -48,9 +48,11 @@ class AdminEkskulController extends Controller
     {
         $this->validate($request,[
             'nama'=>'required|string',
+            'jenis'=>'required',
             ]);
         Ekstrakulikuler::create([
             'nama'=>$request['nama'],
+						'jenis'=>$request['jenis'],
             ]);
         return redirect(action('AdminEkskulController@index'))->with('status','Data ekstrakulikuler baru telah ditambahkan');
     }
@@ -89,9 +91,11 @@ class AdminEkskulController extends Controller
     {
         $this->validate($request,[
             'nama'=>'required|string',
+            'jenis'=>'required',
             ]);
         $ekskul=Ekstrakulikuler::findOrFail($id);
         $ekskul->nama=$request['nama'];
+				$ekskul->jenis=$request['jenis'];
         $ekskul->save();
         return redirect(action('AdminEkskulController@edit',['id'=>$id]))->with('status','Data ekstrakulikuler telah diperbarui');
     }

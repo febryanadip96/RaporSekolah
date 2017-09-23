@@ -16,12 +16,12 @@ class Peringkat extends Model
      */
     protected $dates = ['deleted_at'];
     protected $table = 'peringkats';
-    protected $primaryKey = 'id'; 
-	protected $fillable=['juara'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+    protected $primaryKey = 'id';
+		protected $fillable=['juara'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function prestasi()
+		public function prestasi()
     {
     	return $this->hasMany('App\Prestasi','peringkat_id');
     }

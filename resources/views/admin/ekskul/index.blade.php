@@ -30,6 +30,7 @@
               <tr>
                 <th>No</th>
                 <th>Nama</th>
+                <th>Jenis</th>
                 <th class="no-sort">Aksi</th>
               </tr>
               </thead>
@@ -38,6 +39,7 @@
                   <tr>
                   <td>{{$index+1}}</td>
                   <td>{{$ekskul->nama}}</td>
+                  <td>@if($ekskul->jenis==0) Tidak Wajib @elseif($ekskul->jenis==1) Wajib @endif </td>
                   <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/ekskul/'.$ekskul->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
                   </tr>
                 @endforeach
@@ -62,6 +64,16 @@
               <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama" required>
+              </div>
+							<!-- radio -->
+              <div class="form-group">
+                  <label>Jenis</label><br>
+                  <label class="radio-inline">
+                      <input type="radio" name="jenis" class="minimal" value="0" checked> Tidak Wajib
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="jenis" class="minimal" value="1"> Wajib
+                  </label>
               </div>
             </div>
             <!-- /.box-body -->

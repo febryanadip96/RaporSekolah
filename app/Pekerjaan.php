@@ -16,12 +16,12 @@ class Pekerjaan extends Model
      */
     protected $dates = ['deleted_at'];
     protected $table = 'pekerjaans';
-    protected $primaryKey = 'id'; 
-	protected $fillable=['nama'];
-	public $timestamps=false;
-	protected $guarded=['id'];
+    protected $primaryKey = 'id';
+		protected $fillable=['nama'];
+		public $timestamps=false;
+		protected $guarded=['id'];
 
-	public function ayah()
+		public function ayah()
     {
     	return $this->hasMany('App\Siswa','pekerjaan_ayah_id');
     }

@@ -17,11 +17,11 @@ class TahunAjar extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'tahun_ajars';
     protected $primaryKey = 'id';
-	protected $fillable=['nama','total_hari_efektif','siswa_id'];
-	public $timestamps=true;
-	protected $guarded=['id'];
+		protected $fillable=['nama','total_hari_efektif','siswa_id'];
+		public $timestamps=true;
+		protected $guarded=['id'];
 
-	public function semester()
+		public function semester()
     {
         return $this->hasMany('App\Semester','tahun_ajar_id');
     }
