@@ -6,8 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Daftar Siswa dalam Mata Pelajaran {{$mapelBuka->mataPelajaran->nama}} {{$mapelBuka->mataPelajaran->keterangan}} {{$mapelBuka->kelasBuka->nama}}
-        <small>({{$mapelBuka->pengajar->user->name}})</smal>
+        {{$mapelBuka->mataPelajaran->nama}} {{$mapelBuka->mataPelajaran->keterangan}} {{$mapelBuka->kelasBuka->nama}}
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-book"></i> Kelas</li>
@@ -15,6 +14,7 @@
         <li><a href="{{url('admin/mapelbuka')}}">Mapel Buka</a></li>
         <li class="active">Daftar Siswa Mapel</li>
       </ol>
+			<small>(Pengajar: {{$mapelBuka->pengajar->user->name}})</smal>
     </section>
   <!-- Main content -->
   <section class="content">
@@ -25,7 +25,7 @@
       <div class="col-xs-8">
       <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">Daftar Siswa Mata Pelajaran Buka</h3>
+            <h3 class="box-title">Daftar Siswa {{$mapelBuka->mataPelajaran->nama}} {{$mapelBuka->mataPelajaran->keterangan}}</h3>
           </div>
           <!-- /.box-header -->
           <div class="box-body">

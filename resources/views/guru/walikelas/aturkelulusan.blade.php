@@ -44,7 +44,7 @@
               </div>
               <div class="form-group">
                 <label for="keterangan">Keterangan Tambahan</label>
-                <textarea class="form-control" rows="3" id="keterangan" readonly>{{$tambahan}}</textarea>
+                <textarea class="form-control" rows="5" id="keterangan" readonly>{{$tambahan}}</textarea>
               </div>
               <div class="form-group">
                 <label for="status">Status Kelulusan saat ini</label>

@@ -150,6 +150,7 @@ class AdminAturKelasController extends Controller
         $semesterSiswas = SemesterSiswa::where('siswa_id',$siswaId)->where('kelas_buka_id',$kelasBukaId)->get();
         foreach ($semesterSiswas as $key => $semesterSiswa) {
             $semesterSiswa->delete();
+						$semesterSiswa->nilaiRapor()->delete();
             $semesterSiswa->nilaiSikap()->delete();
 						$semesterSiswa->nilaiEkstrakulikuler()->delete();
         }

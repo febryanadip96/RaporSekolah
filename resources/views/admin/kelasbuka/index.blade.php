@@ -45,7 +45,7 @@
                     <td>{{$kelasBuka->kelas->tingkat}}</td>
                     <td>{{$kelasBuka->tahunAjar->nama}}</td>
                     <td>{{$kelasBuka->waliKelas->user->name}}</td>
-                    <td><a data-toggle="tooltip" title="Atur" class="btn btn-default btn-xs" href="{{url('admin/aturkelas/'.$kelasBuka->id)}}"><span class="fa fa-gear"></span></a> <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/kelasbuka/'.$kelasBuka->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
+                    <td><a data-toggle="tooltip" title="Daftar Siswa" class="btn btn-default btn-xs" href="{{url('admin/aturkelas/'.$kelasBuka->id)}}"><span class="fa fa-user-plus"></span></a> <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/kelasbuka/'.$kelasBuka->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
                     </tr>
                   @endforeach
                 </tbody>

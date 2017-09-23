@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ekstrakulikuler;
+use App\SemesterSiswa;
 
 class AdminEkskulController extends Controller
 {
@@ -50,10 +51,10 @@ class AdminEkskulController extends Controller
             'nama'=>'required|string',
             'jenis'=>'required',
             ]);
-        Ekstrakulikuler::create([
+        $idEkskul=Ekstrakulikuler::create([
             'nama'=>$request['nama'],
 						'jenis'=>$request['jenis'],
-            ]);
+            ])->id;
         return redirect(action('AdminEkskulController@index'))->with('status','Data ekstrakulikuler baru telah ditambahkan');
     }
 
