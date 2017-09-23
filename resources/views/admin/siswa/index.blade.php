@@ -36,7 +36,7 @@
                   <th>Jenis Kelamin</th>
                   <th>Tanggal Lahir</th>
                   <th>Tempat Lahir</th>
-                  <th>Rapor</th>
+                  <th>Lihat Rapor</th>
                   <th class="no-sort">Aksi</th>
                 </tr>
                 </thead>
