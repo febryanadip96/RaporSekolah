@@ -85,7 +85,7 @@
               </div>
               <div class="form-group">
                 <label>Wali Kelas</label>
-                <select name="wali_kelas_id" class="form-control">
+                <select name="wali_kelas_id" class="form-control select2" style="width: 100%;">
                   @foreach($karyawans as $karyawan)
                     <option value="{{$karyawan->id}}">{{$karyawan->user->name}}</option>
                   @endforeach

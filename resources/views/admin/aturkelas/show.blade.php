@@ -49,7 +49,7 @@
 										<form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/aturkelas/'.$daftarKelas->id)}}">
 		                  {{ method_field('DELETE') }}{{ csrf_field() }}
 		                  <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
-										</form></a>
+										</form>
 									</td>
                   </tr>
                 @endforeach

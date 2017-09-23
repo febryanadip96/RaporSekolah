@@ -47,11 +47,12 @@
 	                  <td>{{$siswaTerdaftar->nisn}}</td>
 	                  <td>{{$siswaTerdaftar->user->name}}</td>
 	                  <td>
-											<form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/daftarsiswamapel/'.$siswaTerdaftar->id)}}">
-			                  {{ method_field('DELETE') }}{{ csrf_field() }}
+											<form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/daftarsiswamapel/'.$siswaTerdaftar->id)}}">
+			                  {{ method_field('DELETE') }}
+												{{ csrf_field() }}
 			                  <input type="hidden" name="mapel_buka_id" value="{{$mapelBuka->id}}">
 			                  <input type="hidden" name="kelas_buka_id" value="{{$mapelBuka->kelasBuka->id}}">
-			                  <a data-toggle="tooltip" title="Hapus" class="update-modal btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
+			                  <a data-toggle="tooltip" title="Hapus" class="update-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
 											</form>
 										</td>
                   </tr>

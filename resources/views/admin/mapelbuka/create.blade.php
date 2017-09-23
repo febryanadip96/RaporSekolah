@@ -33,9 +33,9 @@
             <div class="box-body">
               <div class="form-group">
                 <label>Mata Pelajaran</label>
-                <select name="mata_pelajaran_id" class="form-control">
+                <select name="mata_pelajaran_id" class="form-control select2" style="width: 100%;">
                   @foreach($mapels as $mapel)
-                    <option value="{{$mapel->id}}">{{$mapel->nama}} {{$mapel->keterangan}}</option>
+                    <option value="{{$mapel->id}}">{{$mapel->nama}} {{$mapel->keterangan}} kelas {{$mapel->kelas->tingkat}}</option>
                   @endforeach
                 </select>
               </div>
@@ -49,7 +49,7 @@
               </div>
               <div class="form-group">
                 <label>Pengajar</label>
-                <select name="pengajar_id" class="form-control">
+                <select name="pengajar_id" class="form-control select2" style="width: 100%;">
                   @foreach($karyawans as $karyawan)
                     <option value="{{$karyawan->id}}">{{$karyawan->user->name}}</option>
                   @endforeach
@@ -64,7 +64,6 @@
 
             <div class="box-footer">
               <button type="submit" class="btn btn-success">Simpan</button>
-              <a href="{{url('admin/mapelbuka')}}" class="btn btn-default">Batal</a>
             </div>
           </form>
         </div>
