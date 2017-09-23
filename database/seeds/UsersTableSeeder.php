@@ -13,9 +13,9 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Admin Rapor SMP Kartika Nasional Plus',
-            'username' => 'kartikanasionalplusadmin',
+            'username' => 'kartikaadmin',
             'role' => 1,
-            'password' => bcrypt('kartikanasional1234'),
+            'password' => bcrypt('kartikaadmin1234'),
         ]);
     }
 }

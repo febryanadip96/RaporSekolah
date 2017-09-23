@@ -75,6 +75,8 @@ class AdminAturKelasController extends Controller
                 NilaiSikap::create([
                     'nilai_spiritual'=>0,
                     'nilai_sosial'=>0,
+										'predikat_spiritual_id'=>$this->getNilaiPredikat(0),
+		                'predikat_sosial_id'=>$this->getNilaiPredikat(0),
                     'semester_siswa_id'=>$semesterSiswaId,
                 ]);
             }
@@ -140,5 +142,15 @@ class AdminAturKelasController extends Controller
         }
         $daftarKelas->delete();
         return redirect(action('AdminAturKelasController@show',['id' => $kelasBukaId]))->with('status','Siswa berhasil dihapus');
+    }
+
+		private function getNilaiPredikat($nilai)
+    {
+        $predikats = Predikat::all();
+        foreach ($predikats as $key => $predikat) {
+            if($predikat->nilai_awal<=$nilai && $predikat->nilai_akhir>=$nilai){
+                return $predikat->id;
+            }
+        }
     }
 }

@@ -133,8 +133,6 @@ class AdminDaftarSiswaMapelController extends Controller
         return redirect(action('AdminDaftarSiswaMapelController@show',['id'=>$request['mapel_buka_id']]))->with('status','Siswa berhasil dihapus');
     }
 
-
-
     private function getNilaiPredikat($nilai)
     {
         $predikats = Predikat::all();

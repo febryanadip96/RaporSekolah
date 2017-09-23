@@ -11,8 +11,33 @@ class KotaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('kotas')->insert([
-            'nama' => 'Surabaya',
-        ]);
+      DB::table('kotas')->insert([
+				[
+        'nama' => 'Surabaya',],
+				[
+        'nama' => 'Palembang',],
+				[
+        'nama' => 'Tulung Agung',],
+				[
+        'nama' => 'Larantuka',],
+				[
+        'nama' => 'Mojokerto',],
+				[
+        'nama' => 'Pacitan', ],
+				[
+        'nama' => 'Bojonegoro',],
+				[
+        'nama' => 'Malang',],
+				[
+        'nama' => 'Semarang',],
+				[
+        'nama' => 'Gianyar',],
+				[
+        'nama' => 'Banyuwangi',],
+				[
+        'nama' => 'Cimahi',],
+				[
+        'nama' => 'Sidoarjo',]
+			]);
     }
 }

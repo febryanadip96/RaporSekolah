@@ -12,7 +12,7 @@ class IdentitasSekolahSeeder extends Seeder
     public function run()
     {
         DB::table('identitas_sekolahs')->insert([
-            'nama' => 'SMP Kartika Nasional',
+            'nama' => 'SMP Kartika Nasional Plus',
             'nis' => '204056021442',
             'email' => 'smpkartikanasionalplus08@yahoo.com',
             'alamat' => 'Jl. Raya Tenggilis No. 8 Surabaya',
