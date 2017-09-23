@@ -30,7 +30,7 @@ class AdminMapelBukaController extends Controller
      */
     public function index()
     {
-        $mapelbukas = MapelBuka::all();
+        $mapelbukas = MapelBuka::orderBy('id', 'DESC')->get();
         return view('admin.mapelbuka.index',['mapelbukas'=>$mapelbukas]);
     }
 
@@ -76,6 +76,10 @@ class AdminMapelBukaController extends Controller
                 NilaiRapor::create([
                     'semester_siswa_id'=>$semesterSiswa->id,
                     'mapel_buka_id'=>$idMapelBuka,
+		                'nilai_pengetahuan'=>0,
+		                'nilai_ketrampilan'=>0,
+		                'predikat_pengetahuan_id'=>$this->getNilaiPredikat(0),
+		                'predikat_ketrampilan_id'=>$this->getNilaiPredikat(0),
                     ]);
             }
         }
@@ -135,5 +139,15 @@ class AdminMapelBukaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+		private function getNilaiPredikat($nilai)
+    {
+        $predikats = Predikat::all();
+        foreach ($predikats as $key => $predikat) {
+            if($predikat->nilai_awal<=$nilai && $predikat->nilai_akhir>=$nilai){
+                return $predikat->id;
+            }
+        }
     }
 }
