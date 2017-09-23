@@ -52,7 +52,15 @@ class AdminPredikatController extends Controller
             'predikat_ki1_ki2'=>'required|string',
             'predikat_ki3_ki4'=>'required|string',
             'lulus_ki1_ki2'=>'required',
-            ]);
+		],[
+			'nilai_awal.numeric'=>'Nilai awal harus berupa angka',
+			'nilai_awal.min'=>'Nilai awal minimal 0',
+			'nilai_awal.max'=>'Nilai awal maksimal 99',
+            'nilai_akhir.numeric'=>'Nilai akhir harus berupa angka',
+            'nilai_akhir.min'=>'Nilai akhir minimal 1',
+            'nilai_akhir.max'=>'Nilai akhir maksimal 100',
+            'lulus_ki1_ki2.required'=>'Lulus atau tidak harus dipilih',
+		]);
 
         Predikat::create([
             'nilai_awal'=>$request['nilai_awal'],
@@ -102,7 +110,15 @@ class AdminPredikatController extends Controller
             'predikat_ki1_ki2'=>'required|string',
             'predikat_ki3_ki4'=>'required|string',
             'lulus_ki1_ki2'=>'required',
-            ]);
+        ],[
+			'nilai_awal.numeric'=>'Nilai awal harus berupa angka',
+			'nilai_awal.min'=>'Nilai awal minimal 0',
+			'nilai_awal.max'=>'Nilai awal maksimal 99',
+            'nilai_akhir.numeric'=>'Nilai akhir harus berupa angka',
+            'nilai_akhir.min'=>'Nilai akhir minimal 1',
+            'nilai_akhir.max'=>'Nilai akhir maksimal 100',
+            'lulus_ki1_ki2.required'=>'Lulus atau tidak harus dipilih',
+		]);
         $predikat=Predikat::findOrFail($id);
         $predikat->nilai_awal=$request['nilai_awal'];
         $predikat->nilai_akhir=$request['nilai_akhir'];

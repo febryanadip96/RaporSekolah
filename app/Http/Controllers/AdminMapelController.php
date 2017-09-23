@@ -54,12 +54,16 @@ class AdminMapelController extends Controller
     {
         $this->validate($request,[
             'nama'=>'required|string',
-            'keterangan'=>'nullable',
             'kelas_id'=>'required',
             'jenis'=>'required',
             'kelompok_id'=>'required',
-            'urutan'=>'required',
-            ]);
+            'urutan'=>'required|numeric',
+		],[
+            'kelas_id.required'=>'Kelas tidak valid',
+            'jenis.required'=>'Jenis mata pelajaran tidak valid',
+            'kelompok_id.required'=>'Kelompok mata pelajaran tidak valid',
+            'urutan.numeric'=>'Urutan harus berupa angka',
+		]);
         MataPelajaran::create([
             'nama'=>$request['nama'],
             'keterangan'=>$request['keterangan'],

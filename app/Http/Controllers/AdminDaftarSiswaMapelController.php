@@ -53,7 +53,10 @@ class AdminDaftarSiswaMapelController extends Controller
         $this->validate($request,[
             'siswa_id'=>'required',
             'mapel_buka_id'=>'required',
-            ]);
+		],[
+			'siswa_id.required'=>'Data siswa tidak valid',
+			'mapel_buka_id.required'=>'Data mata pelajaran tidak valid',
+		]);
         $semesterSiswas=SemesterSiswa::where('siswa_id',$request['siswa_id'])->get();
         foreach ($semesterSiswas as $key => $semesterSiswa) {
             NilaiRapor::create([

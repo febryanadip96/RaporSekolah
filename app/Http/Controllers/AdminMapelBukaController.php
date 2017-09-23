@@ -61,7 +61,12 @@ class AdminMapelBukaController extends Controller
             'pengajar_id'=>'required',
             'kelas_buka_id'=>'required',
             'kkm'=>'required|numeric',
-            ]);
+		],[
+			'mata_pelajaran_id.required'=>'Mata pelajaran tidak valid',
+			'pengajar_id.required'=>'Guru pengajar tidak valid',
+			'kelas_buka_id.required'=>'Kelas buka tidak valid',
+			'kkm.numeric'=>'KKM harus diisi angka',
+		]);
         $idMapelBuka=MapelBuka::create([
             'mata_pelajaran_id'=>$request['mata_pelajaran_id'],
             'pengajar_id'=>$request['pengajar_id'],

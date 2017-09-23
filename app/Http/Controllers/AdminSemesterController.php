@@ -85,7 +85,11 @@ class AdminSemesterController extends Controller
             'tutup_tengah_semester'=>'required',
             'tutup_akhir_semester'=>'required',
             'status'=>'required',
-        ]);
+        ],[
+			'tutup_tengah_semester.required'=>'Tanggal tutup tengah semester harus diisi',
+			'tutup_akhir_semester.required'=>'Tanggal tutup akhri semester harus diisi',
+			'status.required'=>'Status semester harus dipilih',
+		]);
         if($request['status']==1)
         {
             Semester::where('status',1)->update(['status'=>0]);

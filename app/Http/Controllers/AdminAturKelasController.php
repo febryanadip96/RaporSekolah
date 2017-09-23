@@ -58,7 +58,10 @@ class AdminAturKelasController extends Controller
         $this->validate($request,[
             'siswa_id'=>'required',
             'kelas_buka_id'=>'required',
-            ]);
+		],[
+			'siswa_id.required'=>'Siswa yang diinputkan tidak valid',
+			'kelas_buka_id.required'=>'Kelas yang diinputkan tidak valid',
+		]);
         $daftarKelas=DaftarKelas::where('siswa_id',$request['siswa_id'])->where('kelas_buka_id',$request['kelas_buka_id'])->get();
         $kelasBuka = KelasBuka::findOrFail($request['kelas_buka_id']);
         $semesters = Semester::where('tahun_ajar_id',$kelasBuka->tahun_ajar_id)->get();
@@ -79,18 +82,18 @@ class AdminAturKelasController extends Controller
                 NilaiSikap::create([
                     'nilai_spiritual'=>0,
                     'nilai_sosial'=>0,
-										'predikat_spiritual_id'=>$this->getNilaiPredikat(0),
-		                'predikat_sosial_id'=>$this->getNilaiPredikat(0),
+					'predikat_spiritual_id'=>$this->getNilaiPredikat(0),
+	                'predikat_sosial_id'=>$this->getNilaiPredikat(0),
                     'semester_siswa_id'=>$semesterSiswaId,
                 ]);
-								foreach ($ekskulsWajib as $key => $ekskulWajib) {
-									NilaiEkstrakulikuler::create([
-										'nilai'=>0,
-										'predikat_id'=>$this->getNilaiPredikat(0),
-										'semester_siswa_id'=>$semesterSiswaId,
-										'ekstrakulikuler_id'=>$ekskulWajib->id,
-									]);
-								}
+				foreach ($ekskulsWajib as $key => $ekskulWajib) {
+					NilaiEkstrakulikuler::create([
+						'nilai'=>0,
+						'predikat_id'=>$this->getNilaiPredikat(0),
+						'semester_siswa_id'=>$semesterSiswaId,
+						'ekstrakulikuler_id'=>$ekskulWajib->id,
+					]);
+				}
             }
             return redirect(action('AdminAturKelasController@show',['id' => $request['kelas_buka_id']]))->with('error','Siswa sudah terdaftar');
         }
@@ -150,15 +153,15 @@ class AdminAturKelasController extends Controller
         $semesterSiswas = SemesterSiswa::where('siswa_id',$siswaId)->where('kelas_buka_id',$kelasBukaId)->get();
         foreach ($semesterSiswas as $key => $semesterSiswa) {
             $semesterSiswa->delete();
-						$semesterSiswa->nilaiRapor()->delete();
+			$semesterSiswa->nilaiRapor()->delete();
             $semesterSiswa->nilaiSikap()->delete();
-						$semesterSiswa->nilaiEkstrakulikuler()->delete();
+			$semesterSiswa->nilaiEkstrakulikuler()->delete();
         }
         $daftarKelas->delete();
         return redirect(action('AdminAturKelasController@show',['id' => $kelasBukaId]))->with('status','Siswa berhasil dihapus');
     }
 
-		private function getNilaiPredikat($nilai)
+	private function getNilaiPredikat($nilai)
     {
         $predikats = Predikat::all();
         foreach ($predikats as $key => $predikat) {

@@ -50,7 +50,9 @@ class AdminSekolahController extends Controller
             'nama'=>'required|string',
             'negeri_swasta'=>'required',
             'alamat'=>'required|string',
-            ]);
+		],[
+			'negeri_swasta.required'=>'Pilihan negeri atau swasta harus diisi',
+		]);
         Sekolah::create([
             'nama'=>$request['nama'],
             'negeri_swasta'=>$request['negeri_swasta'],

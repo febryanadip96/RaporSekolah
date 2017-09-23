@@ -61,7 +61,11 @@ class AdminKelasBukaController extends Controller
             'kelas_id' => 'required',
             'tahun_ajar_id' => 'required',
             'wali_kelas_id' =>'required'
-            ]);
+		],[
+			'kelas_id.required' => 'Kelas tidak valid',
+			'tahun_ajar_id.required'=>'Tahun ajar tidak valid',
+			'wali_kelas_id.required' =>'Guru wali kelas tidak valid',
+		]);
         KelasBuka::create([
             'nama' => $request['nama'],
             'kelas_id' => $request['kelas_id'],
@@ -112,7 +116,11 @@ class AdminKelasBukaController extends Controller
             'kelas_id' => 'required',
             'tahun_ajar_id' => 'required',
             'wali_kelas_id' =>'required'
-            ]);
+        ],[
+			'kelas_id.required' => 'Kelas tidak valid',
+			'tahun_ajar_id.required'=>'Tahun ajar tidak valid',
+			'wali_kelas_id.required' =>'Guru wali kelas tidak valid',
+		]);
         $kelasBuka = KelasBuka::whereId($id)->firstOrFail();
         $kelasBuka->update($request->all());
         return redirect(action('AdminKelasBukaController@edit',['id' => $id]))->with('status','Data kelas buka telah diperbaharui');

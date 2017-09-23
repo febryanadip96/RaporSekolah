@@ -52,7 +52,11 @@ class AdminKdController extends Controller
             'deskripsi'=>'required|string',
             'gasal_genap'=>'required',
             'mata_pelajaran_id'=>'required',
-            ]);
+		],[
+			'nomor.numeric'=>'Nomor KD harus berupa angka',
+			'mata_pelajaran_id.required'=>'Mata pelajaran tidak valid',
+			'gasal_genap'=>'Pilih KD untuk gasal atau genap'
+		]);
         KompetensiDasar::create([
             'nomor'=>$request['nomor'],
             'deskripsi'=>$request['deskripsi'],

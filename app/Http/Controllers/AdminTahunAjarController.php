@@ -47,6 +47,12 @@ class AdminTahunAjarController extends Controller
      */
     public function store(Request $request)
     {
+		$this->validate($request,[
+			'nama'=>'required',
+			'total_hari_efektif'=>'required|numeric',
+		],[
+			'total_hari_efektif'=>'Total hari efektif harus berisi angka',
+		]);
         $idTahunAjar = TahunAjar::create($request->all())->id;
         Semester::where('status',1)->update(['status'=>0]);
         Semester::create([
@@ -81,7 +87,7 @@ class AdminTahunAjarController extends Controller
      */
     public function edit($id)
     {
-        $tahunAjar = TahunAjar::whereId($id)->firstOrFail();
+        $tahunAjar = TahunAjar:findOrFail($id);
         return view('admin.tahunajar.edit',['tahunAjar'=>$tahunAjar]);
     }
 
@@ -94,7 +100,13 @@ class AdminTahunAjarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tahunAjar=TahunAjar::whereId($id)->firstOrFail();
+		$this->validate($request,[
+			'nama'=>'required',
+			'total_hari_efektif'=>'required|numeric',
+		],[
+			'total_hari_efektif'=>'Total hari efektif harus berisi angka',
+		]);
+        $tahunAjar=TahunAjar::findOrFail($id);
         $tahunAjar->update($request->all());
         return redirect(action('AdminTahunAjarController@edit',['id' => $id]))->with('status','Tahun ajar telah diperbaharui');
     }

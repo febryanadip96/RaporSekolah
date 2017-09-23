@@ -48,7 +48,9 @@ class AdminKelasController extends Controller
     {
         $this->validate($request,[
             'tingkat' => 'required|numeric',
-            ]);
+		],[
+			'tingkat.numeric'=>'Tingkat harus diisi angka',
+		]);
         Kelas::create([
             'tingkat'=>$request['tingkat'],
             ]);

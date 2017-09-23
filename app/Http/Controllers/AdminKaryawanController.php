@@ -64,7 +64,15 @@ class AdminKaryawanController extends Controller
             'no_telp'=>'required',
             'ijazah_id'=>'required',
             'agama'=>'required',
-            ]);
+		],[
+			'username.unique'=>'Username harus unik',
+			'password.min'=>'Password minimal 6 karakter',
+			'role.required'=>'Role harus diisi',
+			'jenis_kelamin.required'=>'Jenis kelamin harus diisi',
+            'tanggal_lahir.required'=>'Tanggal lahir harus diisi',
+            'tempat_lahir_id.required'=>'Tempat lahir tidak valid',
+            'ijazah_id.required'=>'Ijazah tidak valid'
+		]);
         $idUser = User::create([
             'name' => $request['name'],
             'username' =>$request['username'],
@@ -132,7 +140,13 @@ class AdminKaryawanController extends Controller
             'no_telp'=>'required',
             'ijazah_id'=>'required',
             'agama'=>'required',
-            ]);
+		],[
+			'role.required'=>'Role harus diisi',
+			'jenis_kelamin.required'=>'Jenis kelamin harus diisi',
+            'tanggal_lahir.required'=>'Tanggal lahir harus diisi',
+            'tempat_lahir_id.required'=>'Tempat lahir tidak valid',
+            'ijazah_id.required'=>'Ijazah tidak valid',
+		]);
         $karyawan = Karyawan::whereId($id)->firstOrFail();
         if($request['super']){
             $karyawan->super=$request['super'];
@@ -154,7 +168,9 @@ class AdminKaryawanController extends Controller
         {
             $this->validate($request,[
             'password'=>'required|string|min:6',
-            ]);
+            ],[
+				'password.min'=>'Password minimal 6 karakter',
+			]);
             $user->password=bcrypt($request['password']);
         }
         $karyawan->save();

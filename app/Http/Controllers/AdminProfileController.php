@@ -57,7 +57,7 @@ class AdminProfileController extends Controller
      */
     public function show($id)
     {
-        return view('admin.profile');
+		//
     }
 
     /**
@@ -68,8 +68,7 @@ class AdminProfileController extends Controller
      */
     public function edit($id)
     {
-        $tahunAjar = TahunAjar::whereId($id)->firstOrFail();
-        return view('admin.tahunajar.edit',['tahunAjar'=>$tahunAjar]);
+        return view('admin.profile');
     }
 
     /**

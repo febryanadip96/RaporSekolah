@@ -112,7 +112,7 @@
                             </li>
                         @endif
                         <li>
-                            <a href="{{ url('admin/profile/'.Auth::user()->id) }}">Profile</a>
+                            <a href="{{ url('admin/profile/'.Auth::user()->id).'/edit' }}">Profile</a>
                         </li>
                         <li>
                             <a href="{{ route('logout') }}"

@@ -82,6 +82,18 @@ class AdminIdentitasController extends Controller
      */
     public function update(Request $request, $id)
     {
+		$this->validate([
+			'nama'=>'required',
+			'nis'=>'required',
+			'alamat'=>'required',
+			'kelurahan'=>'required',
+			'kecamatan'=>'required',
+			'kota_id'=>'required',
+			'provinsi'=>'required',
+			'email'=>'required',
+		],[
+			'kota_id.required'=>'Data kota tidak valid',
+		]);
         $identitas=IdentitasSekolah::whereId($id)->firstOrFail();
         $identitas->update($request->all());
         return redirect(action('AdminIdentitasController@index'))->with('status','Data sekolah telah diperbaharui');
