@@ -11,6 +11,7 @@ use App\TahunAjar;
 use App\Semester;
 use App\SemesterSiswa;
 use App\NilaiSikap;
+use App\Predikat;
 
 class AdminAturKelasController extends Controller
 {
@@ -59,6 +60,7 @@ class AdminAturKelasController extends Controller
         $daftarKelas=DaftarKelas::where('siswa_id',$request['siswa_id'])->where('kelas_buka_id',$request['kelas_buka_id'])->get();
         $kelasBuka = KelasBuka::findOrFail($request['kelas_buka_id']);
         $semesters = Semester::where('tahun_ajar_id',$kelasBuka->tahun_ajar_id)->get();
+				echo $semesters;
         if(count($daftarKelas)==0)
         {
             DaftarKelas::create([

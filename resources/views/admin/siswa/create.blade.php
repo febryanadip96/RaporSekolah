@@ -128,15 +128,15 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="telpon_rumah_ortu">Nomor Telpon Rumah Orang Tua</label>
+                <label for="telpon_rumah_ortu">Nomor Telpon Rumah Orang Tua (Tidak harus diisi)</label>
                 <input type="text" name="telpon_rumah_ortu" class="form-control" id="telpon_rumah_ortu" placeholder="Nomor telpon rumah orang tua">
               </div>
               <div class="form-group">
-                <label for="alamat_ortu">Alamat Orang Tua</label>
+                <label for="alamat_ortu">Alamat Orang Tua (Tidak harus diisi)</label>
                 <textarea class="form-control" name="alamat_ortu" rows="3" id="alamat_ortu" placeholder="Alamat orang tua"></textarea>
               </div>
               <div class="form-group">
-                <label for="wali">Wali</label>
+                <label for="wali">Wali (Tidak harus diisi)</label>
                 <input type="text" name="wali" class="form-control" id="wali" placeholder="Nama Wali">
               </div>
               <div class="form-group">
@@ -148,11 +148,11 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="telpon_rumah_wali">Nomor Telpon Rumah Wali</label>
+                <label for="telpon_rumah_wali">Nomor Telpon Rumah Wali (Tidak harus diisi)</label>
                 <input type="text" name="telpon_rumah_wali" class="form-control" id="telpon_rumah_wali" placeholder="Nomor telpon rumah wali">
               </div>
               <div class="form-group">
-                <label for="alamat_wali">Alamat Wali</label>
+                <label for="alamat_wali">Alamat Wali (Tidak harus diisi)</label>
                 <textarea class="form-control" name="alamat_wali" rows="3" id="alamat_wali" placeholder="Alamat wali"></textarea>
               </div>
               <div class="form-group">

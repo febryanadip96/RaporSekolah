@@ -48,7 +48,7 @@
                     <td>{{$mapel->nama}}</td>
                     <td>{{$mapel->keterangan}}</td>
                     <td>{{$mapel->kelas->tingkat}}</td>
-                    <td>@if($mapel->jenis==0) Umum @else Khusus @endif</td>
+                    <td>@if($mapel->jenis==0) Umum @elseif($mapel->jenis==1) Khusus @endif</td>
                     <td>{{$mapel->kelompok->nama}}</td>
                     <td>{{$mapel->urutan}}</td>
                     <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/mapel/'.$mapel->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
