@@ -40,7 +40,7 @@
                   <tr>
                   <td>{{$index+1}}</td>
                   <td>{{$sekolah->nama}}</td>
-                  <td>{{$sekolah->negeri_swasta}}</td>
+                  <td>@if($sekolah->negeri_swasta==0) Negeri @elseif($sekolah->negeri_swasta==1) Swasta @endif</td>
                   <td>{{$sekolah->alamat}}</td>
                   <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/sekolah/'.$sekolah->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
                   </tr>

@@ -35,12 +35,15 @@
                 <label for="nama">Nama</label>
                 <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama" value="{{$sekolah->nama}}" required>
               </div>
+							<!-- radio -->
               <div class="form-group">
-                <label>Negeri/Swasta</label>
-                <select name="negeri_swasta" class="form-control">
-                    <option value="0" @if($sekolah->negeri_swasta==0) selected @endif>Negeri</option>
-                    <option value="1" @if($sekolah->negeri_swasta==1) selected @endif>Swasta</option>
-                </select>
+                  <label>Negeri/Swasta</label><br>
+                  <label class="radio-inline">
+                      <input type="radio" name="negeri_swasta" class="minimal" value="0" @if($sekolah->negeri_swasta==0) checked @endif> Negeri
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="negeri_swasta" class="minimal" value="1" @if($sekolah->negeri_swasta==1) checked @endif> Swasta
+                  </label>
               </div>
               <div class="form-group">
                 <label for="alamat">Alamat</label>
