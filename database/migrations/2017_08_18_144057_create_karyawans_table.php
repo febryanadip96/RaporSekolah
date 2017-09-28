@@ -17,6 +17,7 @@ class CreateKaryawansTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('nik');
             $table->boolean('super');
             $table->boolean('jenis_kelamin');
             $table->date('tanggal_lahir');

@@ -29,13 +29,12 @@
               <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>No</th>
+                  <th>NIK</th>
                   <th>Nama</th>
                   <th>Jenis Kelamin</th>
                   <th>Tanggal Lahir</th>
                   <th>Tempat Lahir</th>
                   <th>No Telp</th>
-                  <th>Agama</th>
                   <th>Username</th>
                   <th>Hak Akses</th>
                   <th>Super</th>
@@ -45,7 +44,7 @@
                 <tbody>
                   @foreach($karyawans as $index => $karyawan)
                     <tr>
-	                    <td>{{$index+1}}</td>
+	                    <td>{{$karyawan->nik}}</td>
 	                    <td>{{$karyawan->user->name}}</td>
 	                    <td>
 	                      @if ($karyawan->jenis_kelamin == 0)
@@ -57,21 +56,6 @@
 	                    <td>{{date('m/d/Y',strtotime($karyawan->tanggal_lahir))}}</td>
 	                    <td>{{$karyawan->asal->nama}}</td>
 	                    <td>{{$karyawan->no_telp}}</td>
-	                    <td>
-	                      @if ($karyawan->agama == 1)
-	                        Islam
-	                      @elseif ($karyawan->agama == 2)
-	                        Kristen Protestan
-	                      @elseif($karyawan->agama ==3)
-	                        Katolik
-	                      @elseif($karyawan->agama ==4)
-	                        Hindu
-	                      @elseif($karyawan->agama ==5)
-	                        Budha
-	                      @elseif($karyawan->agama ==6)
-	                        Konghucu
-	                      @endif
-	                    </td>
 	                    <td>{{$karyawan->user->username}}</td>
 	                    <td>
 	                      @if ($karyawan->user->role == 2)

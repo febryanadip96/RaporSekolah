@@ -34,6 +34,10 @@
                 <input type="text" name="username" class="form-control" id="username" placeholder="Username" value="{{$karyawan->user->username}}" readonly>
               </div>
               <div class="form-group">
+                <label for="nik">NIK</label>
+                <input type="text" name="nik" class="form-control" id="nik" placeholder="NIK Karyawan" value="{{$karyawan->nik}}" readonly>
+              </div>
+              <div class="form-group">
                 <label for="name">Nama</label>
                 <input type="text" name="name" class="form-control" id="name" placeholder="Nama Karyawan" value="{{$karyawan->user->name}}" readonly>
               </div>

@@ -55,6 +55,7 @@ class AdminKaryawanController extends Controller
         $this->validate($request,[
             'name' => 'required|string|max:255',
             'username' =>'required|string|max:255|unique:users',
+            'nik'=>'required',
             'password'=>'required|string|min:6',
             'role'=>'required',
             'jenis_kelamin'=>'required',
@@ -66,6 +67,7 @@ class AdminKaryawanController extends Controller
             'agama'=>'required',
 		],[
 			'username.unique'=>'Username harus unik',
+            'nik.required'=>'NIK harus diisi',
 			'password.min'=>'Password minimal 6 karakter',
 			'role.required'=>'Role harus diisi',
 			'jenis_kelamin.required'=>'Jenis kelamin harus diisi',
@@ -81,6 +83,7 @@ class AdminKaryawanController extends Controller
             ])->id;
         Karyawan::create([
             'user_id' => $idUser,
+            'nik'=>$request['nik'],
             'super'=>0,
             'jenis_kelamin' =>$request['jenis_kelamin'],
             'tanggal_lahir' =>date("Y-m-d",strtotime($request['tanggal_lahir'])),

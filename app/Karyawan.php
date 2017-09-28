@@ -17,7 +17,7 @@ class Karyawan extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'karyawans';
     protected $primaryKey = 'id';
-		protected $fillable=['user_id','super','jenis_kelamin','tanggal_lahir','tempat_lahir_id','alamat','no_telp','ijazah_id','agama'];
+		protected $fillable=['user_id','nik','super','jenis_kelamin','tanggal_lahir','tempat_lahir_id','alamat','no_telp','ijazah_id','agama'];
 		public $timestamps=true;
 		protected $guarded=['id'];
 

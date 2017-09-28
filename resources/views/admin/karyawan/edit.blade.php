@@ -36,6 +36,10 @@
                 <input type="text" name="username" class="form-control" id="username" placeholder="Username" value="{{$karyawan->user->username}}" readonly>
               </div>
               <div class="form-group">
+                <label for="nik">NIK</label>
+                <input type="text" name="nik" class="form-control" id="nik" placeholder="NIK Karyawan" value="{{$karyawan->nik}}" readonly>
+              </div>
+              <div class="form-group">
                 <label>
                   Super <input type="checkbox" name="super" class="minimal" value="1" @if($karyawan->super==1) checked @endif>
                 </label>

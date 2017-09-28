@@ -35,6 +35,10 @@
                 <input type="text" name="name" class="form-control" id="name" placeholder="Nama Karyawan" required>
               </div>
               <div class="form-group">
+                <label for="nik">NIK</label>
+                <input type="text" name="nik" class="form-control" id="nik" placeholder="NIK Karyawan" required>
+              </div>
+              <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
               </div>
