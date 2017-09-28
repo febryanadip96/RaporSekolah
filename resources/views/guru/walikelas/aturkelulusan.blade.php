@@ -54,7 +54,7 @@
                   <input type="text" name="saran" class="form-control" id="saran" placeholder="Saran" value="{{$saran}}" readonly>
                 </div>
               <!-- radio -->
-              <div class="form-group">
+              <div class="form-group has-warning">
                   <label>Lulus:</label><br>
                   <label class="radio-inline">
                       <input type="radio" name="lulus" class="minimal" value="1" @if($lulus==true) checked @endif> Ya
