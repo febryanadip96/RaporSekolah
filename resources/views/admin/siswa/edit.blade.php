@@ -128,32 +128,32 @@
                   @endforeach
                 </select>
               </div>
-              <div class="form-group">
-                <label for="telpon_rumah_ortu">Nomor Telpon Rumah Orang Tua</label>
+              <div class="form-group has-warning">
+                <label for="telpon_rumah_ortu">Nomor Telpon Rumah Orang Tua (Tidak harus diisi)</label>
                 <input type="text" name="telpon_rumah_ortu" class="form-control" id="telpon_rumah_ortu" placeholder="Nomor telpon rumah orang tua" value="{{$siswa->telpon_rumah_ortu}}">
               </div>
-              <div class="form-group">
-                <label for="alamat_ortu">Alamat Orang Tua</label>
+              <div class="form-group has-warning">
+                <label for="alamat_ortu">Alamat Orang Tua (Tidak harus diisi)</label>
                 <textarea class="form-control" name="alamat_ortu" rows="3" id="alamat_ortu" placeholder="Alamat orang tua">{{$siswa->alamat_ortu}}</textarea>
               </div>
-              <div class="form-group">
-                <label for="wali">Wali</label>
+              <div class="form-group has-warning">
+                <label for="wali">Wali (Tidak harus diisi)</label>
                 <input type="text" name="wali" class="form-control" id="wali" placeholder="Nama Wali" value="{{$siswa->wali}}">
               </div>
-              <div class="form-group">
-                <label>Pekerjaan Wali</label>
+              <div class="form-group has-warning">
+                <label>Pekerjaan Wali (Tidak harus dipilih)</label>
                 <select name="pekerjaan_wali_id" class="form-control">
                   @foreach($pekerjaans as $pekerjaan)
                     <option value="{{$pekerjaan->id}}" @if($siswa->pekerjaan_wali_id==$pekerjaan->id) selected @endif>{{$pekerjaan->nama}}</option>
                   @endforeach
                 </select>
               </div>
-              <div class="form-group">
-                <label for="telpon_rumah_wali">Nomor Telpon Rumah Wali</label>
+              <div class="form-group has-warning">
+                <label for="telpon_rumah_wali">Nomor Telpon Rumah Wali (Tidak harus diisi)</label>
                 <input type="text" name="telpon_rumah_wali" class="form-control" id="telpon_rumah_wali" placeholder="Nomor telpon rumah wali" value="{{$siswa->telpon_rumah_wali}}">
               </div>
-              <div class="form-group">
-                <label for="alamat_wali">Alamat Wali</label>
+              <div class="form-group has-warning">
+                <label for="alamat_wali">Alamat Wali (Tidak harus diisi)</label>
                 <textarea class="form-control" name="alamat_wali" rows="3" id="alamat_wali" placeholder="Alamat wali">{{$siswa->alamat_wali}}</textarea>
               </div>
               <div class="form-group">

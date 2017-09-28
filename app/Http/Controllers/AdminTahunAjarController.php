@@ -87,7 +87,7 @@ class AdminTahunAjarController extends Controller
      */
     public function edit($id)
     {
-        $tahunAjar = TahunAjar:findOrFail($id);
+        $tahunAjar = TahunAjar::findOrFail($id);
         return view('admin.tahunajar.edit',['tahunAjar'=>$tahunAjar]);
     }
 

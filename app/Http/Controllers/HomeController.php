@@ -30,7 +30,7 @@ class HomeController extends Controller
             else if(\Auth::user()->role==2){
                 if(\Auth::user()->karyawan->deleted_at==null)
                 {
-                    return redirect('admin/home');
+                    return redirect('guru/home');
                 }
                 else
                 {

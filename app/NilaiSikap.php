@@ -17,11 +17,11 @@ class NilaiSikap extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'nilai_sikaps';
     protected $primaryKey = 'id';
-		protected $fillable=['nilai_spiritual','predikat_spiritual_id','nilai_sosial','predikat_sosial_id','deskripsi_spiritual','deskripsi_sosial','semester_siswa_id'];
-		public $timestamps=true;
-		protected $guarded=['id'];
+	protected $fillable=['nilai_spiritual','predikat_spiritual_id','nilai_sosial','predikat_sosial_id','deskripsi_spiritual','deskripsi_sosial','semester_siswa_id'];
+	public $timestamps=true;
+	protected $guarded=['id'];
 
-		public function predikatSosial()
+	public function predikatSosial()
     {
         return $this->belongsTo('App\Predikat','predikat_sosial_id');
     }

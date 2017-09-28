@@ -19,10 +19,29 @@
       @include('includes.common.status')
       @include('includes.common.errors')
       <div class="col-xs-12">
+		<!-- Widget: user widget style 1 -->
+		<div class="box box-widget widget-user-2">
+			<!-- Add the bg color to the header using any of the bg-* classes -->
+			<div class="widget-user-header bg-blue">
+			  <h3>{{$semesterSiswa->siswa->user->name}} ({{$semesterSiswa->siswa->nis}})</h3>
+			</div>
+			<div class="box-footer no-padding">
+			  <ul class="nav nav-stacked">
+			    <li><a>Ketidakhadiran Tanpa Keterangan <span class="pull-right badge bg-blue">{{$tanpaKeterangans}} dari {{round($batasKetidakhadiran)}}</span></a></li>
+			    <li><a>Nilai Pengetahuan di bawah KKM <span class="pull-right badge bg-aqua">{{$nilaiPengetahuanBawahKkm}} dari 3</span></a></li>
+			    <li><a>Nilai Ketrampilan di bawah KKM <span class="pull-right badge bg-green">{{$nilaiKetrampilanBawahKkm}} dari 3</span></a></li>
+			    <li><a>Nilai Sikap Spiritual <span class="pull-right badge bg-yellow">{{$keteranganNilaiSikapSpiritual}}</span></a></li>
+			    <li><a>Nilai Sikap Sosial <span class="pull-right badge bg-orange">{{$keteranganNilaiSikapSosial}}</span></a></li>
+			    <li><a>Nilai Ekstrakulikuler Wajib <span class="pull-right badge bg-purple">{{$keteranganEkskul}}</span></a></li>
+				<li><a>Status Kelulusan saat ini <span class="pull-right badge bg-red">@if($daftarKelas->status_lulus) Lulus @else Belum Lulus @endif</span></a></li>
+			  </ul>
+		  </div>
+		</div>
+		<!-- /.widget-user -->
         <!-- general form elements -->
         <div class="box box-warning">
           <div class="box-header with-border">
-            <h3 class="box-title">Atur Kelulusan</h3>
+            <h3 class="box-title">Pilih Kelulusan</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
@@ -30,26 +49,6 @@
           <form role="form" class="form-update" action="{{url('guru/walikelas/aturkelulusan/'.$semesterSiswa->id)}}" method="post">
             {{ csrf_field() }}
             <div class="box-body">
-              <div class="form-group">
-                <label for="tanpa_keterangan">Ketidakhadiran Tanpa Keterangan</label>
-                <input type="text" class="form-control" id="tanpa_keterangan" value="{{$tanpaKeterangans}} dari {{$batasKetidakhadiran}}" readonly>
-              </div>
-              <div class="form-group">
-                <label for="nilai_pengetahuan">Nilai Pengetahuan di bawah KKM</label>
-                <input type="number" class="form-control" id="nilai_pengetahuan" value="{{$nilaiPengetahuanBawahKkm}}" readonly>
-              </div>
-              <div class="form-group">
-                <label for="nilai_ketrampilan">Nilai Ketrampilan di bawah KKM</label>
-                <input type="number" class="form-control" id="nilai_ketrampilan" value="{{$nilaiKetrampilanBawahKkm}}" readonly>
-              </div>
-              <div class="form-group">
-                <label for="keterangan">Keterangan Tambahan</label>
-                <textarea class="form-control" rows="5" id="keterangan" readonly>{{$tambahan}}</textarea>
-              </div>
-              <div class="form-group">
-                <label for="status">Status Kelulusan saat ini</label>
-                <input type="text" class="form-control" id="status" value="@if($daftarKelas->status_lulus) Lulus @else Belum Lulus @endif" readonly>
-              </div>
               <!-- radio -->
               <div class="form-group">
                   <label>Lulus:</label><br>

@@ -15,6 +15,7 @@ use App\DaftarKelas;
 use App\IdentitasSekolah;
 use App\NilaiEkstrakulikuler;
 use App\Ekstrakulikuler;
+use App\Predikat;
 
 class GuruCetakRaporController extends Controller
 {
@@ -71,8 +72,8 @@ class GuruCetakRaporController extends Controller
         $daftarKelas=DaftarKelas::where('siswa_id',$semesterSiswa->siswa->id)->where('kelas_buka_id',$semesterSiswa->kelasBuka->id)->first();
         if($semesterSiswa->semester->gasal_genap==2){
             //tentukan keluluran
-            //mendapatakan semester gasalnya
-            $lulus=true;//inisialisasi variabel
+			//inisialisasi variabel
+            $lulus=true;
             $nilaiPengetahuanBawahKkm=0;
             $nilaiKetrampilanBawahKkm=0;
             $batasKetidakhadiran = $semesterSiswa->semester->tahunAjar->total_hari_efektif*15/100;//batas ketidakhadiran
@@ -80,6 +81,7 @@ class GuruCetakRaporController extends Controller
             //cek minimal 3 mata pelajaran di bawah kkm
             $siswa=$semesterSiswa->siswa;
             $semestersTahunAjar= $semesterSiswa->semester->tahunAjar->semester->pluck('id');
+            //mendapatakan semester gasalnya
             $semesterSiswas=SemesterSiswa::where('siswa_id',$siswa->id)->whereIn('semester_id',$semestersTahunAjar)->pluck('id');
             $mapelBukas=MapelBuka::where('kelas_buka_id',$semesterSiswa->kelasBuka->id)->get();
             foreach ($mapelBukas as $key => $mapelBuka) {
@@ -96,57 +98,71 @@ class GuruCetakRaporController extends Controller
                 }
               }
             }
-
-            //tanpa keterangan
-            $tanpaKeterangans=Ketidakhadiran::whereIn('semester_siswa_id',$semesterSiswas)->where('status',2)->count();
-
-            //ubah status lulus
-            //nilai sikap
-            $nilaiSikaps=NilaiSikap::whereIn('semester_siswa_id',$semesterSiswas)->get();
-            $tambahan="";
-            foreach ($nilaiSikaps as $key => $nilaiSikap) {
-              if(!empty($nilaiSikap->predikatSosial)){
-                if(!$nilaiSikap->predikatSosial->lulus_ki1_ki2){
-                  $lulus=false;
-                  $tambahan.="Nilai sikap sosial semester ".$nilaiSikap->semesterSiswa->semester->gasal_genap." ".$nilaiSikap->semesterSiswa->semester->tahunAjar->nama." tidak sesuai kriteria kelulusan\n";
-                }
-              }
-							if(!empty($nilaiSikap->predikatSpiritual)){
-                if(!$nilaiSikap->predikatSpiritual->lulus_ki1_ki2){
-                  $lulus=false;
-                  $tambahan.="Nilai sikap spiritual semester ".$nilaiSikap->semesterSiswa->semester->gasal_genap." ".$nilaiSikap->semesterSiswa->semester->tahunAjar->nama." tidak sesuai kriteria kelulusan\n";
-                }
-              }
-            }
-
-						$ekskulWajibId=Ekstrakulikuler::where('jenis',1)->pluck('id');
-
-						$nilaiEkskuls = NilaiEkstrakulikuler::whereIn('semester_siswa_id',$semesterSiswas)->whereIn('ekstrakulikuler_id',$ekskulWajibId)->get();
-						foreach ($nilaiEkskuls as $key => $nilaiEkskul) {
-              if(!empty($nilaiEkskul->predikat)){
-								if(!$nilaiEkskul->predikat->lulus_ki1_ki2){
-									$lulus=false;
-									$tambahan.="Nilai ekstrakulikuler ".$nilaiEkskul->ekstrakulikuler->nama." semester ".$nilaiEkskul->semesterSiswa->semester->gasal_genap." ".$nilaiEkskul->semesterSiswa->semester->tahunAjar->nama." di bawah kriteria kelulusan\n";
-								}
-              }
-            }
-
-            if($nilaiPengetahuanBawahKkm>3){
+			//nilai
+			if($nilaiPengetahuanBawahKkm>3){
               $lulus=false;
             }
             if($nilaiKetrampilanBawahKkm>3){
               $lulus=false;
             }
+
+            //tanpa keterangan
+            $tanpaKeterangans=Ketidakhadiran::whereIn('semester_siswa_id',$semesterSiswas)->where('status',2)->count();
             if($tanpaKeterangans>$batasKetidakhadiran){
               $lulus=false;
             }
 
-            return view('guru.walikelas.aturkelulusan',['semesterSiswa'=>$semesterSiswa,
-            'daftarKelas'=>$daftarKelas,
-            'tanpaKeterangans'=>$tanpaKeterangans,
-            'batasKetidakhadiran'=>$batasKetidakhadiran,
-            'nilaiPengetahuanBawahKkm'=>$nilaiPengetahuanBawahKkm,
-            'nilaiKetrampilanBawahKkm'=>$nilaiKetrampilanBawahKkm,'tambahan'=>$tambahan,'lulus'=>$lulus]);
+            //nilai sikap
+			$keteranganNilaiSikapSpiritual="";
+			$keteranganNilaiSikapSosial="";
+
+            $nilaiSikapSpiritual=NilaiSikap::whereIn('semester_siswa_id',$semesterSiswas)->avg('nilai_spiritual');
+			$predikatSikapSpiritual = Predikat::findOrFail($this->getNilaiPredikat($nilaiSikapSpiritual));
+            $nilaiSikapSosial=NilaiSikap::whereIn('semester_siswa_id',$semesterSiswas)->avg('nilai_sosial');
+			$predikatSikapSosial = Predikat::findOrFail($this->getNilaiPredikat($nilaiSikapSosial));
+
+			if(!$predikatSikapSpiritual->lulus_ki1_ki2){
+				$lulus=false;
+				$keteranganNilaiSikapSpiritual=$predikatSikapSpiritual->predikat_ki1_ki2.' (Tidak Lulus)';
+			}
+			else{
+				$keteranganNilaiSikapSpiritual=$predikatSikapSpiritual->predikat_ki1_ki2.' (Lulus)';
+			}
+            if(!$predikatSikapSosial->lulus_ki1_ki2){
+              	$lulus=false;
+				$keteranganNilaiSikapSosial=$predikatSikapSosial->predikat_ki1_ki2.' (Tidak Lulus)';
+			}
+			else{
+				$keteranganNilaiSikapSosial=$predikatSikapSosial->predikat_ki1_ki2.' (Lulus)';
+			}
+			//ekskul wajib
+			$ekskulsWajib=Ekstrakulikuler::where('jenis',1)->get();
+
+			$keteranganEkskul="";
+			foreach ($ekskulsWajib as $key => $ekskulWajib) {
+				$nilaiEkskul = NilaiEkstrakulikuler::whereIn('semester_siswa_id',$semesterSiswas)->where('ekstrakulikuler_id',$ekskulWajib->id)->avg('nilai');
+				$predikatEkskul = Predikat::findOrFail($this->getNilaiPredikat($nilaiEkskul));
+				if(!$predikatEkskul->lulus_ki1_ki2){
+					$lulus=false;
+					$keteranganEkskul.=$ekskulWajib->nama." ".$predikatEkskul->predikat_ki1_ki2." (Tidak Lulus)\n";
+				}
+				else{
+					$keteranganEkskul.=$ekskulWajib->nama." ".$predikatEkskul->predikat_ki1_ki2." (Lulus)\n";
+				}
+			}
+
+            return view('guru.walikelas.aturkelulusan',[
+				'semesterSiswa'=>$semesterSiswa,
+	            'daftarKelas'=>$daftarKelas,
+	            'tanpaKeterangans'=>$tanpaKeterangans,
+	            'batasKetidakhadiran'=>$batasKetidakhadiran,
+	            'nilaiPengetahuanBawahKkm'=>$nilaiPengetahuanBawahKkm,
+	            'nilaiKetrampilanBawahKkm'=>$nilaiKetrampilanBawahKkm,
+				'keteranganNilaiSikapSpiritual'=>$keteranganNilaiSikapSpiritual,
+				'keteranganNilaiSikapSosial'=>$keteranganNilaiSikapSosial,
+				'keteranganEkskul'=>$keteranganEkskul,
+				'lulus'=>$lulus,
+			]);
         }
         else{
             return redirect(action('GuruWaliKelasController@index'));
@@ -159,5 +175,15 @@ class GuruCetakRaporController extends Controller
         $daftarKelas->status_lulus=$request['lulus'];
         $daftarKelas->save();
         return redirect(action('GuruCetakRaporController@aturKelulusan',['semesterSiswaId'=>$semesterSiswaId]))->with('status','Data Kelulusan telah diperbarui');
+    }
+
+	private function getNilaiPredikat($nilai)
+    {
+        $predikats = Predikat::all();
+        foreach ($predikats as $key => $predikat) {
+            if($predikat->nilai_awal<=$nilai && $predikat->nilai_akhir>=$nilai){
+                return $predikat->id;
+            }
+        }
     }
 }
