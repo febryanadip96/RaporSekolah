@@ -32,7 +32,7 @@ class GuruCetakRaporController extends Controller
     public function tengah($semesterSiswaId){
         $semesterSiswa = SemesterSiswa::findOrFail($semesterSiswaId);
         $kelompoks = Kelompok::all();
-				$sekolah=IdentitasSekolah::findOrFail(1);
+		$sekolah=IdentitasSekolah::findOrFail(1);
         //tanggal sekarang
         Carbon::setLocale('id');
         $tanggalHariIni=Carbon::now(+7)->format('d F Y');;
@@ -42,21 +42,21 @@ class GuruCetakRaporController extends Controller
     public function akhir($semesterSiswaId){
         $semesterSiswa=SemesterSiswa::findOrFail($semesterSiswaId);
         $statusKelulusan="";
-				$sekolah=IdentitasSekolah::findOrFail(1);
+		$sekolah=IdentitasSekolah::findOrFail(1);
         if($semesterSiswa->semester->gasal_genap==2){
             //dapatkan status lulus
             $daftarKelas=DaftarKelas::where('siswa_id',$semesterSiswa->siswa->id)->where('kelas_buka_id',$semesterSiswa->kelasBuka->id)->first();
-						if($daftarKelas->status_lulus){
-							if(!empty(Kelas::where('tingkat',($daftarKelas->kelasBuka->kelas->tingkat+1))->first())){
-			 					$statusKelulusan.="Berdasar hasil perolehan nilai semester 1 dan semester 2, siswa dinyatakan NAIK KE KELAS ".($daftarKelas->kelasBuka->kelas->tingkat+1);
-			 				}
-			 				else{
-			 					$statusKelulusan.="Berdasar hasil perolehan nilai semester 1 dan semester 2, siswa dinyatakan LULUS";
-							}
-						}
-						else{
-							$statusKelulusan.="Berdasar hasil perolehan nilai semester 1 dan semester 2, siswa dinyatakan TINGGAL DI KELAS ".($daftarKelas->kelasBuka->kelas->tingkat);
-						}
+			if($daftarKelas->status_lulus){
+				if(!empty(Kelas::where('tingkat',($daftarKelas->kelasBuka->kelas->tingkat+1))->first())){
+ 					$statusKelulusan.="Berdasar hasil perolehan nilai semester 1 dan semester 2, siswa dinyatakan NAIK KE KELAS ".($daftarKelas->kelasBuka->kelas->tingkat+1);
+ 				}
+ 				else{
+ 					$statusKelulusan.="Berdasar hasil perolehan nilai semester 1 dan semester 2, siswa dinyatakan LULUS";
+				}
+			}
+			else{
+				$statusKelulusan.="Berdasar hasil perolehan nilai semester 1 dan semester 2, siswa dinyatakan TINGGAL DI KELAS ".($daftarKelas->kelasBuka->kelas->tingkat);
+			}
         }
         //kepala sekolah
         $kepalaSekolah = User::where('role',2)->first();
@@ -98,7 +98,7 @@ class GuruCetakRaporController extends Controller
                 }
               }
             }
-			//nilai
+
 			if($nilaiPengetahuanBawahKkm>3){
               $lulus=false;
             }
@@ -135,9 +135,9 @@ class GuruCetakRaporController extends Controller
 			else{
 				$keteranganNilaiSikapSosial=$predikatSikapSosial->predikat_ki1_ki2.' (Lulus)';
 			}
+
 			//ekskul wajib
 			$ekskulsWajib=Ekstrakulikuler::where('jenis',1)->get();
-
 			$keteranganEkskul="";
 			foreach ($ekskulsWajib as $key => $ekskulWajib) {
 				$nilaiEkskul = NilaiEkstrakulikuler::whereIn('semester_siswa_id',$semesterSiswas)->where('ekstrakulikuler_id',$ekskulWajib->id)->avg('nilai');
@@ -151,6 +151,16 @@ class GuruCetakRaporController extends Controller
 				}
 			}
 
+			//saran kelulusan
+			$saran = "";
+			if($lulus){
+				$saran="Siswa boleh dilulus";
+			}
+			else{
+				$saran ="Siswa tidak boleh diluluskan";
+			}
+
+			//return value
             return view('guru.walikelas.aturkelulusan',[
 				'semesterSiswa'=>$semesterSiswa,
 	            'daftarKelas'=>$daftarKelas,
@@ -161,6 +171,7 @@ class GuruCetakRaporController extends Controller
 				'keteranganNilaiSikapSpiritual'=>$keteranganNilaiSikapSpiritual,
 				'keteranganNilaiSikapSosial'=>$keteranganNilaiSikapSosial,
 				'keteranganEkskul'=>$keteranganEkskul,
+				'saran'=>$saran,
 				'lulus'=>$lulus,
 			]);
         }

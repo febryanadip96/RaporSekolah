@@ -49,6 +49,10 @@
           <form role="form" class="form-update" action="{{url('guru/walikelas/aturkelulusan/'.$semesterSiswa->id)}}" method="post">
             {{ csrf_field() }}
             <div class="box-body">
+				<div class="form-group has-warning">
+                  <label for="saran">Saran</label>
+                  <input type="text" name="saran" class="form-control" id="saran" placeholder="Saran" value="{{$saran}}" readonly>
+                </div>
               <!-- radio -->
               <div class="form-group">
                   <label>Lulus:</label><br>
