@@ -45,7 +45,7 @@
                 <label>Pengajar</label>
                 <select name="pengajar_id" class="form-control">
                   @foreach($karyawans as $karyawan)
-                    <option value="{{$karyawan->id}}" @if($mapelBuka->pengajar->id==$karyawan->id) selected @endif>{{$karyawan->user->name}}</option>
+                    <option value="{{$karyawan->id}}" @if($mapelBuka->pengajar->id==$karyawan->id) selected @endif>{{$karyawan->user->name}} ({{$karyawan->nik}})</option>
                   @endforeach
                 </select>
               </div>

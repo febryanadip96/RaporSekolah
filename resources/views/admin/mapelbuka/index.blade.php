@@ -45,7 +45,7 @@
                     <td>{{$index+1}}</td>
                     <td>{{$mapelbuka->mataPelajaran->nama}}</td>
                     <td>{{$mapelbuka->kelasBuka->nama}} ({{$mapelbuka->kelasBuka->tahunAjar->nama}})</td>
-                    <td>{{$mapelbuka->pengajar->user->name}}</td>
+                    <td>{{$mapelbuka->pengajar->user->name}} ({{$mapelbuka->pengajar->nik}})</td>
                     <td>{{$mapelbuka->kkm}}</td>
                     <td>@if($mapelbuka->mataPelajaran->jenis==0) Umum @else Khusus @endif</td>
                     <td><a data-toggle="tooltip" title="Daftar Siswa" class="btn btn-default btn-xs" href="{{url('admin/daftarsiswamapel/'.$mapelbuka->id)}}"><span class="fa fa-user-plus"></span></a> <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/mapelbuka/'.$mapelbuka->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>

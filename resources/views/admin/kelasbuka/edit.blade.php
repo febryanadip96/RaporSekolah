@@ -54,7 +54,7 @@
                 <label>Wali Kelas</label>
                 <select name="wali_kelas_id" class="form-control">
                   @foreach($karyawans as $karyawan)
-                    <option value="{{$karyawan->id}}"  @if($karyawan->id==$kelasBuka->wali_kelas_id) selected @endif>{{$karyawan->user->name}}</option>
+                    <option value="{{$karyawan->id}}"  @if($karyawan->id==$kelasBuka->wali_kelas_id) selected @endif>{{$karyawan->user->name}} ({{$karyawan->nik}})</option>
                   @endforeach
                 </select>
               </div>

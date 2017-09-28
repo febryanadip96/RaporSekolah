@@ -135,6 +135,7 @@ class AdminKaryawanController extends Controller
     {
         $this->validate($request,[
             'name' => 'required|string|max:255',
+            'nik'=>'required',
             'role'=>'required',
             'jenis_kelamin'=>'required',
             'tanggal_lahir'=>'required',
@@ -145,6 +146,7 @@ class AdminKaryawanController extends Controller
             'agama'=>'required',
 		],[
 			'role.required'=>'Role harus diisi',
+            'nik.required'=>'NIK harus diisi',
 			'jenis_kelamin.required'=>'Jenis kelamin harus diisi',
             'tanggal_lahir.required'=>'Tanggal lahir harus diisi',
             'tempat_lahir_id.required'=>'Tempat lahir tidak valid',
@@ -157,6 +159,7 @@ class AdminKaryawanController extends Controller
         else{
             $karyawan->super=0;
         }
+        $karyawan->nik =$request['nik'];
         $karyawan->jenis_kelamin =$request['jenis_kelamin'];
         $karyawan->tanggal_lahir =date("Y-m-d",strtotime($request['tanggal_lahir']));
         $karyawan->tempat_lahir_id =$request['tempat_lahir_id'];

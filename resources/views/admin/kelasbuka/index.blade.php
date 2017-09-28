@@ -44,7 +44,7 @@
                     <td>{{$kelasBuka->nama}}</td>
                     <td>{{$kelasBuka->kelas->tingkat}}</td>
                     <td>{{$kelasBuka->tahunAjar->nama}}</td>
-                    <td>{{$kelasBuka->waliKelas->user->name}}</td>
+                    <td>{{$kelasBuka->waliKelas->user->name}} ({{$kelasBuka->waliKelas->nik}})</td>
                     <td><a data-toggle="tooltip" title="Daftar Siswa" class="btn btn-default btn-xs" href="{{url('admin/aturkelas/'.$kelasBuka->id)}}"><span class="fa fa-user-plus"></span></a> <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/kelasbuka/'.$kelasBuka->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
                     </tr>
                   @endforeach
@@ -87,7 +87,7 @@
                 <label>Wali Kelas</label>
                 <select name="wali_kelas_id" class="form-control select2" style="width: 100%;">
                   @foreach($karyawans as $karyawan)
-                    <option value="{{$karyawan->id}}">{{$karyawan->user->name}}</option>
+                    <option value="{{$karyawan->id}}">{{$karyawan->user->name}} ({{$karyawan->nik}})</option>
                   @endforeach
                 </select>
               </div>

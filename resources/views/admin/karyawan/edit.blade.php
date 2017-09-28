@@ -37,7 +37,7 @@
               </div>
               <div class="form-group">
                 <label for="nik">NIK</label>
-                <input type="text" name="nik" class="form-control" id="nik" placeholder="NIK Karyawan" value="{{$karyawan->nik}}" readonly>
+                <input type="text" name="nik" class="form-control" id="nik" placeholder="NIK Karyawan" value="{{$karyawan->nik}}">
               </div>
               <div class="form-group">
                 <label>

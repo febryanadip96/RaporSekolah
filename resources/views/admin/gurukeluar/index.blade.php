@@ -29,6 +29,7 @@
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>NIK</th>
                   <th>Nama</th>
                   <th>Ijazah Tertinggi</th>
                   <th>Jenis Kelamin</th>
@@ -39,6 +40,7 @@
                   @foreach($karyawans as $index => $karyawan)
                     <tr>
                     <td>{{$index+1}}</td>
+                    <td>{{$karyawan->nik}}</td>
                     <td>{{$karyawan->user->name}}</td>
                     <td>{{$karyawan->ijazah->nama}}</td>
                     <td>
