@@ -17,13 +17,13 @@ class Tugas extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'tugas';
     protected $primaryKey = 'id';
-		protected $fillable=['nilai','nilai_rapor_id','kompetensi_dasar_id'];
-		public $timestamps=true;
-		protected $guarded=['id'];
+	protected $fillable=['nilai','nilai_rapor_id','kompetensi_dasar_id'];
+	public $timestamps=true;
+	protected $guarded=['id'];
 
-		public function kompetensiDasar()
+	public function kompetensiDasar()
     {
-        return $this->belongsTo('App\KompetensiDasar','kompetensi_dasar_id');
+        return $this->belongsTo('App\KompetensiDasar','kompetensi_dasar_id')->withTrashed();
     }
 
     public function nilaiRapor()

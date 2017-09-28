@@ -17,11 +17,11 @@ class Prestasi extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'prestasis';
     protected $primaryKey = 'id';
-		protected $fillable=['nama_lomba','tingkat','semester_siswa_id','peringkat_id'];
-		public $timestamps=true;
-		protected $guarded=['id'];
+	protected $fillable=['nama_lomba','tingkat','semester_siswa_id','peringkat_id'];
+	public $timestamps=true;
+	protected $guarded=['id'];
 
-		public function peringkat()
+	public function peringkat()
     {
     	return $this->belongsTo('App\Peringkat','peringkat_id');
     }

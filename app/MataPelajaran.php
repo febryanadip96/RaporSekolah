@@ -17,11 +17,11 @@ class MataPelajaran extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'mata_pelajarans';
     protected $primaryKey = 'id';
-		protected $fillable=['nama','keterangan','urutan','jenis','kelas_id','kelompok_id'];
-		public $timestamps=true;
-		protected $guarded=['id'];
+	protected $fillable=['nama','keterangan','urutan','jenis','kelas_id','kelompok_id'];
+	public $timestamps=true;
+	protected $guarded=['id'];
 
-		public function kelompok()
+	public function kelompok()
     {
         return $this->belongsTo('App\Kelompok','kelompok_id');
     }

@@ -17,11 +17,11 @@ class Ketidakhadiran extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'ketidakhadirans';
     protected $primaryKey = 'id';
-		protected $fillable=['semester_siswa_id','tanggal','status'];
-		public $timestamps=true;
-		protected $guarded=['id'];
+	protected $fillable=['semester_siswa_id','tanggal','status'];
+	public $timestamps=true;
+	protected $guarded=['id'];
 
-		public function semesterSiswa()
+	public function semesterSiswa()
     {
         return $this->belongsTo('App\SemesterSiswa','semester_siswa_id');
     }

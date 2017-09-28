@@ -17,11 +17,11 @@ class Kelompok extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'kelompoks';
     protected $primaryKey = 'id';
-		protected $fillable=['nama'];
-		public $timestamps=true;
-		protected $guarded=['id'];
+	protected $fillable=['nama'];
+	public $timestamps=true;
+	protected $guarded=['id'];
 
-		public function mataPelajaran()
+	public function mataPelajaran()
     {
         return $this->hasMany('App\MataPelajaran','kelompok_id');
     }

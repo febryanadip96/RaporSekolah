@@ -17,11 +17,11 @@ class Predikat extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'predikats';
     protected $primaryKey = 'id';
-		protected $fillable=['nilai_awal','nilai_akhir','predikat_ki1_ki2','predikat_ki3_ki4','lulus_ki1_ki2'];
-		public $timestamps=true;
-		protected $guarded=['id'];
+	protected $fillable=['nilai_awal','nilai_akhir','predikat_ki1_ki2','predikat_ki3_ki4','lulus_ki1_ki2'];
+	public $timestamps=true;
+	protected $guarded=['id'];
 
-		public function nilaiEkstrakulikuler()
+	public function nilaiEkstrakulikuler()
     {
     	return $this->hasMany('App\NilaiEkstrakulikuler','predikat_id');
     }

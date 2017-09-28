@@ -17,11 +17,11 @@ class Sekolah extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'sekolahs';
     protected $primaryKey = 'id';
-		protected $fillable=['nama','negeri_swasta','alamat'];
-		public $timestamps=true;
-		protected $guarded=['id'];
+	protected $fillable=['nama','negeri_swasta','alamat'];
+	public $timestamps=true;
+	protected $guarded=['id'];
 
-		public function siswa()
+	public function siswa()
     {
     	return $this->hasMany('App\Siswa','sekolah_asal_id');
     }

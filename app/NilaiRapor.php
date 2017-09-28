@@ -17,11 +17,11 @@ class NilaiRapor extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'nilai_rapors';
     protected $primaryKey = 'id';
-		protected $fillable=['nilai_pengetahuan','nilai_ketrampilan','predikat_pengetahuan_id','predikat_ketrampilan_id','nilai_pts','nilai_pas','mapel_buka_id','semester_siswa_id'];
-		public $timestamps=true;
-		protected $guarded=['id'];
+	protected $fillable=['nilai_pengetahuan','nilai_ketrampilan','predikat_pengetahuan_id','predikat_ketrampilan_id','nilai_pts','nilai_pas','mapel_buka_id','semester_siswa_id'];
+	public $timestamps=true;
+	protected $guarded=['id'];
 
-		public function ketrampilan()
+	public function ketrampilan()
     {
         return $this->hasMany('App\Ketrampilan','nilai_rapor_id');
     }
