@@ -3,18 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class NilaiSikap extends Model
 {
-    use SoftDeletes;
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = ['deleted_at'];
     protected $table = 'nilai_sikaps';
     protected $primaryKey = 'id';
 	protected $fillable=['nilai_spiritual','predikat_spiritual_id','nilai_sosial','predikat_sosial_id','deskripsi_spiritual','deskripsi_sosial','semester_siswa_id'];

@@ -25,7 +25,6 @@ class CreateNilaiSikapsTable extends Migration
             $table->text('deskripsi_sosial')->nullable();
             $table->integer('semester_siswa_id')->unsigned();
             $table->foreign('semester_siswa_id')->references('id')->on('semester_siswas');
-            $table->softDeletes();
         });
     }
 
