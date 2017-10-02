@@ -26,33 +26,33 @@
           <!-- /.box-header -->
           <div class="box-body">
             <table class="table table-bordered table-hover">
-              <thead>
-              <tr>
-                <th>No</th>
-                <th>Nilai Awal</th>
-                <th>Nilai Akhir</th>
-                <th>Predikat KI3 & KI4</th>
-                <th>Predikat KI1 & KI2</th>
-                <th>Lulus KI1 & KI2</th>
-                <th class="no-sort">Aksi</th>
-              </tr>
-              </thead>
-              <tbody>
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Nilai Awal</th>
+						<th>Nilai Akhir</th>
+						<th>Predikat KI3 & KI4</th>
+						<th>Predikat KI1 & KI2</th>
+						<th>Lulus KI1 & KI2</th>
+						<th class="no-sort">Aksi</th>
+					</tr>
+				</thead>
+				<tbody>
                 @foreach($predikats as $index => $predikat)
-                  <tr>
-                  <td>{{$index+1}}</td>
-                  <td>{{$predikat->nilai_awal}}</td>
-                  <td>{{$predikat->nilai_akhir}}</th>
-                  <td>{{$predikat->predikat_ki3_ki4}}</td>
-                  <td>{{$predikat->predikat_ki1_ki2}}</td>
-                  <td>@if($predikat->lulus_ki1_ki2==1) Ya @else Tidak @endif</td>
-                  <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/predikat/'.$predikat->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
-										<form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/predikat/'.$predikat->id)}}">
-		                  {{ method_field('DELETE') }}{{ csrf_field() }}
-		                  <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
-										</form>
-									</td>
-                  </tr>
+                  	<tr>
+	                  	<td>{{$index+1}}</td>
+	                  	<td>{{$predikat->nilai_awal}}</td>
+	                  	<td>{{$predikat->nilai_akhir}}</th>
+	                  	<td>{{$predikat->predikat_ki3_ki4}}</td>
+	                  	<td>{{$predikat->predikat_ki1_ki2}}</td>
+	                  	<td>@if($predikat->lulus_ki1_ki2==1) Ya @else Tidak @endif</td>
+	                  	<td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/predikat/'.$predikat->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
+							<form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/predikat/'.$predikat->id)}}">
+			                  	{{ method_field('DELETE') }}{{ csrf_field() }}
+		                  		<a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
+							</form>
+						</td>
+                  	</tr>
                 @endforeach
               </tbody>
             </table>

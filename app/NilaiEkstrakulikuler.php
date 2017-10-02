@@ -33,6 +33,6 @@ class NilaiEkstrakulikuler extends Model
 
     public function predikat()
     {
-    	return $this->belongsTo('App\Predikat','predikat_id');
+    	return $this->belongsTo('App\Predikat','predikat_id')->withTrashed();
     }
 }

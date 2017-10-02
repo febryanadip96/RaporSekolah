@@ -43,12 +43,12 @@ class NilaiRapor extends Model
 
     public function predikatPengetahuan()
     {
-        return $this->belongsTo('App\Predikat','predikat_pengetahuan_id');
+        return $this->belongsTo('App\Predikat','predikat_pengetahuan_id')->withTrashed();
     }
 
     public function predikatKetrampilan()
     {
-        return $this->belongsTo('App\Predikat','predikat_ketrampilan_id');
+        return $this->belongsTo('App\Predikat','predikat_ketrampilan_id')->withTrashed();
     }
 
     public function semesterSiswa()

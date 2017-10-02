@@ -14,12 +14,12 @@ class NilaiSikap extends Model
 
 	public function predikatSosial()
     {
-        return $this->belongsTo('App\Predikat','predikat_sosial_id');
+        return $this->belongsTo('App\Predikat','predikat_sosial_id')->withTrashed();
     }
 
     public function predikatSpiritual()
     {
-        return $this->belongsTo('App\Predikat','predikat_spiritual_id');
+        return $this->belongsTo('App\Predikat','predikat_spiritual_id')->withTrashed();
     }
 
     public function semesterSiswa()
