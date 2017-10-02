@@ -25,7 +25,7 @@ class AdminSiswaKeluarPindahController extends Controller
      */
     public function index()
     {
-        $keluarPindahs = KeluarPindah::all();
+        $keluarPindahs = KeluarPindah::orderBy('created_at','DESC')->get();
         return view('admin.siswakeluarpindah.index',['keluarPindahs'=>$keluarPindahs]);
     }
 

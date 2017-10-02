@@ -18,7 +18,7 @@ class KompetensiDasar extends Model
     protected $table = 'kompetensi_dasars';
     protected $primaryKey = 'id';
 	protected $fillable=['nomor','deskripsi','gasal_genap','mata_pelajaran_id'];
-	public $timestamps=true;
+	public $timestamps=false;
 	protected $guarded=['id'];
 
 	public function ketrampilan()

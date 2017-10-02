@@ -20,7 +20,6 @@ class CreateDaftarKelasTable extends Migration
             $table->integer('kelas_buka_id')->unsigned();
             $table->foreign('kelas_buka_id')->references('id')->on('kelas_bukas');
             $table->boolean('status_lulus');
-            $table->timestamps();
             $table->softDeletes();
         });
     }

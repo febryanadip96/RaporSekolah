@@ -24,7 +24,6 @@ class CreateSemestersTable extends Migration
             $table->dateTime('awal_tutup_akhir_semester')->nullable();
             $table->dateTime('akhir_tutup_akhir_semester')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

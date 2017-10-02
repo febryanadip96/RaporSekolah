@@ -16,8 +16,6 @@ class CreatePeringkatsTable extends Migration
         Schema::create('peringkats', function (Blueprint $table) {
             $table->increments('id');
             $table->string('juara');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

@@ -25,8 +25,6 @@ class CreateIdentitasSekolahsTable extends Migration
             $table->integer('kota_id')->unsigned();
             $table->foreign('kota_id')->references('id')->on('kotas');
             $table->string('website')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

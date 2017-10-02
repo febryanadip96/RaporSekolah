@@ -24,7 +24,7 @@ class AdminSemesterController extends Controller
      */
     public function index()
     {
-        $semesters = Semester::all();
+        $semesters = Semester::orderBy('created_at', 'DESC')->get();
         return view('admin.semester.index',['semesters'=>$semesters]);
     }
 

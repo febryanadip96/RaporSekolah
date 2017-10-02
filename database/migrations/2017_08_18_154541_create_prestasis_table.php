@@ -21,7 +21,6 @@ class CreatePrestasisTable extends Migration
             $table->foreign('semester_siswa_id')->references('id')->on('semester_siswas');
             $table->integer('peringkat_id')->unsigned();
             $table->foreign('peringkat_id')->references('id')->on('peringkats');
-            $table->timestamps();
             $table->softDeletes();
         });
     }

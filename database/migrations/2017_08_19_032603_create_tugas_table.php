@@ -20,8 +20,6 @@ class CreateTugasTable extends Migration
             $table->foreign('nilai_rapor_id')->references('id')->on('nilai_rapors');
             $table->integer('kompetensi_dasar_id')->unsigned();
             $table->foreign('kompetensi_dasar_id')->references('id')->on('kompetensi_dasars');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

@@ -20,7 +20,6 @@ class CreateKompetensiDasarsTable extends Migration
             $table->integer('gasal_genap');
             $table->integer('mata_pelajaran_id')->unsigned();
             $table->foreign('mata_pelajaran_id')->references('id')->on('mata_pelajarans');
-            $table->timestamps();
             $table->softDeletes();
         });
     }

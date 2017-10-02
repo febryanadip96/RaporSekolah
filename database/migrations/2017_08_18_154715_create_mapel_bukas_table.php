@@ -23,7 +23,6 @@ class CreateMapelBukasTable extends Migration
             $table->integer('pengajar_id')->unsigned();
             $table->foreign('pengajar_id')->references('id')->on('karyawans');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

@@ -18,7 +18,7 @@ class NilaiEkstrakulikuler extends Model
     protected $table = 'nilai_ekstrakulikulers';
     protected $primaryKey = 'id';
 	protected $fillable=['nilai','semester_siswa_id','ekstrakulikuler_id','predikat_id'];
-	public $timestamps=true;
+	public $timestamps=false;
 	protected $guarded=['id'];
 
 	public function ekstrakulikuler()

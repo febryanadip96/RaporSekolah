@@ -30,7 +30,7 @@ class AdminMapelBukaController extends Controller
      */
     public function index()
     {
-        $mapelbukas = MapelBuka::orderBy('id', 'DESC')->get();
+        $mapelbukas = MapelBuka::orderBy('created_at', 'DESC')->get();
         return view('admin.mapelbuka.index',['mapelbukas'=>$mapelbukas]);
     }
 

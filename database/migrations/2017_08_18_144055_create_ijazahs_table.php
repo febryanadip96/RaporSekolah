@@ -16,8 +16,6 @@ class CreateIjazahsTable extends Migration
         Schema::create('ijazahs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

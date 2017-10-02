@@ -28,7 +28,6 @@ class CreateKaryawansTable extends Migration
             $table->integer('ijazah_id')->unsigned();
             $table->foreign('ijazah_id')->references('id')->on('ijazahs');
             $table->integer('agama');
-            $table->timestamps();
             $table->softDeletes();
         });
     }

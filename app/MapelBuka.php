@@ -7,14 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MapelBuka extends Model
 {
-    use SoftDeletes;
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = ['deleted_at'];
     protected $table = 'mapel_bukas';
     protected $primaryKey = 'id';
 	protected $fillable=['kkm','mata_pelajaran_id','kelas_buka_id','pengajar_id'];

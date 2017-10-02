@@ -27,36 +27,36 @@
           <!-- /.box-header -->
           <div class="box-body">
             <table class="table table-bordered table-hover">
-              <thead>
-              <tr>
-                <th>No</th>
-                <th>Tanggal</th>
-                <th>Status</th>
-                <th class="no-sort">Aksi</th>
-              </tr>
-              </thead>
-              <tbody>
+              	<thead>
+	              	<tr>
+		                <th>No</th>
+		                <th>Tanggal</th>
+		                <th>Status</th>
+		                <th class="no-sort">Aksi</th>
+	              	</tr>
+              	</thead>
+              	<tbody>
                 @foreach($semesterSiswa->ketidakhadiran as $index => $ketidakhadiran)
-                  <tr>
-                  <td>{{$index+1}}</td>
-                  <td>{{$ketidakhadiran->tanggal}}</td>
-                  <td>
-                      @if($ketidakhadiran->status==0)
-                          Sakit
-                      @elseif($ketidakhadiran->status==1)
-                          Izin
-                      @elseif($ketidakhadiran->status==2)
-                          Tanpa Keterangan
-                      @endif
-                  </td>
-                  <td>
-                      <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('guru/walikelas/ketidakhadiran/'.$ketidakhadiran->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
-                      <form  style="display: inline-block" method="post" class="form-delete" action="{{url('guru/walikelas/ketidakhadiran/'.$ketidakhadiran->id)}}">
-	                      {{ method_field('DELETE') }}{{ csrf_field() }}
-	                      <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
-											</form>
-                  </td>
-                  </tr>
+                  	<tr>
+	                  	<td>{{$index+1}}</td>
+	                  	<td>{{$ketidakhadiran->tanggal}}</td>
+	                  	<td>
+							@if($ketidakhadiran->status==0)
+								Sakit
+							@elseif($ketidakhadiran->status==1)
+								Izin
+							@elseif($ketidakhadiran->status==2)
+								Tanpa Keterangan
+							@endif
+	                  	</td>
+	                  	<td>
+	                      	<a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('guru/walikelas/ketidakhadiran/'.$ketidakhadiran->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
+	                      	<form  style="display: inline-block" method="post" class="form-delete" action="{{url('guru/walikelas/ketidakhadiran/'.$ketidakhadiran->id)}}">
+		                      	{{ method_field('DELETE') }}{{ csrf_field() }}
+		                      	<a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
+							</form>
+	                  	</td>
+                  	</tr>
                 @endforeach
               </tbody>
             </table>

@@ -20,7 +20,6 @@ class CreatePredikatsTable extends Migration
             $table->string('predikat_ki1_ki2');
             $table->string('predikat_ki3_ki4');
             $table->boolean('lulus_ki1_ki2');
-            $table->timestamps();
             $table->softDeletes();
         });
     }

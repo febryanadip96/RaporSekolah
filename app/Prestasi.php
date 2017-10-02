@@ -18,7 +18,7 @@ class Prestasi extends Model
     protected $table = 'prestasis';
     protected $primaryKey = 'id';
 	protected $fillable=['nama_lomba','tingkat','semester_siswa_id','peringkat_id'];
-	public $timestamps=true;
+	public $timestamps=false;
 	protected $guarded=['id'];
 
 	public function peringkat()

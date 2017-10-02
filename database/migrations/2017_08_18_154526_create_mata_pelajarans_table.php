@@ -23,8 +23,6 @@ class CreateMataPelajaransTable extends Migration
             $table->foreign('kelas_id')->references('id')->on('kelas');
             $table->integer('kelompok_id')->unsigned();
             $table->foreign('kelompok_id')->references('id')->on('kelompoks');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

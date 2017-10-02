@@ -56,11 +56,11 @@
                       @endif
                   </td>
                   <td>
-                      <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('guru/walikelas/prestasi/'.$prestasi->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
-                      <form  style="display: inline-block" method="post" class="form-delete" action="{{url('guru/walikelas/prestasi/'.$prestasi->id)}}">
+                      	<a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('guru/walikelas/prestasi/'.$prestasi->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
+                      	<form  style="display: inline-block" method="post" class="form-delete" action="{{url('guru/walikelas/prestasi/'.$prestasi->id)}}">
 	                      {{ method_field('DELETE') }}{{ csrf_field() }}
 	                      <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
-											</form>
+						</form>
                   </td>
                   </tr>
                 @endforeach

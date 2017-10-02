@@ -22,7 +22,6 @@ class CreateNilaiEkstrakulikulersTable extends Migration
             $table->foreign('ekstrakulikuler_id')->references('id')->on('ekstrakulikulers');
             $table->integer('predikat_id')->unsigned();
             $table->foreign('predikat_id')->references('id')->on('predikats');
-            $table->timestamps();
             $table->softDeletes();
         });
     }

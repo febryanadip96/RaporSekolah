@@ -19,7 +19,6 @@ class CreateKetidakhadiransTable extends Migration
             $table->foreign('semester_siswa_id')->references('id')->on('semester_siswas');
             $table->date('tanggal');
             $table->integer('status');
-            $table->timestamps();
             $table->softDeletes();
         });
     }

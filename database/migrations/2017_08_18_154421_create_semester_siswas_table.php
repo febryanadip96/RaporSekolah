@@ -22,7 +22,6 @@ class CreateSemesterSiswasTable extends Migration
             $table->foreign('kelas_buka_id')->references('id')->on('kelas_bukas');
             $table->integer('siswa_id')->unsigned();
             $table->foreign('siswa_id')->references('id')->on('siswas');
-            $table->timestamps();
             $table->softDeletes();
         });
     }

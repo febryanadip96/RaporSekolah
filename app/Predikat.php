@@ -18,7 +18,7 @@ class Predikat extends Model
     protected $table = 'predikats';
     protected $primaryKey = 'id';
 	protected $fillable=['nilai_awal','nilai_akhir','predikat_ki1_ki2','predikat_ki3_ki4','lulus_ki1_ki2'];
-	public $timestamps=true;
+	public $timestamps=false;
 	protected $guarded=['id'];
 
 	public function nilaiEkstrakulikuler()

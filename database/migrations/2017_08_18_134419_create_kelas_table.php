@@ -16,8 +16,6 @@ class CreateKelasTable extends Migration
         Schema::create('kelas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tingkat');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

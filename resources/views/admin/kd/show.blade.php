@@ -29,29 +29,29 @@
           <!-- /.box-header -->
           <div class="box-body">
             <table class="table table-bordered table-hover">
-              <thead>
-              <tr>
-                <th>Nomor</th>
-                <th>Deskripsi</th>
-                <th>Gasal/Genap</th>
-                <th class="no-sort">Aksi</th>
-              </tr>
-              </thead>
-              <tbody>
-                @foreach($mapel->kompetensiDasar as $kompetensiDasar)
-                  <tr>
-	                  <td>{{$kompetensiDasar->nomor}}</td>
-	                  <td>{{$kompetensiDasar->deskripsi}}</td>
-	                  <td>@if($kompetensiDasar->gasal_genap==1) Gasal @else Genap @endif</td>
-	                  <td>
-											<form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/kd/'.$kompetensiDasar->id)}}">
-			                  {{ method_field('DELETE') }}{{ csrf_field() }}
-			                  <a data-toggle="tooltip" title="Hapus" class="delete-modal btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
-											</form>
-										</td>
-                  </tr>
-                @endforeach
-              </tbody>
+              	<thead>
+              		<tr>
+		                <th>Nomor</th>
+		                <th>Deskripsi</th>
+		                <th>Gasal/Genap</th>
+		                <th class="no-sort">Aksi</th>
+              		</tr>
+              	</thead>
+              	<tbody>
+            		@foreach($mapel->kompetensiDasar as $kompetensiDasar)
+	                  	<tr>
+		                  	<td>{{$kompetensiDasar->nomor}}</td>
+		                  	<td>{{$kompetensiDasar->deskripsi}}</td>
+		                  	<td>@if($kompetensiDasar->gasal_genap==1) Gasal @else Genap @endif</td>
+		                  	<td>
+								<form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/kd/'.$kompetensiDasar->id)}}">
+				                  	{{ method_field('DELETE') }}{{ csrf_field() }}
+				                  	<a data-toggle="tooltip" title="Hapus" class="delete-modal btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
+								</form>
+							</td>
+	                  	</tr>
+                	@endforeach
+              	</tbody>
             </table>
           </div>
       </div>

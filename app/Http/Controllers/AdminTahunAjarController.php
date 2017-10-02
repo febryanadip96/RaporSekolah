@@ -25,7 +25,7 @@ class AdminTahunAjarController extends Controller
      */
     public function index()
     {
-        $tahunAjars = TahunAjar::all();
+        $tahunAjars = TahunAjar::orderBy('created_at', 'DESC')->get();
         return view('admin.tahunajar.index',['tahunAjars'=>$tahunAjars]);
     }
 

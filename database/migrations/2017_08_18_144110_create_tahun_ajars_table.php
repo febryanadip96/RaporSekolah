@@ -18,7 +18,6 @@ class CreateTahunAjarsTable extends Migration
             $table->string('nama',30);
             $table->unsignedInteger('total_hari_efektif');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

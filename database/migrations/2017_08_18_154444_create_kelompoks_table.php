@@ -16,8 +16,6 @@ class CreateKelompoksTable extends Migration
         Schema::create('kelompoks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

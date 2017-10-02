@@ -3,22 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class KelasBuka extends Model
 {
-    use SoftDeletes;
-
-    /**
-    * The attributes that should be mutated to dates.
-    *
-    * @var array
-    */
-    protected $dates = ['deleted_at'];
     protected $table = 'kelas_bukas';
     protected $primaryKey = 'id';
 	protected $fillable=['nama','wali_kelas_id','tahun_ajar_id','kelas_id'];
-	public $timestamps=true;
+	public $timestamps=false;
 	protected $guarded=['id'];
 
 	public function daftarKelas()

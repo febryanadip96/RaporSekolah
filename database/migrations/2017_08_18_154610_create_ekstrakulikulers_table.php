@@ -16,9 +16,7 @@ class CreateEkstrakulikulersTable extends Migration
         Schema::create('ekstrakulikulers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-						$table->integer('jenis');
-            $table->timestamps();
-            $table->softDeletes();
+			$table->integer('jenis');
         });
     }
 

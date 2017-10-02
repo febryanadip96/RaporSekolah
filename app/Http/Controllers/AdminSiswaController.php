@@ -34,7 +34,7 @@ class AdminSiswaController extends Controller
      */
     public function index()
     {
-        $siswas = Siswa::orderBy('created_at')->get();
+        $siswas = Siswa::orderBy('created_at', 'DESC')->get();
         return view('admin.siswa.index',['siswas'=>$siswas]);
     }
 

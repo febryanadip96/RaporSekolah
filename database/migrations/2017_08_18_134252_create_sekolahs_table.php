@@ -18,8 +18,6 @@ class CreateSekolahsTable extends Migration
             $table->string('nama');
             $table->boolean('negeri_swasta');
             $table->text('alamat');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

@@ -82,7 +82,7 @@ class AdminIdentitasController extends Controller
      */
     public function update(Request $request, $id)
     {
-		$this->validate([
+		$this->validate($request,[
 			'nama'=>'required',
 			'nis'=>'required',
 			'alamat'=>'required',

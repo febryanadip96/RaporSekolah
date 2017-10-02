@@ -29,31 +29,31 @@
           <!-- /.box-header -->
           <div class="box-body">
             <table class="table table-bordered table-hover">
-              <thead>
-              <tr>
-                <th>No</th>
-                <th>NIS</th>
-                <th>Nama</th>
-                <th>Status Lulus</th>
-                <th class="no-sort">Aksi</th>
-              </tr>
-              </thead>
-              <tbody>
-                @foreach($kelasBuka->daftarKelas as $index => $daftarKelas)
-                  <tr>
-                  <td>{{$index+1}}</td>
-                  <td>{{$daftarKelas->siswa->nis}}</td>
-                  <td>{{$daftarKelas->siswa->user->name}}</td>
-                  <td>@if($daftarKelas->status_lulus==1) Lulus @else Belum Lulus @endif</td>
-                  <td>
-										<form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/aturkelas/'.$daftarKelas->id)}}">
-		                  {{ method_field('DELETE') }}{{ csrf_field() }}
-		                  <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
-										</form>
-									</td>
-                  </tr>
-                @endforeach
-              </tbody>
+              	<thead>
+              	<tr>
+                	<th>No</th>
+                	<th>NIS</th>
+	                <th>Nama</th>
+	                <th>Status Lulus</th>
+	                <th class="no-sort">Aksi</th>
+              	</tr>
+              	</thead>
+              	<tbody>
+                	@foreach($kelasBuka->daftarKelas as $index => $daftarKelas)
+		              	<tr>
+		                  	<td>{{$index+1}}</td>
+		                  	<td>{{$daftarKelas->siswa->nis}}</td>
+		                  	<td>{{$daftarKelas->siswa->user->name}}</td>
+		                  	<td>@if($daftarKelas->status_lulus==1) Lulus @else Belum Lulus @endif</td>
+		                  	<td>
+								<form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/aturkelas/'.$daftarKelas->id)}}">
+				                  	{{ method_field('DELETE') }}{{ csrf_field() }}
+				                  	<a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
+								</form>
+							</td>
+		              	</tr>
+                	@endforeach
+              	</tbody>
             </table>
           </div>
         </div>

@@ -18,7 +18,7 @@ class SemesterSiswa extends Model
     protected $table = 'semester_siswas';
     protected $primaryKey = 'id';
 	protected $fillable=['semester_id','kelas_buka_id','siswa_id','catatan_walikelas'];
-	public $timestamps=true;
+	public $timestamps=false;
 	protected $guarded=['id'];
 
 	public function kelasBuka()

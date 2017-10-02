@@ -22,8 +22,6 @@ class CreateKelasBukasTable extends Migration
             $table->foreign('tahun_ajar_id')->references('id')->on('tahun_ajars');
             $table->integer('kelas_id')->unsigned();
             $table->foreign('kelas_id')->references('id')->on('kelas');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

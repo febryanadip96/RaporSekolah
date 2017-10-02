@@ -18,7 +18,7 @@ class Ketidakhadiran extends Model
     protected $table = 'ketidakhadirans';
     protected $primaryKey = 'id';
 	protected $fillable=['semester_siswa_id','tanggal','status'];
-	public $timestamps=true;
+	public $timestamps=false;
 	protected $guarded=['id'];
 
 	public function semesterSiswa()

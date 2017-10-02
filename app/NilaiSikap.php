@@ -18,7 +18,7 @@ class NilaiSikap extends Model
     protected $table = 'nilai_sikaps';
     protected $primaryKey = 'id';
 	protected $fillable=['nilai_spiritual','predikat_spiritual_id','nilai_sosial','predikat_sosial_id','deskripsi_spiritual','deskripsi_sosial','semester_siswa_id'];
-	public $timestamps=true;
+	public $timestamps=false;
 	protected $guarded=['id'];
 
 	public function predikatSosial()
