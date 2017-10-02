@@ -16,6 +16,7 @@ use App\IdentitasSekolah;
 use App\NilaiEkstrakulikuler;
 use App\Ekstrakulikuler;
 use App\Predikat;
+use App\Kelas;
 
 class GuruCetakRaporController extends Controller
 {
