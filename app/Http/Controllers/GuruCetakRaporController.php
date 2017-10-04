@@ -75,14 +75,18 @@ class GuruCetakRaporController extends Controller
             //tentukan keluluran
 			//inisialisasi variabel
             $lulus=true;
+			$banyakMataPelajaran=0;
             $nilaiPengetahuanBawahKkm=0;
             $nilaiKetrampilanBawahKkm=0;
             $batasKetidakhadiran = $semesterSiswa->semester->tahunAjar->total_hari_efektif*15/100;//batas ketidakhadiran
 
+			//total mata pelajaran yang diambil
+			$banyakMataPelajaran=$semesterSiswa->nilaiRapor->count();
+
             //cek minimal 3 mata pelajaran di bawah kkm
             $siswa=$semesterSiswa->siswa;
             $semestersTahunAjar= $semesterSiswa->semester->tahunAjar->semester->pluck('id');
-            //mendapatakan semester gasalnya
+            //mendapatakan kedua semesternya
             $semesterSiswas=SemesterSiswa::where('siswa_id',$siswa->id)->whereIn('semester_id',$semestersTahunAjar)->pluck('id');
             $mapelBukas=MapelBuka::where('kelas_buka_id',$semesterSiswa->kelasBuka->id)->get();
             foreach ($mapelBukas as $key => $mapelBuka) {
@@ -163,6 +167,7 @@ class GuruCetakRaporController extends Controller
 
 			//return value
             return view('guru.walikelas.aturkelulusan',[
+				'banyakMataPelajaran'=>$banyakMataPelajaran,
 				'semesterSiswa'=>$semesterSiswa,
 	            'daftarKelas'=>$daftarKelas,
 	            'tanpaKeterangans'=>$tanpaKeterangans,

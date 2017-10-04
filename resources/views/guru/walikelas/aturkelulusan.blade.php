@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Atur Kelulusan <small>{{$semesterSiswa->siswa->user->name}} ({{$semesterSiswa->siswa->nis}})</small>
+        Atur Kelulusan
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{url('guru/walikelas')}}"><i class="fa fa-mortar-board"></i> Wali Kelas</a></li>
@@ -23,18 +23,19 @@
 		<div class="box box-widget widget-user-2">
 			<!-- Add the bg color to the header using any of the bg-* classes -->
 			<div class="widget-user-header bg-blue">
-			  <h3>{{$semesterSiswa->siswa->user->name}} ({{$semesterSiswa->siswa->nis}})</h3>
+			  	<h3>{{$semesterSiswa->siswa->user->name}} ({{$semesterSiswa->siswa->nis}})</h3>
 			</div>
 			<div class="box-footer no-padding">
-			  <ul class="nav nav-stacked">
-			    <li><a>Ketidakhadiran Tanpa Keterangan <span class="pull-right badge bg-blue">{{$tanpaKeterangans}} dari {{round($batasKetidakhadiran)}}</span></a></li>
-			    <li><a>Nilai Pengetahuan di bawah KKM <span class="pull-right badge bg-aqua">{{$nilaiPengetahuanBawahKkm}} dari 3</span></a></li>
-			    <li><a>Nilai Ketrampilan di bawah KKM <span class="pull-right badge bg-green">{{$nilaiKetrampilanBawahKkm}} dari 3</span></a></li>
-			    <li><a>Nilai Sikap Spiritual <span class="pull-right badge bg-yellow">{{$keteranganNilaiSikapSpiritual}}</span></a></li>
-			    <li><a>Nilai Sikap Sosial <span class="pull-right badge bg-orange">{{$keteranganNilaiSikapSosial}}</span></a></li>
-			    <li><a>Nilai Ekstrakulikuler Wajib <span class="pull-right badge bg-purple">{{$keteranganEkskul}}</span></a></li>
-				<li><a>Status Kelulusan saat ini <span class="pull-right badge bg-red">@if($daftarKelas->status_lulus) Lulus @else Belum Lulus @endif</span></a></li>
-			  </ul>
+			  	<ul class="nav nav-stacked">
+				  	<li><a>Total Mata Pelajaran yang Diambil <span class="pull-right badge bg-black">{{$banyakMataPelajaran}}</span></a></li>
+				    <li><a>Ketidakhadiran Tanpa Keterangan <span class="pull-right badge bg-blue">{{$tanpaKeterangans}} dari {{round($batasKetidakhadiran)}}</span></a></li>
+				    <li><a>Nilai Pengetahuan di bawah KKM <span class="pull-right badge bg-aqua">{{$nilaiPengetahuanBawahKkm}} dari 3</span></a></li>
+				    <li><a>Nilai Ketrampilan di bawah KKM <span class="pull-right badge bg-green">{{$nilaiKetrampilanBawahKkm}} dari 3</span></a></li>
+				    <li><a>Nilai Sikap Spiritual <span class="pull-right badge bg-yellow">{{$keteranganNilaiSikapSpiritual}}</span></a></li>
+				    <li><a>Nilai Sikap Sosial <span class="pull-right badge bg-orange">{{$keteranganNilaiSikapSosial}}</span></a></li>
+				    <li><a>Nilai Ekstrakulikuler Wajib <span class="pull-right badge bg-purple">{{$keteranganEkskul}}</span></a></li>
+					<li><a>Status Kelulusan saat ini <span class="pull-right badge bg-red">@if($daftarKelas->status_lulus) Lulus @else Belum Lulus @endif</span></a></li>
+			  	</ul>
 		  </div>
 		</div>
 		<!-- /.widget-user -->
