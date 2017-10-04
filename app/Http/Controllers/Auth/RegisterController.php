@@ -36,8 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('guest');
-		abort(404);
+        $this->middleware('guest');
     }
 
     /**
@@ -70,13 +69,13 @@ class RegisterController extends Controller
         ]);
     }
 
-    // protected function showRegistrationForm()
-    // {
-    //     return redirect()->to('login');
-    // }
-	//
-    // public function register()
-    // {
-	//
-    // }
+    protected function showRegistrationForm()
+    {
+        abort(404);
+    }
+
+    public function register()
+    {
+
+    }
 }
