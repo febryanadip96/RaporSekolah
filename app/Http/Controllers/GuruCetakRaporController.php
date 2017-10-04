@@ -162,7 +162,7 @@ class GuruCetakRaporController extends Controller
 				$saran="Siswa boleh dilulus";
 			}
 			else{
-				$saran ="Siswa tidak boleh diluluskan";
+				$saran ="Siswa harus tinggal kelas";
 			}
 
 			//return value
