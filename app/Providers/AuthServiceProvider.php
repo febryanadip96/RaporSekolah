@@ -25,6 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('siswa-rapor', function ($user, $semesterSiswa)){
+			return $user->siswa->id==$semesterSiswa->siswa->id;
+		}
     }
 }
