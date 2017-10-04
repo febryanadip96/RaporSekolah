@@ -22,7 +22,7 @@ class SiswaNilaiRaporController extends Controller
 
 	public function rapor($id){
 		$semesterSiswa=SemesterSiswa::findOrFail($id);
-		if(Gate::denies('siswa-rapor',$SemesterSiswa)){
+		if(Gate::denies('siswa-rapor',$semesterSiswa)){
 			abort(403, 'Unauthorized action.');
 		}
 		$statusKelulusan="";
