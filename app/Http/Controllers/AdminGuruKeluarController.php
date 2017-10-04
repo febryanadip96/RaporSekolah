@@ -24,7 +24,7 @@ class AdminGuruKeluarController extends Controller
      */
     public function index()
     {
-        $karyawans = Karyawan::onlyTrashed()->orderBy('delete_at')->get();
+        $karyawans = Karyawan::onlyTrashed()->orderBy('deleted_at')->get();
         return view('admin.gurukeluar.index',['karyawans'=>$karyawans]);
     }
 
