@@ -32,19 +32,19 @@
             <div class="box-body">
               <div class="form-group">
                 <label for="name">Nama</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Nama Karyawan" required>
+                <input type="text" name="name" class="form-control" value="{{old('name')}}" id="name" placeholder="Nama Karyawan" required>
               </div>
               <div class="form-group">
                 <label for="nik">NIK</label>
-                <input type="text" name="nik" class="form-control" id="nik" placeholder="NIK Karyawan" required>
+                <input type="text" name="nik" class="form-control" value="{{old('nik')}}" id="nik" placeholder="NIK Karyawan" required>
               </div>
               <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
+                <input type="text" name="username" class="form-control" value="{{old('username')}}" id="username" placeholder="Username" required>
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="text" name="password" class="form-control" id="password" placeholder="Password" required>
+                <input type="text" name="password" class="form-control" value="{{old('password')}}" id="password" placeholder="Password" required>
               </div>
               <!-- radio -->
               <div class="form-group">
@@ -74,7 +74,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" name="tanggal_lahir" class="form-control pull-right datepicker" required>
+                  <input type="text" name="tanggal_lahir" value="{{old('tanggal_lahir')}}" class="form-control pull-right datepicker" required>
                 </div>
                 <!-- /.input group -->
               </div>
@@ -82,35 +82,35 @@
                 <label>Tempat Lahir</label>
                 <select name="tempat_lahir_id" class="form-control">
                   @foreach($kotas as $kota)
-                    <option value="{{$kota->id}}">{{$kota->nama}}</option>
+                    <option value="{{$kota->id}}" @if(old('tempat_lahir_id')==$kota->id) selected @endif>{{$kota->nama}}</option>
                   @endforeach
                 </select>
               </div>
               <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <textarea class="form-control" name="alamat" rows="3" id="alamat" placeholder="Alamat" required></textarea>
+                <textarea class="form-control" name="alamat" rows="3" id="alamat" placeholder="Alamat" required>{{old('alamat')}}</textarea>
               </div>
               <div class="form-group">
                 <label for="no_telp">No Telpon</label>
-                <input type="tel" name="no_telp" class="form-control" id="no_telp" placeholder="No Telpon" required>
+                <input type="tel" name="no_telp" class="form-control" value="{{old('no_telp')}}" id="no_telp" placeholder="No Telpon" required>
               </div>
               <div class="form-group">
                 <label>Ijazah Tertinggi</label>
                 <select name="ijazah_id" class="form-control">
                   @foreach($ijazahs as $ijazah)
-                    <option value="{{$ijazah->id}}">{{$ijazah->nama}}</option>
+                    <option value="{{$ijazah->id}}" @if(old('ijazah_id')==$ijazah->id) selected @endif>{{$ijazah->nama}}</option>
                   @endforeach
                 </select>
               </div>
               <div class="form-group">
                 <label>Agama</label>
                 <select name="agama" class="form-control">
-                    <option value="1">Islam</option>
-                    <option value="2">Kristen Protestan</option>
-                    <option value="3">Katolik</option>
-                    <option value="4">Hindu</option>
-                    <option value="5">Budha</option>
-                    <option value="6">Konghucu</option>
+                    <option value="1" @if(old('agama')==1) selected @endif>Islam</option>
+                    <option value="2" @if(old('agama')==2) selected @endif>Kristen Protestan</option>
+                    <option value="3" @if(old('agama')==3) selected @endif>Katolik</option>
+                    <option value="4" @if(old('agama')==4) selected @endif>Hindu</option>
+                    <option value="5" @if(old('agama')==5) selected @endif>Budha</option>
+                    <option value="6" @if(old('agama')==6) selected @endif>Konghucu</option>
                 </select>
               </div>
             </div>
