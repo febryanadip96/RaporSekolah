@@ -16,7 +16,7 @@ class Guru
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::guest() && (Auth::user()->role==2 || Auth::user()->role==3)) {
+        if (!Auth::guest() && (Auth::user()->role==2)) {
             return $next($request);
         }
         return redirect('/login');

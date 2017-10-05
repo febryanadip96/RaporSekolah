@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class Admin
+class KepalaSekolah
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::guest() && (Auth::user()->role==1 || Auth::user()->role==2)) {
+		if (!Auth::guest() && (Auth::user()->role==1)) {
             return $next($request);
         }
         return redirect('/login');

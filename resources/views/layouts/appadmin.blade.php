@@ -106,11 +106,6 @@
                     </a>
 
                     <ul class="dropdown-menu" role="menu">
-                        @if (Auth::user()->role==2)
-                            <li>
-                                <a href="{{ url('guru/home') }}">Menu Guru</a>
-                            </li>
-                        @endif
                         <li>
                             <a href="{{ url('admin/profile/'.Auth::user()->id).'/edit' }}">Profile</a>
                         </li>

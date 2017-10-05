@@ -92,11 +92,6 @@
                     </a>
 
                     <ul class="dropdown-menu" role="menu">
-                        @if (Auth::user()->role==2)
-                            <li>
-                                <a href="{{ url('admin/home') }}">Menu Admin</a>
-                            </li>
-                        @endif
                         <li>
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

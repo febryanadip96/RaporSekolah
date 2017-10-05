@@ -24,7 +24,7 @@ class AdminSiswaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('kepalasekolah');
     }
 
     /**
@@ -87,7 +87,7 @@ class AdminSiswaController extends Controller
             'name' => $request['name'],
             'username' =>$request['username'],
             'password' =>bcrypt($request['password']),
-            'role' =>4,
+            'role' =>3,
             ])->id;
         Siswa::create([
             'user_id' =>$userId,
@@ -248,6 +248,14 @@ class AdminSiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        $siswa = Siswa::findOrFail($id);
+		$siswa->forceDelete();
+		$siswa->user->forceDelete();
+		return redirect(action('AdminSiswaController@index'))->with('status','Data siswa telah dihapus');
+    }
+
+	public function keluarPindah($id)
     {
         $siswa = Siswa::findOrFail($id);
         return view('admin.siswakeluarpindah.create', ['siswa'=>$siswa]);

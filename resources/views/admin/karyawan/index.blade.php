@@ -71,10 +71,13 @@
 	                        Ya
 	                      @endif
 	                    </td>
-	                    <td><a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/karyawan/'.$karyawan->id)}}"><span class="fa fa-eye"></span></a> <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/karyawan/'.$karyawan->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
+	                    <td>
+							<a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/karyawan/'.$karyawan->id)}}"><span class="fa fa-eye"></span></a>
+							<a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/karyawan/'.$karyawan->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
+							<a data-toggle="tooltip" title="Keluar" class="btn btn-danger btn-xs" href="{{url('admin/karyawan/keluar/'.$karyawan->id.'')}}"><span class="fa fa-sign-out"></span></a>
 	                        <form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/karyawan/'.$karyawan->id)}}">
 	                          {{ method_field('DELETE') }}{{ csrf_field() }}
-	                          <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-xs btn-danger"><span class='fa fa-sign-out'></span></a>
+	                          <a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-xs btn-danger"><span class='fa fa-trash'></span></a>
 	                        </form>
 	                    </td>
                     </tr>

@@ -15,7 +15,7 @@ class AdminTahunAjarController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('kepalasekolah');
     }
 
     /**
@@ -26,7 +26,8 @@ class AdminTahunAjarController extends Controller
     public function index()
     {
         $tahunAjars = TahunAjar::orderBy('created_at', 'DESC')->get();
-        return view('admin.tahunajar.index',['tahunAjars'=>$tahunAjars]);
+		$semesterAktif= Semester::where('status',1)->firstOrFail();
+        return view('admin.tahunajar.index',['tahunAjars'=>$tahunAjars, 'semesterAktif'=>$semesterAktif]);
     }
 
     /**
@@ -87,6 +88,10 @@ class AdminTahunAjarController extends Controller
      */
     public function edit($id)
     {
+		$semesterAktif= Semester::where('status',1)->firstOrFail();
+		if($semesterAktif->tahunAjar->id!=$id){
+			return back()->with('status','Tahun Ajar tidak dapat diedit karena Tahun Ajar tidak aktif');
+		}
         $tahunAjar = TahunAjar::findOrFail($id);
         return view('admin.tahunajar.edit',['tahunAjar'=>$tahunAjar]);
     }

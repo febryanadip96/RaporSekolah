@@ -18,7 +18,7 @@ class AdminKaryawanController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('kepalasekolah');
     }
 
     /**
@@ -57,7 +57,6 @@ class AdminKaryawanController extends Controller
             'username' =>'required|string|max:255|unique:users',
             'nik'=>'required',
             'password'=>'required|string|min:6',
-            'role'=>'required',
             'jenis_kelamin'=>'required',
             'tanggal_lahir'=>'required',
             'tempat_lahir_id'=>'required',
@@ -69,7 +68,6 @@ class AdminKaryawanController extends Controller
 			'username.unique'=>'Username harus unik',
             'nik.required'=>'NIK harus diisi',
 			'password.min'=>'Password minimal 6 karakter',
-			'role.required'=>'Role harus diisi',
 			'jenis_kelamin.required'=>'Jenis kelamin harus diisi',
             'tanggal_lahir.required'=>'Tanggal lahir harus diisi',
             'tempat_lahir_id.required'=>'Tempat lahir tidak valid',
@@ -79,7 +77,7 @@ class AdminKaryawanController extends Controller
             'name' => $request['name'],
             'username' =>$request['username'],
             'password' => bcrypt($request['password']),
-            'role' => $request['role'],
+            'role' => 2,
             ])->id;
         Karyawan::create([
             'user_id' => $idUser,
@@ -136,7 +134,6 @@ class AdminKaryawanController extends Controller
         $this->validate($request,[
             'name' => 'required|string|max:255',
             'nik'=>'required',
-            'role'=>'required',
             'jenis_kelamin'=>'required',
             'tanggal_lahir'=>'required',
             'tempat_lahir_id'=>'required',
@@ -145,7 +142,6 @@ class AdminKaryawanController extends Controller
             'ijazah_id'=>'required',
             'agama'=>'required',
 		],[
-			'role.required'=>'Role harus diisi',
             'nik.required'=>'NIK harus diisi',
 			'jenis_kelamin.required'=>'Jenis kelamin harus diisi',
             'tanggal_lahir.required'=>'Tanggal lahir harus diisi',
@@ -169,7 +165,6 @@ class AdminKaryawanController extends Controller
         $karyawan->agama =$request['agama'];
         $user=User::whereId($karyawan->user->id)->firstOrFail();
         $user->name = $request['name'];
-        $user->role = $request['role'];
         if($request['password']!=null)
         {
             $this->validate($request,[
@@ -192,12 +187,17 @@ class AdminKaryawanController extends Controller
      */
     public function destroy($id)
     {
-      $karyawan = Karyawan::findOrFail($id);
-			if(Auth::user()->id==$karyawan->user->id){
-				return redirect(action('AdminKaryawanController@index'))->with('status','Data Guru gagal dihapus');
-			}
-      $karyawan->delete();
-      $karyawan->user->delete();
-      return redirect(action('AdminKaryawanController@index'))->with('status','Guru telah dikeluarkan');
+      	$karyawan = Karyawan::findOrFail($id);
+      	$karyawan->forceDelete();
+      	$karyawan->user->forceDelete();
+      	return redirect(action('AdminKaryawanController@index'))->with('status','Guru telah dihapus');
     }
+
+	public function keluar($id)
+	{
+		$karyawan = Karyawan::findOrFail($id);
+      	$karyawan->delete();
+      	$karyawan->user->delete();
+      	return redirect(action('AdminKaryawanController@index'))->with('status','Guru telah dikeluarkan');
+	}
 }

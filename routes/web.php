@@ -23,7 +23,7 @@ Route::get('home', 'HomeController@index');
 //home
 Route::get('admin/home', function(){
 	return view('admin.home');
-})->middleware('admin');
+})->middleware('kepalasekolah');
 //profile admin
 Route::resource('admin/profile', 'AdminProfileController');
 //identitas sekolah
@@ -34,8 +34,10 @@ Route::resource('admin/tahunajar', 'AdminTahunAjarController');
 Route::resource('admin/semester', 'AdminSemesterController');
 //karyawan
 Route::resource('admin/karyawan', 'AdminKaryawanController');
+Route::get('admin/karyawan/keluar/{id}','AdminKaryawanController@keluar');
 //siswa
 Route::resource('admin/siswa', 'AdminSiswaController');
+Route::get('admin/siswa/pindahkeluar/{id}','AdminSiswaController@keluarPindah');
 Route::get('admin/siswa/semester/{id}','AdminSiswaController@semester');
 Route::get('admin/siswa/rapor/{id}','AdminSiswaController@rapor');
 //kelas

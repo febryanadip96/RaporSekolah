@@ -16,7 +16,7 @@ class Siswa
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::guest() && Auth::user()->role==4) {
+        if (!Auth::guest() && Auth::user()->role==3) {
             return $next($request);
         }
         return redirect('/login');

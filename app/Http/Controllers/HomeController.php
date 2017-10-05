@@ -38,17 +38,7 @@ class HomeController extends Controller
                 }
             }
             else if(\Auth::user()->role==3){
-                if(\Auth::user()->karyawan->deleted_at==null)
-                {
-                    return redirect('guru/home');
-                }
-                else
-                {
-                    \Auth::logout();
-                }
-            }
-            else if(\Auth::user()->role==4){
-                if(\Auth::user()->siswa->deleted_at==null)
+				if(\Auth::user()->siswa->deleted_at==null)
                 {
                     return redirect('siswa/home');
                 }
