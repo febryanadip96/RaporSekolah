@@ -41,9 +41,7 @@
                     <td>{{$tahunAjar->nama}}</td>
                     <td>{{$tahunAjar->total_hari_efektif}} hari</td>
                     <td>
-						@if($semesterAktif->tahunAjar->id==$tahunAjar->id)
-							<a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/tahunajar/'.$tahunAjar->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
-						@endif
+						<a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/tahunajar/'.$tahunAjar->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
 					</td>
                     </tr>
                   @endforeach

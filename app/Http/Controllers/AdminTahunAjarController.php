@@ -26,7 +26,7 @@ class AdminTahunAjarController extends Controller
     public function index()
     {
         $tahunAjars = TahunAjar::orderBy('created_at', 'DESC')->get();
-		$semesterAktif= Semester::where('status',1)->firstOrFail();
+		$semesterAktif= Semester::where('status',1)->first();
         return view('admin.tahunajar.index',['tahunAjars'=>$tahunAjars, 'semesterAktif'=>$semesterAktif]);
     }
 
@@ -88,9 +88,12 @@ class AdminTahunAjarController extends Controller
      */
     public function edit($id)
     {
-		$semesterAktif= Semester::where('status',1)->firstOrFail();
+		$semesterAktif= Semester::where('status',1)->first();
+		if(!$semesterAktif){
+			return back()->with('status','Tahun Ajar tidak dapat diedit karena Semester Tahun Ajar tidak aktif');
+		}
 		if($semesterAktif->tahunAjar->id!=$id){
-			return back()->with('status','Tahun Ajar tidak dapat diedit karena Tahun Ajar tidak aktif');
+			return back()->with('status','Tahun Ajar tidak dapat diedit karena Semester Tahun Ajar tidak aktif');
 		}
         $tahunAjar = TahunAjar::findOrFail($id);
         return view('admin.tahunajar.edit',['tahunAjar'=>$tahunAjar]);

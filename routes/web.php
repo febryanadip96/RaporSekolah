@@ -106,7 +106,24 @@ Route::resource('admin/gurukeluar', 'AdminGuruKeluarController');
 
 //guru
 Route::get('guru/home', function(){
-	return view('guru.home');
+	$karyawanId = Auth::user()->karyawan->id;
+	//cari semester aktif
+	$semesterAktif =Semester::where('status', 1)->first();
+	if(empty($semesterAktif))
+	{
+		$kelasWaliKelas=null;
+		$jumlahMapelBuka="Tidak Ada";
+		return view('guru.home',['kelasWaliKelas'=>$kelasWaliKelas,'jumlahMapelBuka'=>$jumlahMapelBuka]);
+	}
+	//cari kelas yang diwalikelas tahun ajar ini
+	$kelasWaliKelas= KelasBuka::where('tahun_ajar_id',$semesterAktif->tahunAjar->id)->where('wali_kelas_id',$karyawanId)->first();
+	if(empty($kelasWaliKelas))
+	{
+		$kelasWaliKelas=null;
+	}
+	$kelasBukasId= KelasBuka::where('tahun_ajar_id',$semesterAktif->tahunAjar->id)->pluck('id');
+	$jumlahMapelBuka = MapelBuka::where('pengajar_id', $karyawanId)->whereIn('kelas_buka_id',$kelasBukasId)->get()->count();
+	return view('guru.home',['kelasWaliKelas'=>$kelasWaliKelas,'jumlahMapelBuka'=>$jumlahMapelBuka]);
 })->middleware('guru');
 //mata pelajaran
 Route::get('guru/matapelajaran', 'GuruMataPelajaranController@index');
