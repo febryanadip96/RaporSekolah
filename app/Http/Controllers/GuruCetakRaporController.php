@@ -54,7 +54,7 @@ class GuruCetakRaporController extends Controller
 			}
         }
         //kepala sekolah
-        $kepalaSekolah = User::where('role',2)->first();
+        $kepalaSekolah = User::where('role',1)->first();
         $kelompoks = Kelompok::all();
         //tanggal sekarang
         Carbon::setLocale('id');

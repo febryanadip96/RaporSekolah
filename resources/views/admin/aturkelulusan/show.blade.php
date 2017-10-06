@@ -8,7 +8,7 @@
       <h1>
         Atur Kelulusan kelas {{$kelasBuka->nama}} ({{$kelasBuka->tahunAjar->nama}})
 	</h1><br>
-	  <a class="btn btn-success" href="{{url('admin/aturkelulusan/proses/'.$kelasBuka->id)}}"><i class="fa fa-gear"></i> Proses Kelulusan</a>
+	  <a class="btn btn-success" href="{{url('admin/aturkelulusan/proses/'.$kelasBuka->id)}}"><i class="fa fa-gear"></i> Proses Otomatis Kelulusan</a>
       <ol class="breadcrumb">
         <li><i class="fa fa-book"></i> Kelas</li>
         <li>Kelas</li>
