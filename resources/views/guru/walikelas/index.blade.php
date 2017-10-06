@@ -204,11 +204,10 @@
                   <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                      <th>No</th>
-                      <th>NIS</th>
-                      <th>Nama</th>
-											<th>Kelulusan</th>
-                      <th class="no-sort">Rapor</th>
+                      	<th>No</th>
+                      	<th>NIS</th>
+                      	<th>Nama</th>
+                      	<th class="no-sort">Rapor</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -217,11 +216,6 @@
 	                        <td>{{$index+1}}</td>
 	                        <td>{{$semesterSiswa->siswa->nis}}</td>
 	                        <td>{{$semesterSiswa->siswa->user->name}}</td>
-													<td>
-														@if($semesterSiswa->semester->gasal_genap==2)
-																<a class="btn btn-info btn-xs" href="{{url('guru/walikelas/aturkelulusan/'.$semesterSiswa->id)}}"><span class="fa fa-balance-scale"></span> Atur Kelulusan</a>
-														@endif
-													</td>
 	                        <td>
 	                            <a class="btn btn-warning btn-xs" href="{{url('guru/walikelas/cetakraportengahsemester/'.$semesterSiswa->id)}}"><span class="fa fa-print"></span> Tengah Semester</a>
 	                            <a class="btn btn-danger btn-xs" href="{{url('guru/walikelas/cetakraporakhirsemester/'.$semesterSiswa->id)}}"><span class="fa fa-print"></span> Akhir Semester</a>

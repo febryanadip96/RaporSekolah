@@ -44,6 +44,12 @@ Route::get('admin/siswa/rapor/{id}','AdminSiswaController@rapor');
 Route::resource('admin/kelas', 'AdminKelasController');
 //kelas buka
 Route::resource('admin/kelasbuka', 'AdminKelasBukaController');
+//atur kelulusan
+Route::resource('admin/aturkelulusan', 'AdminAturKelulusan');
+Route::get('admin/aturkelulusan/lihat/{id}','AdminAturKelulusan@lihat');
+Route::get('admin/aturkelulusan/proses/{id}','AdminAturKelulusan@proses');
+Route::post('admin/aturkelulusan/ubahkelulusan/{id}','AdminAturKelulusan@ubahKelulusan');
+Route::get('admin/aturkelulusan/lulustidak/{id}','AdminAturKelulusan@lulustidak');
 //atur kelas buka
 Route::resource('admin/aturkelas', 'AdminAturKelasController');
 //kelompok mapel
@@ -108,11 +114,6 @@ Route::post('guru/walikelas/catatan/{id}','GuruCatatanController@update');
 Route::get('guru/walikelas/cetakraportengahsemester/{semesterSiswaId}', 'GuruCetakRaporController@tengah');
 //cetak rapor akhir semester
 Route::get('guru/walikelas/cetakraporakhirsemester/{semesterSiswaId}', 'GuruCetakRaporController@akhir');
-//atur kelulusan
-//get
-Route::get('guru/walikelas/aturkelulusan/{semesterSiswaId}', 'GuruCetakRaporController@aturKelulusan');
-//post
-Route::post('guru/walikelas/aturkelulusan/{semesterSiswaId}', 'GuruCetakRaporController@ubahKelulusan');
 
 
 //pts pas

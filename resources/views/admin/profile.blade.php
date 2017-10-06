@@ -39,11 +39,6 @@
                   <label for="name">Nama</label>
                   <input type="text" name="name" class="form-control" id="name" placeholder="Nama" value="{{Auth::user()->name}}" required>
                 </div>
-				<div class="form-group">
-                  <label>
-                    Super <input type="checkbox" name="super" class="minimal" value="1" @if($karyawan->super==1) checked @endif>
-                  </label>
-                </div>
                 <div class="form-group">
                   <label for="password">Password Baru (Diisi apabila akan mengganti password)</label>
                   <input type="password" name="password" class="form-control" id="password" placeholder="Password">

@@ -1,4 +1,4 @@
-@extends('layouts.appguru')
+@extends('layouts.appadmin')
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -6,11 +6,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Atur Kelulusan
+        Lihat Data Kelulusan
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{url('guru/walikelas')}}"><i class="fa fa-mortar-board"></i> Wali Kelas</a></li>
-        <li class="active"> Atur Kelulusan</li>
+		  <li><i class="fa fa-book"></i> Kelas</li>
+          <li>Kelas</li>
+          <li><a href="{{url('admin/aturkelulusan')}}">Atur Kelulusan</a></li>
+          <li><a href="{{url('admin/aturkelulusan/'.$daftarKelas->kelasBuka->id)}}">Atur Kelulusan (show)</a></li>
+          <li class="active">Lihat Data</li>
       </ol>
     </section>
   <!-- Main content -->
@@ -47,7 +50,7 @@
           <!-- /.box-header -->
           <!-- form start -->
           <!-- /.box-body -->
-          <form role="form" class="form-update" action="{{url('guru/walikelas/aturkelulusan/'.$semesterSiswa->id)}}" method="post">
+          <form role="form" class="form-update" action="{{url('admin/aturkelulusan/ubahkelulusan/'.$daftarKelas->id)}}" method="post">
             {{ csrf_field() }}
             <div class="box-body">
 				<div class="form-group has-warning">
@@ -58,10 +61,10 @@
               <div class="form-group has-warning">
                   <label>Lulus:</label><br>
                   <label class="radio-inline">
-                      <input type="radio" name="lulus" class="minimal" value="1" @if($lulus==true) checked @endif> Ya
+                      <input type="radio" name="lulus" class="minimal" value="1" @if($daftarKelas->status_lulus) checked @endif> Ya
                   </label>
                   <label class="radio-inline">
-                      <input type="radio" name="lulus" class="minimal" value="0"  @if($lulus==false) checked @endif> Tidak
+                      <input type="radio" name="lulus" class="minimal" value="0"  @if(!$daftarKelas->status_lulus) checked @endif> Tidak
                   </label>
               </div>
             </div>

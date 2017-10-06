@@ -34,7 +34,7 @@ class AdminKelasBukaController extends Controller
         $tahunAjarAktif = $semester->tahunAjar;
         $karyawanException = KelasBuka::where('tahun_ajar_id',$tahunAjarAktif->id)->pluck('wali_kelas_id');
         $karyawans = Karyawan::whereNotIn('id',$karyawanException)->get();
-        $kelasBukas = KelasBuka::orderBy('id', 'DESC')->get();
+        $kelasBukas = KelasBuka::orderBy('id', 'DESC')->where('tahun_ajar_id',$tahunAjarAktif->id)->get();
         return view('admin.kelasbuka.index',['kelasBukas'=>$kelasBukas, 'kelas'=>$kelas, 'tahunAjars'=>$tahunAjars,'tahunAjarAktif' =>$tahunAjarAktif, 'karyawans' =>$karyawans]);
     }
 

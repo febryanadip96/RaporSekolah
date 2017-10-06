@@ -174,7 +174,7 @@
             <li class="{{active(['admin/gurukeluar','admin/gurukeluar/*'])}}"><a href="{{url('admin/gurukeluar')}}"><i class="fa fa-circle-o"></i> Karyawan Keluar</a></li>
           </ul>
         </li>
-        <li class="treeview {{active(['admin/kelas','admin/kelas/*','admin/kelasbuka','admin/kelasbuka/*','admin/kelompok','admin/kelompok/*','admin/mapel','admin/mapel/*','admin/kelompok/*','admin/mapelbuka','admin/mapelbuka/*','admin/pengajar','admin/pengajar/*','admin/aturkelas','admin/aturkelas/*','admin/kd','admin/kd/*','admin/daftarsiswamapel','admin/daftarsiswamapel/*'])}}">
+        <li class="treeview {{active(['admin/kelas','admin/kelas/*','admin/kelasbuka','admin/kelasbuka/*','admin/aturkelulusan','admin/aturkelulusan/*','admin/kelompok','admin/kelompok/*','admin/mapel','admin/mapel/*','admin/kelompok/*','admin/mapelbuka','admin/mapelbuka/*','admin/pengajar','admin/pengajar/*','admin/aturkelas','admin/aturkelas/*','admin/kd','admin/kd/*','admin/daftarsiswamapel','admin/daftarsiswamapel/*'])}}">
           <a href="#">
             <i class="fa fa-book"></i>
             <span>Kelas</span>
@@ -183,7 +183,7 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li class="treeview {{active(['admin/kelas','admin/kelas/*','admin/kelasbuka','admin/kelasbuka/*','admin/aturkelas','admin/aturkelas/*'])}}">
+            <li class="treeview {{active(['admin/kelas','admin/kelas/*','admin/kelasbuka','admin/kelasbuka/*','admin/aturkelas','admin/aturkelas/*','admin/aturkelulusan','admin/aturkelulusan/*'])}}">
               <a href="#"><i class="fa fa-circle-o"></i> Kelas
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
@@ -192,6 +192,7 @@
               <ul class="treeview-menu">
                 <li class="{{active(['admin/kelas','admin/kelas/*'])}}"><a href="{{url('admin/kelas')}}"><i class="fa fa-circle-o"></i> Kelas</a></li>
                 <li  class="{{active(['admin/kelasbuka','admin/kelasbuka/*','admin/aturkelas','admin/aturkelas/*'])}}"><a href="{{url('admin/kelasbuka')}}"><i class="fa fa-circle-o"></i> Kelas Buka</a></li>
+                <li  class="{{active(['admin/aturkelulusan','admin/aturkelulusan/*'])}}"><a href="{{url('admin/aturkelulusan')}}"><i class="fa fa-circle-o"></i> Atur Kelulusan</a></li>
               </ul>
             </li>
             <li class="treeview {{active(['admin/kelompok','admin/kelompok/*','admin/mapel','admin/mapel/*','admin/kd','admin/kd/*','admin/mapelbuka','admin/mapelbuka/*','admin/daftarsiswamapel','admin/daftarsiswamapel/*'])}}">
