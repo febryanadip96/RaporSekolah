@@ -29,13 +29,12 @@ class AdminKelasBukaController extends Controller
     public function index()
     {
         $kelas = Kelas::all();
-        $tahunAjars = TahunAjar::all();
         $semester=Semester::where('status',1)->firstOrFail();
         $tahunAjarAktif = $semester->tahunAjar;
         $karyawanException = KelasBuka::where('tahun_ajar_id',$tahunAjarAktif->id)->pluck('wali_kelas_id');
         $karyawans = Karyawan::whereNotIn('id',$karyawanException)->get();
         $kelasBukas = KelasBuka::orderBy('id', 'DESC')->where('tahun_ajar_id',$tahunAjarAktif->id)->get();
-        return view('admin.kelasbuka.index',['kelasBukas'=>$kelasBukas, 'kelas'=>$kelas, 'tahunAjars'=>$tahunAjars,'tahunAjarAktif' =>$tahunAjarAktif, 'karyawans' =>$karyawans]);
+        return view('admin.kelasbuka.index',['kelasBukas'=>$kelasBukas, 'kelas'=>$kelas, 'tahunAjarAktif' =>$tahunAjarAktif, 'karyawans' =>$karyawans]);
     }
 
     /**
@@ -94,7 +93,7 @@ class AdminKelasBukaController extends Controller
      */
     public function edit($id)
     {
-        $kelasBuka = KelasBuka::whereId($id)->firstOrFail();
+        $kelasBuka = KelasBuka::whereId($id)->where('')->firstOrFail();
         $kelas = Kelas::all();
         $karyawanException = KelasBuka::where('tahun_ajar_id',$kelasBuka->tahun_ajar_id)->pluck('wali_kelas_id');
         $karyawans = Karyawan::whereNotIn('id',$karyawanException)->get();

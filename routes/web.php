@@ -1,5 +1,10 @@
 <?php
 
+use App\Semester;
+use App\Siswa;
+use App\Karyawan;
+use App\KelasBuka;
+use App\MapelBuka;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +27,22 @@ Route::get('home', 'HomeController@index');
 //admin & kepala sekolah
 //home
 Route::get('admin/home', function(){
-	return view('admin.home');
+	$semesterAktif = Semester::where('status',1)->first();
+	if(!$semesterAktif){
+		$semesterAktif = null;
+		$jumlahSiswa = "Tidak Ada";
+		$jumlahKaryawan = "Tidak Ada";
+		$kelasBukas = "Tidak Ada";
+		$jumlahKelasBuka = "Tidak Ada";
+		$jumlahMapelBuka = "Tidak Ada";
+		return view('admin.home',['semesterAktif'=>$semesterAktif,'jumlahSiswa'=>$jumlahSiswa,'jumlahKaryawan'=>$jumlahKaryawan,'jumlahKelasBuka'=>$jumlahKelasBuka,'jumlahMapelBuka'=>$jumlahMapelBuka]);
+	}
+	$jumlahSiswa = Siswa::all()->count();
+	$jumlahKaryawan = Karyawan::all()->count();
+	$kelasBukas = KelasBuka::where('tahun_ajar_id', $semesterAktif->tahunAjar->id)->get();
+	$jumlahKelasBuka = $kelasBukas->count();
+	$jumlahMapelBuka = MapelBuka::whereIn('kelas_buka_id',$kelasBukas->pluck('id'))->get()->count();
+	return view('admin.home',['semesterAktif'=>$semesterAktif,'jumlahSiswa'=>$jumlahSiswa,'jumlahKaryawan'=>$jumlahKaryawan,'jumlahKelasBuka'=>$jumlahKelasBuka,'jumlahMapelBuka'=>$jumlahMapelBuka]);
 })->middleware('kepalasekolah');
 //profile admin
 Route::resource('admin/profile', 'AdminProfileController');

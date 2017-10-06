@@ -30,7 +30,9 @@ class AdminMapelBukaController extends Controller
      */
     public function index()
     {
-        $mapelbukas = MapelBuka::orderBy('created_at', 'DESC')->get();
+		$semesterAktif=Semester::where('status',1)->firstOrFail();
+		$kelasBukasId = KelasBuka::where('tahun_ajar_id',$semesterAktif->tahunAjar->id)->pluck('id');
+        $mapelbukas = MapelBuka::whereIn('kelas_buka_id',$kelasBukasId)->orderBy('created_at', 'DESC')->get();
         return view('admin.mapelbuka.index',['mapelbukas'=>$mapelbukas]);
     }
 
@@ -67,13 +69,20 @@ class AdminMapelBukaController extends Controller
 			'kelas_buka_id.required'=>'Kelas buka tidak valid',
 			'kkm.numeric'=>'KKM harus diisi angka',
 		]);
+		$mapel=MataPelajaran::findOrFail($request['mata_pelajaran_id']);
+		$kelasBuka=KelasBuka::findOrFail($request['kelas_buka_id']);
+		if($kelasBuka->kelas->id!=$mapel->kelas->id)
+		{
+			return back()->with('status','Mata pelajaran yang dipilih tidak sesuai untuk kelas buka yang dipilih');
+		}
         $idMapelBuka=MapelBuka::create([
             'mata_pelajaran_id'=>$request['mata_pelajaran_id'],
             'pengajar_id'=>$request['pengajar_id'],
             'kelas_buka_id'=>$request['kelas_buka_id'],
             'kkm'=>$request['kkm'],
             ])->id;
-        $mapel=MataPelajaran::findOrFail($request['mata_pelajaran_id']);
+
+		//daftarkan siswa di kelas buka apabila mata pelajaran berjenis umum
         if($mapel->jenis==0)
         {
             $semesterSiswas=SemesterSiswa::where('kelas_buka_id',$request['kelas_buka_id'])->get();
