@@ -38,10 +38,164 @@
 	<![endif]-->
 </head>
 <body>
+	<div class="page">
+		<div class="wrapper">
+		  	<!-- Main content -->
+			<section class="invoice">
+  		    	<!-- info row -->
+				<div class="row">
+				<div class="col-xs-12 table-responsive">
+					<h4 class="text-center">LAPORAN</h4>
+					<h4 class="text-center">HASIL CAPAIAN KOMPETENSI PESERTA DIDIK</h4>
+					<h4 class="text-center">SEKOLAH MENENGAH PERTAMA</h4>
+					<h4 class="text-center">(SMP)</h4><br>
+					<table class="table table-responsive">
+						<tr>
+							<td class="text-right col-xs-6">Nama Sekolah:</td><td>{{$sekolah->nama}}</td>
+						</tr>
+						<tr>
+							<td class="text-right col-xs-6">NIS/NSS/NDS:</td><td>{{$sekolah->nis}}</td>
+						</tr>
+						<tr>
+							<td class="text-right col-xs-6">Alamat Sekolah:</td><td>{{$sekolah->alamat}}</td>
+						</tr>
+						<tr>
+							<td class="text-right col-xs-6">Kelurahan:</td><td>{{$sekolah->kelurahan}}</td>
+						</tr>
+						<tr>
+							<td class="text-right col-xs-6">Kecamatan:</td><td>{{$sekolah->kecamatan}}</td>
+						</tr>
+						<tr>
+							<td class="text-right col-xs-6">Kota/Kabupaten:</td><td>{{$sekolah->kota->nama}}</td>
+						</tr>
+						<tr>
+							<td class="text-right col-xs-6">Provinsi:</td><td>{{$sekolah->provinsi}}</td>
+						</tr>
+						<tr>
+							<td class="text-right col-xs-6">Website:</td><td>{{$sekolah->website}}</td>
+						</tr>
+						<tr>
+							<td class="text-right col-xs-6">Email:</td><td>{{$sekolah->email}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			</section>
+	  	</div>
+	</div>
+	<div class="page">
+		<div class="wrapper">
+		  	<!-- Main content -->
+			<section class="invoice">
+  		    	<!-- info row -->
+				<div class="row">
+					<div class="col-xs-12 table-responsive">
+					<h4 class="text-center">KETERANGAN TENTANG DIRI PESERTA DIDIK</h4><br>
+					<table class="table table-striped">
+						<tr>
+							<td class="col-xs-4">Nama Peserta Didik (Lengkap):</td><td>{{$semesterSiswa->siswa->user->name}}</td>
+						</tr>
+						<tr>
+							<td>Nomor Induk/NISN:</td><td>{{$semesterSiswa->siswa->nisn}}</td>
+						</tr>
+						<tr>
+							<td>Tempat Tanggal Lahir:</td><td>{{$semesterSiswa->siswa->asal->nama}}, {{date('d-m-Y',strtotime($semesterSiswa->siswa->tanggal_lahir))}}</td>
+						</tr>
+						<tr>
+							<td>Jenis Kelamin:</td>
+							<td>
+								@if ($semesterSiswa->siswa->jenis_kelamin == 0)
+		                          Laki-laki
+		                        @elseif ($semesterSiswa->siswa->jenis_kelamin == 1)
+		                          Perempuan
+		                        @endif
+							</td>
+						</tr>
+						<tr>
+							<td>Agama:</td>
+							<td>
+								@if ($semesterSiswa->siswa->agama == 0)
+		                          	Islam
+		                        @elseif ($semesterSiswa->siswa->agama == 1)
+		                          	Kristen Protestan
+							  	@elseif ($semesterSiswa->siswa->agama == 2)
+	  	                          	Khatolik
+								@elseif ($semesterSiswa->siswa->agama == 3)
+	  	                          	Hindu
+								@elseif ($semesterSiswa->siswa->agama == 4)
+	  	                          	Budha
+								@elseif ($semesterSiswa->siswa->agama == 5)
+	  	                          	Konghucu
+		                        @endif
+							</td>
+						</tr>
+						<tr>
+							<td>Anak Ke:</td><td>{{$semesterSiswa->siswa->anak_ke}}</td>
+						</tr>
+						<tr>
+							<td>Alamat Peserta Didik:</td><td>{{$semesterSiswa->siswa->alamat}}</td>
+						</tr>
+						<tr>
+							<td>Nomor Telpon Rumah:</td><td>{{$semesterSiswa->siswa->telpon_rumah}}</td>
+						</tr>
+						<tr>
+							<td>Sekolah Asal:</td><td>{{$semesterSiswa->siswa->sekolahAsal->nama}}</td>
+						</tr>
+						<tr>
+							<td colspan="2">Diterima Di Sekolah ini:</td>
+						</tr>
+						<tr>
+							<td>Di Kelas:</td><td>{{$semesterSiswa->siswa->masukKelasAwal->tingkat}}</td>
+						</tr>
+						<tr>
+							<td>Pada Tanggal:</td><td>{{date('d-m-Y',strtotime($semesterSiswa->siswa->tanggal_masuk))}}</td>
+						</tr>
+						<tr>
+							<td colspan="2">Nama Orang Tua:</td>
+						</tr>
+						<tr>
+							<td>Ayah:</td><td>{{$semesterSiswa->siswa->ayah}}</td>
+						</tr>
+						<tr>
+							<td>Ibu:</td><td>{{$semesterSiswa->siswa->ibu}}</td>
+						</tr>
+						<tr>
+							<td>Alamat Orang Tua:</td><td>{{$semesterSiswa->siswa->alamat_ortu}}</td>
+						</tr>
+						<tr>
+							<td>Nomor Telpon Rumah:</td><td>{{$semesterSiswa->siswa->telpon_rumah_ortu}}</td>
+						</tr>
+						<tr>
+							<td colspan="2">Pekerjaan Orang Tua:</td>
+						</tr>
+						<tr>
+							<td>Ayah:</td><td>{{$semesterSiswa->siswa->pekerjaanAyah->nama}}</td>
+						</tr>
+						<tr>
+							<td>Ibu:</td><td>{{$semesterSiswa->siswa->pekerjaanIbu->nama}}</td>
+						</tr>
+						<tr>
+							<td>Nama Wali Peserta Didik:</td><td>{{$semesterSiswa->siswa->wali}}</td>
+						</tr>
+						<tr>
+							<td>Alamat Wali Peserta Didik:</td><td>{{$semesterSiswa->siswa->alamat_wali}}</td>
+						</tr>
+						<tr>
+							<td>Nomor Telpon Rumah:</td><td>{{$semesterSiswa->siswa->telpon_rumah_wali}}</td>
+						</tr>
+						<tr>
+							<td>Pekerjaan Wali Peserta Didik:</td><td>{{$semesterSiswa->siswa->pekerjaanWali->nama}}</td>
+						</tr>
+					</table>
+				</div>
+				</div>
+			</section>
+	  	</div>
+	</div>
     <div class="page">
-			<div class="wrapper">
-			  <!-- Main content -->
-			  <section class="invoice">
+		<div class="wrapper">
+		  <!-- Main content -->
+		  	<section class="invoice">
 			    <!-- info row -->
 			    <div class="row">
 			      <!-- /.col -->
@@ -61,20 +215,20 @@
 			            </tr>
 			          </table>
 			      </div>
-						<div class="col-xs-6">
-			        <table>
-			            <tr>
-			              <td>Kelas</td><td>: {{$semesterSiswa->kelasBuka->nama}}</td>
-			            </tr>
-			            <tr>
-			              <td>Semester</td><td>: {{$semesterSiswa->semester->gasal_genap}}</td>
-			            </tr>
-			            <tr>
-			              <td>Tahun Ajar</td><td>: {{$semesterSiswa->semester->tahunAjar->nama}}</td>
-			            </tr>
+					<div class="col-xs-6">
+			        	<table>
+				            <tr>
+				              <td>Kelas</td><td>: {{$semesterSiswa->kelasBuka->nama}}</td>
+				            </tr>
+				            <tr>
+				              <td>Semester</td><td>: {{$semesterSiswa->semester->gasal_genap}}</td>
+				            </tr>
+				            <tr>
+				              <td>Tahun Ajar</td><td>: {{$semesterSiswa->semester->tahunAjar->nama}}</td>
+				            </tr>
 			          </table>
 			      </div>
-			  </div><br>
+			  	</div><br>
 			    <!-- /.row -->
 
 			    <!-- Table row -->
@@ -273,10 +427,10 @@
 					<!-- /.col -->
 			    </div>
 			    <!-- /.row -->
-			  </section>
-			  <!-- /.content -->
-			</div>
-			<!-- ./wrapper -->
-	    </div>
+		  	</section>
+		  <!-- /.content -->
+		</div>
+		<!-- ./wrapper -->
+    </div>
 </body>
 </html>
