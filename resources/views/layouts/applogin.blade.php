@@ -31,17 +31,19 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<body class="hold-transition login-page">
-
-    @yield('content')
-
-    <!-- jQuery 3 -->
+	<!-- jQuery 3 -->
     <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <!-- iCheck -->
     <script src="{{ asset('plugins/iCheck/icheck.min.js') }}"></script>
+	
+</head>
+<body class="hold-transition login-page">
+	<div id="app">
+    	@yield('content')
+	</div>
+
     <script>
       $(function () {
         $('input').iCheck({
