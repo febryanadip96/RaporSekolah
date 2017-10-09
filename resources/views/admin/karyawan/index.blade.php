@@ -36,7 +36,6 @@
                   <th>Tempat Lahir</th>
                   <th>No Telp</th>
                   <th>Username</th>
-                  <th>Hak Akses</th>
                   <th>Super</th>
                   <th class="no-sort">Aksi</th>
                 </tr>
@@ -57,13 +56,6 @@
 	                    <td>{{$karyawan->asal->nama}}</td>
 	                    <td>{{$karyawan->no_telp}}</td>
 	                    <td>{{$karyawan->user->username}}</td>
-	                    <td>
-	                      @if ($karyawan->user->role == 2)
-	                        Kepala Sekolah
-	                      @elseif ($karyawan->user->role == 3)
-	                        Guru
-	                      @endif
-	                    </td>
 	                    <td>
 	                      @if ($karyawan->super == 0)
 	                        Tidak
