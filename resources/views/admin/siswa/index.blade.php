@@ -36,7 +36,6 @@
                   <th>Jenis Kelamin</th>
                   <th>Tanggal Lahir</th>
                   <th>Tempat Lahir</th>
-                  <th>Lihat Rapor</th>
                   <th class="no-sort">Aksi</th>
                 </tr>
                 </thead>
@@ -57,9 +56,8 @@
                     <td>{{date('m/d/Y',strtotime($siswa->tanggal_lahir))}}</td>
                     <td>{{$siswa->asal->nama}}</td>
                     <td>
+						<a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/siswa/'.$siswa->id)}}"><span class="fa fa-eye"></span></a>
 						<a data-toggle="tooltip" title="Rapor" class="btn btn-info btn-xs" href="{{url('admin/siswa/semester/'.$siswa->id)}}"><span class="fa fa-file-o"></span></a>
-                    </td>
-                    <td><a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/siswa/'.$siswa->id)}}"><span class="fa fa-eye"></span></a>
 						<a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/siswa/'.$siswa->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
 						<a data-toggle="tooltip" title="Keluar/Pindah" class="btn btn-danger btn-xs" href="{{url('admin/siswa/pindahkeluar/'.$siswa->id)}}"><span class="fa fa-sign-out"></span></a>
 	                    <form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/siswa/'.$siswa->id)}}">
