@@ -17,8 +17,60 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
+        'username' => $faker->unique()->userName,
         'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+		'role'=>2,
+    ];
+});
+
+$factory->define(App\Siswa::class, function ($faker) {
+    return [
+		'nis' =>$faker->numerify('####'),
+		'nisn'=>$faker->numerify('####'),
+		'jenis_kelamin'=>$faker->randomElement($array = array (0,1)),
+		'tanggal_lahir'=>\Carbon\Carbon::now(),
+		'tempat_lahir_id'=>1,
+		'alamat' =>$faker->address,
+		'agama' =>$faker->randomElement($array = array (0,1,2,3,4,5)),
+		'tanggal_masuk' =>\Carbon\Carbon::now(),
+		'tahun_ajar_id' =>1,
+		'telpon_rumah' =>$faker->phoneNumber,
+		'sekolah_asal_id' =>1,
+		'kelas_awal_id' =>1,
+		'anak_ke' =>$faker->randomElement($array = array (1,2,3)),
+		'ayah' =>$faker->name,
+		'ibu' =>$faker->name,
+		'wali' =>$faker->name,
+		'pekerjaan_ayah_id' =>1,
+		'pekerjaan_ibu_id' =>$faker->randomElement($array = array (1,2,3)),
+		'pekerjaan_wali_id' =>$faker->randomElement($array = array (1,2,3)),
+		'alamat_ortu'=>$faker->address,
+		'alamat_wali' =>$faker->address,
+		'telpon_rumah_ortu' =>$faker->phoneNumber,
+		'telpon_rumah_wali' =>$faker->phoneNumber,
+		'user_id' =>function () {
+			return factory(App\User::class)->create([
+				'role'=>3,
+				])->id;
+		},
+    ];
+});
+
+$factory->define(App\Karyawan::class, function ($faker) {
+    static $password;
+
+    return [
+		'user_id' =>function () {
+			return factory(App\User::class)->create()->id;
+		},
+		'nik'=>$faker->numerify('####'),
+		'super'=>0,
+		'jenis_kelamin' =>$faker->randomElement($array = array (0,1)),
+		'tanggal_lahir' =>\Carbon\Carbon::now(),
+		'tempat_lahir_id' =>1,
+		'alamat' =>$faker->address,
+		'no_telp' =>$faker->phoneNumber,
+		'ijazah_id' =>$faker->randomElement($array = array (1,3,4,5,6,7)),
+		'agama' =>$faker->randomElement($array = array (0,1,2,3,4,5)),
     ];
 });

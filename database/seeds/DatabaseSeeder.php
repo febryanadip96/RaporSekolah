@@ -23,5 +23,10 @@ class DatabaseSeeder extends Seeder
         $this->call(KelasSeeder::class);
         $this->call(KelompokSeeder::class);
         $this->call(MapelSeeder::class);
+		//testing
+        $this->call(TahunAjarSeeder::class);
+        $this->call(SemesterSeeder::class);
+        $this->call(KaryawanSeeder::class);
+        $this->call(SiswaSeeder::class);
     }
 }

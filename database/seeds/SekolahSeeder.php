@@ -11,12 +11,12 @@ class SekolahSeeder extends Seeder
      */
     public function run()
     {
-			DB::table('sekolahs')->insert([
-				[
-					'nama' => 'SD Kartika Nasional Plus',
-					'negeri_swasta'=>1,
-					'alamat'=>'Jl. Panjang Jiwo Permai No. 6',
-				]
-			]);
+		DB::table('sekolahs')->insert([
+			[
+				'nama' => 'SD Kartika Nasional Plus',
+				'negeri_swasta'=>1,
+				'alamat'=>'Jl. Panjang Jiwo Permai No. 6',
+			]
+		]);
     }
 }
