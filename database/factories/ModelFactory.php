@@ -57,8 +57,6 @@ $factory->define(App\Siswa::class, function ($faker) {
 });
 
 $factory->define(App\Karyawan::class, function ($faker) {
-    static $password;
-
     return [
 		'user_id' =>function () {
 			return factory(App\User::class)->create()->id;
