@@ -41,7 +41,7 @@
                     <tr>
                       <td>{{$praktek->nilaiRapor->semesterSiswa->siswa->nis}}</td>
                       <td>{{$praktek->nilaiRapor->semesterSiswa->siswa->user->name}}</td>
-                      <td><input type="number" name="nilai[{{$praktek->id}}]" min="0" max="100" value="{{$praktek->nilai}}"></td>
+                      <td><input class="nilai" type="number" name="nilai[{{$praktek->id}}]" min="0" max="100" value="{{$praktek->nilai}}"></td>
                     </tr>
                     @endforeach
                   </table>
@@ -61,4 +61,22 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script>
+	$(function() {
+		$('.nilai').each(function(index){
+			if ( $(this).val() < {{$mapelBuka->kkm}} ) {
+    			$(this).addClass("has-error");
+    		} else {
+    			$(this).removeClass("has-error");
+    		}
+		 });
+		 $('.nilai').keyup(function(){
+ 			if ( $(this).val() < {{$mapelBuka->kkm}} ) {
+     			$(this).addClass("has-error");
+     		} else {
+     			$(this).removeClass("has-error");
+     		}
+ 		 });
+	});
+</script>
 @endsection

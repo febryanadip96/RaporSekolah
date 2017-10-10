@@ -11,7 +11,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{url('guru/matapelajaran')}}"><i class="fa fa-book"></i> Mata Pelajaran</a></li>
-        <li><a href="{{url('guru/matapelajaran/'.$mapelBuka->id)}}">Mata Pelajaran (show)</a></li>
+        <li><a href="{{url('guru/matapelajaran/'.$mapelBuka->id)}}">{{$mapelBuka->mataPelajaran->nama}} {{$mapelBuka->mataPelajaran->keterangan}} {{$mapelBuka->kelasBuka->nama}}</a></li>
         <li><a href="{{url('guru/matapelajaran/tugas/'.$mapelBuka->id)}}">Tugas (KD)</a></li>
         <li class="active">KD {{$kd->nomor}}</li>
       </ol>
