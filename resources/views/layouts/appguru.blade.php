@@ -197,7 +197,8 @@
 	    $('.table-hover').DataTable({
 	      "aoColumnDefs": [
 	          { 'bSortable': false, 'aTargets': ['no-sort'] }
-	      ]
+	      ],
+		  stateSave: true,
 	    });
 	    $('.alert').slideDown(500, function(){
 	          setTimeout(function(){

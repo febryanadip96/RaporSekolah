@@ -71,7 +71,7 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('js/adminlte.min.js') }}"></script>
     <!-- page script -->
-	
+
 </head>
 <body class="sidebar-mini skin-blue">
 	<div id="app">
@@ -292,7 +292,8 @@
     $('.table-hover').DataTable({
       "aoColumnDefs": [
           { 'bSortable': false, 'aTargets': ['no-sort'] }
-      ]
+      ],
+	  stateSave: true,
     });
     //iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
