@@ -25,28 +25,28 @@
             <h3 class="box-title">Edit Nilai Ekstrakulikuler</h3>
 
           </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <form role="form" class="form-update" action="{{url('guru/walikelas/ekstrakulikuler/'.$nilaiEkstrakulikuler->id)}}" method="post">
-              {{ csrf_field() }}
-              {{method_field("PUT")}}
-              <div class="form-group">
-                <label>Ekstrakulikuler</label>
-                <select name="ekstrakulikuler_id" class="form-control select2" style="width: 100%;">
-                  @foreach($ekskulPilihans as $ekskulPilihan)
-                    <option value="{{$ekskulPilihan->id}}" @if($ekskulPilihan->id==$nilaiEkstrakulikuler->ekstrakulikuler_id) selected @endif>{{$ekskulPilihan->nama}}</option>
-                  @endforeach
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="nilai">Nilai</label>
-                <input type="number" name="nilai" class="form-control" id="nilai" placeholder="Nilai" value="{{$nilaiEkstrakulikuler->nilai}}" required>
-              </div>
-          </div>
-          <!-- /.box-body -->
-          <div class="box-footer">
-            <a class="update-modal btn btn-warning">Simpan</a>
-          </div>
+		  <form role="form" class="form-update" action="{{url('guru/walikelas/ekstrakulikuler/'.$nilaiEkstrakulikuler->id)}}" method="post">
+	          <!-- /.box-header -->
+	          <div class="box-body">
+	              {{ csrf_field() }}
+	              {{method_field("PUT")}}
+	              <div class="form-group">
+	                <label>Ekstrakulikuler</label>
+	                <select name="ekstrakulikuler_id" class="form-control select2" style="width: 100%;">
+	                  @foreach($ekskulPilihans as $ekskulPilihan)
+	                    <option value="{{$ekskulPilihan->id}}" @if($ekskulPilihan->id==$nilaiEkstrakulikuler->ekstrakulikuler_id) selected @endif>{{$ekskulPilihan->nama}}</option>
+	                  @endforeach
+	                </select>
+	              </div>
+	              <div class="form-group">
+	                <label for="nilai">Nilai</label>
+	                <input type="number" name="nilai" class="form-control" id="nilai" placeholder="Nilai" value="{{$nilaiEkstrakulikuler->nilai}}" required>
+	              </div>
+	          </div>
+	          <!-- /.box-body -->
+	          <div class="box-footer">
+	            <a class="update-modal btn btn-warning">Simpan</a>
+	          </div>
           </form>
         </div>
       </div>
