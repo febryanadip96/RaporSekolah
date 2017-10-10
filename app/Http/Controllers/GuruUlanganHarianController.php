@@ -148,7 +148,7 @@ class GuruUlanganHarianController extends Controller
     {
         $predikats = Predikat::all();
         foreach ($predikats as $key => $predikat) {
-            if($predikat->nilai_awal<=$nilai && $predikat->nilai_akhir>=$nilai){
+            if($predikat->nilai_awal<=floor($nilai) && $predikat->nilai_akhir>=floor($nilai)){
                 return $predikat->id;
             }
         }

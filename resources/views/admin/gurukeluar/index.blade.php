@@ -33,6 +33,7 @@
                   <th>Nama</th>
                   <th>Ijazah Tertinggi</th>
                   <th>Jenis Kelamin</th>
+				  <th>Tanggal Keluar</th>
                   <th class="no-sort">Aksi</th>
                 </tr>
                 </thead>
@@ -50,6 +51,7 @@
                         Perempuan
                       @endif
                     </td>
+					<td>{{date('m/d/Y',strtotime($karyawan->deleted_at))}}</td>
                     <td><a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/gurukeluar/'.$karyawan->id)}}"><span class="fa fa-eye"></span></a>
                         <form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/gurukeluar/'.$karyawan->id)}}">
                           {{ method_field('DELETE') }}{{ csrf_field() }}

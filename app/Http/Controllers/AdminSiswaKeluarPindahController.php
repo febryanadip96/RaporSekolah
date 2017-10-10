@@ -51,13 +51,13 @@ class AdminSiswaKeluarPindahController extends Controller
             'siswa_id'=> 'required',
             'tanggal'=>'required',
             'status'=>'required',
-            'alasan'=>'required|string',
+            'keterangan'=>'required|string',
             ]);
         KeluarPindah::create([
             'siswa_id'=>$request['siswa_id'],
             'tanggal'=>date("Y-m-d",strtotime($request['tanggal'])),
             'status'=>$request['status'],
-            'alasan'=>$request['alasan'],
+            'keterangan'=>$request['keterangan'],
             ]);
         $siswa=Siswa::findOrFail($request['siswa_id']);
         $siswa->delete();
@@ -100,12 +100,12 @@ class AdminSiswaKeluarPindahController extends Controller
         $this->validate($request,[
             'status'=>'required',
             'tanggal'=>'required',
-            'alasan'=>'required',
+            'keterangan'=>'required',
         ]);
         $keluarPindah = KeluarPindah::findOrFail($id);//id keluar pindah
         $keluarPindah->status = $request['status'];
         $keluarPindah->tanggal = date("Y-m-d",strtotime($request['tanggal']));
-        $keluarPindah->alasan = $request['alasan'];
+        $keluarPindah->alasan = $request['keterangan'];
         $keluarPindah->save();
         return redirect(action('AdminSiswaKeluarPindahController@edit',['id'=>$id]))->with('status', 'Data siswa keluar/pindah telah diperbaharui');
     }

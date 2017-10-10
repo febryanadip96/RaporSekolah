@@ -29,6 +29,10 @@
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('css/skins/skin-green.min.css') }}">
 
+	<style>
+		.has-error{ border:3px solid red;}
+	</style>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -57,7 +61,7 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('js/adminlte.min.js') }}"></script>
     <!-- page script -->
-	
+
 </head>
 <body class="sidebar-mini skin-green">
 	<div id="app">

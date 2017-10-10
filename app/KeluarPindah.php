@@ -17,7 +17,7 @@ class KeluarPindah extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'keluar_pindahs';
     protected $primaryKey = 'id';
-	protected $fillable=['siswa_id','tanggal','status','alasan'];
+	protected $fillable=['siswa_id','tanggal','status','keterangan'];
 	public $timestamps=true;
 	protected $guarded=['id'];
 

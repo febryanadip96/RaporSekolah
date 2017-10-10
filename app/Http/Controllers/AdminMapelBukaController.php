@@ -10,6 +10,7 @@ use App\Semester;
 use App\Karyawan;
 use App\SemesterSiswa;
 use App\NilaiRapor;
+use App\Predikat;
 
 class AdminMapelBukaController extends Controller
 {
@@ -74,6 +75,10 @@ class AdminMapelBukaController extends Controller
 		if($kelasBuka->kelas->id!=$mapel->kelas->id)
 		{
 			return back()->with('status','Mata pelajaran yang dipilih tidak sesuai untuk kelas buka yang dipilih');
+		}
+		$mapelBukaAda = MapelBuka::where('mata_pelajaran_id',$request['mata_pelajaran_id'])->where('kelas_buka_id',$request['kelas_buka_id'])->first();
+		if($mapelBukaAda){
+			return back()->with('status','Mata Pelajaran Buka yang diinputkan sudah dibuka');
 		}
         $idMapelBuka=MapelBuka::create([
             'mata_pelajaran_id'=>$request['mata_pelajaran_id'],
@@ -155,11 +160,11 @@ class AdminMapelBukaController extends Controller
         //
     }
 
-		private function getNilaiPredikat($nilai)
+	private function getNilaiPredikat($nilai)
     {
         $predikats = Predikat::all();
         foreach ($predikats as $key => $predikat) {
-            if($predikat->nilai_awal<=$nilai && $predikat->nilai_akhir>=$nilai){
+            if($predikat->nilai_awal<=floor($nilai) && $predikat->nilai_akhir>=floor($nilai)){
                 return $predikat->id;
             }
         }

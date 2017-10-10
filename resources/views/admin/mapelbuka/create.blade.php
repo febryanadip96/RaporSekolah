@@ -57,7 +57,7 @@
               </div>
               <div class="form-group">
                 <label for="kkm">KKM</label>
-                <input type="number" name="kkm" class="form-control" id="kkm" placeholder="Nilai KKM">
+                <input type="number" name="kkm" class="form-control" value="80" id="kkm" placeholder="Nilai KKM">
               </div>
             </div>
             <!-- /.box-body -->

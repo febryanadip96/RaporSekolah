@@ -40,8 +40,8 @@
                     <tr>
                       <td>{{$nilaiRapor->semesterSiswa->siswa->nis}}</td>
                       <td>{{$nilaiRapor->semesterSiswa->siswa->user->name}}</td>
-                      <td><input type="number" name="pts[{{$nilaiRapor->id}}]" min="0" max="100" value="{{$nilaiRapor->nilai_pts!=null? $nilaiRapor->nilai_pts:0 }}" required></td>
-                      <td><input type="number" name="pas[{{$nilaiRapor->id}}]" min="0" max="100" value="{{$nilaiRapor->nilai_pas!=null? $nilaiRapor->nilai_pas:0 }}" required></td>
+                      <td><input class="pts" type="number" name="pts[{{$nilaiRapor->id}}]" min="0" max="100" value="{{$nilaiRapor->nilai_pts!=null? $nilaiRapor->nilai_pts:0 }}" required></td>
+                      <td><input class="pas" type="number" name="pas[{{$nilaiRapor->id}}]" min="0" max="100" value="{{$nilaiRapor->nilai_pas!=null? $nilaiRapor->nilai_pas:0 }}" required></td>
                     </tr>
                     @endforeach
                   </table>
@@ -61,4 +61,23 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<script>
+	$(function() {
+		$('.pts, .pas').each(function(index){
+			if ( $(this).val() < {{$mapelBuka->kkm}} ) {
+    			$(this).addClass("has-error");
+    		} else {
+    			$(this).removeClass("has-error");
+    		}
+		 });
+		 $('.pts, .pas').keyup(function(){
+ 			if ( $(this).val() < {{$mapelBuka->kkm}} ) {
+     			$(this).addClass("has-error");
+     		} else {
+     			$(this).removeClass("has-error");
+     		}
+ 		 });
+	});
+</script>
 @endsection

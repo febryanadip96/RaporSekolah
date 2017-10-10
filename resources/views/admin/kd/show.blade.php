@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Kompetensi Dasar Mata Pelajaran {{$mapel->nama}} {{$mapel->keterangan}}
+        Kompetensi Dasar Mata Pelajaran {{$mapel->nama}} {{$mapel->keterangan}} Kelas {{$mapel->kelas->tingkat}}
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-book"></i> Kelas</li>
@@ -46,7 +46,7 @@
 		                  	<td>
 								<form style="display: inline-block" method="post" class="form-delete" action="{{url('admin/kd/'.$kompetensiDasar->id)}}">
 				                  	{{ method_field('DELETE') }}{{ csrf_field() }}
-				                  	<a data-toggle="tooltip" title="Hapus" class="delete-modal btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
+				                  	<a data-toggle="tooltip" title="Hapus" class="delete-modal btn btn-danger btn-xs"><span class='fa fa-trash-o'></span></a>
 								</form>
 							</td>
 	                  	</tr>
@@ -68,7 +68,7 @@
               <input type="hidden" name="mata_pelajaran_id" value="{{$mapel->id}}">
               <div class="form-group">
                 <label for="nomor">Nomor</label>
-                <input type="number" name="nomor" class="form-control" id="tingkat" placeholder="Nomor KD" required>
+                <input type="number" name="nomor" min="1" max="50" class="form-control" id="tingkat" placeholder="Nomor KD" required>
               </div>
               <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>

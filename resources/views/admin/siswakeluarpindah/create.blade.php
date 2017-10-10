@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Siswa Pindah/Keluar
+        Siswa Keluar/Pindah
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-users"></i> Anggota</li>
@@ -63,8 +63,8 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="alasan">Alasan</label>
-                <textarea class="form-control" name="alasan" rows="3" id="alasan" placeholder="Alasan" required></textarea>
+                <label for="alasan">Keterangan</label>
+                <textarea class="form-control" name="keterangan" rows="3" id="keterangan" placeholder="Keterangan" required></textarea>
               </div>
             </div>
             <!-- /.box-body -->

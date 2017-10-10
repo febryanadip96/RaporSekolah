@@ -43,7 +43,7 @@
                   @foreach($mapelbukas as $index => $mapelbuka)
                     <tr>
                     <td>{{$index+1}}</td>
-                    <td>{{$mapelbuka->mataPelajaran->nama}}</td>
+                    <td>{{$mapelbuka->mataPelajaran->nama}} {{$mapelbuka->mataPelajaran->keterangan}}</td>
                     <td>{{$mapelbuka->kelasBuka->nama}} ({{$mapelbuka->kelasBuka->tahunAjar->nama}})</td>
                     <td>{{$mapelbuka->pengajar->user->name}} ({{$mapelbuka->pengajar->nik}})</td>
                     <td>{{$mapelbuka->kkm}}</td>

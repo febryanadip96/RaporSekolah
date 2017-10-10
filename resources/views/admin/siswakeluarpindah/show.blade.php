@@ -11,7 +11,7 @@
       <ol class="breadcrumb">
         <li><i class="fa fa-users"></i> Anggota</li>
         <li><a href="{{url('admin/keluarpindah')}}">Siswa Pindah/Keluar</a></li>
-        <li class="active">Siswa Keluar/Pindah (Show)</li>
+        <li class="active">Siswa Pindah/Keluar (Show)</li>
       </ol>
     </section>
   <!-- Main content -->
@@ -23,7 +23,7 @@
         <!-- general form elements -->
         <div class="box box-default">
           <div class="box-header with-border">
-            <h3 class="box-title">Data Siswa Keluar/Pindah</h3>
+            <h3 class="box-title">Data Siswa Pindah/Keluar</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->

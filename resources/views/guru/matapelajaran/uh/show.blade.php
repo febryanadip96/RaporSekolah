@@ -42,7 +42,7 @@
                     <tr>
                       <td>{{$ulangaHarian->nilaiRapor->semesterSiswa->siswa->nis}}</td>
                       <td>{{$ulangaHarian->nilaiRapor->semesterSiswa->siswa->user->name}}</td>
-                      <td><input type="number" name="nilai[{{$ulangaHarian->id}}]" min="0" max="100" value="{{$ulangaHarian->nilai}}"></td>
+                      <td><input type="number" class="uh" name="nilai[{{$ulangaHarian->id}}]" min="0" max="100" value="{{$ulangaHarian->nilai}}"></td>
                       <td><input type="number" name="remidi[{{$ulangaHarian->id}}]" min="0" max="100" value="{{$ulangaHarian->remidi}}"></td>
                     </tr>
                     @endforeach
@@ -63,4 +63,23 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<script>
+	$(function() {
+		$('.uh').each(function(index){
+			if ( $(this).val() < {{$mapelBuka->kkm}} ) {
+    			$(this).addClass("has-error");
+    		} else {
+    			$(this).removeClass("has-error");
+    		}
+		 });
+		 $('.uh').keyup(function(){
+ 			if ( $(this).val() < {{$mapelBuka->kkm}} ) {
+     			$(this).addClass("has-error");
+     		} else {
+     			$(this).removeClass("has-error");
+     		}
+ 		 });
+	});
+</script>
 @endsection

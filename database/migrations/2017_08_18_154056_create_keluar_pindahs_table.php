@@ -19,7 +19,7 @@ class CreateKeluarPindahsTable extends Migration
             $table->foreign('siswa_id')->references('id')->on('siswas');
             $table->integer('status');
             $table->date('tanggal');
-            $table->text('alasan')->nullable();
+            $table->text('keterangan')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

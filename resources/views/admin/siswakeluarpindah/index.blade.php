@@ -34,6 +34,7 @@
                   <th>Nama</th>
                   <th>Jenis Kelamin</th>
                   <th>Keluar/Pindah</th>
+				  <th>Tanggal Keluar</th>
                   <th class="no-sort">Aksi</th>
                 </tr>
                 </thead>
@@ -52,6 +53,7 @@
                       @endif
                     </td>
                     <td>@if($keluarPindah->status==0) Keluar @elseif($keluarPindah->status==1) Pindah @endif</td>
+					<td>{{date('m/d/Y',strtotime($keluarPindah->created_at))}}</td>
                     <td><a data-toggle="tooltip" title="Lihat" class="btn btn-default btn-xs" href="{{url('admin/keluarpindah/'.$keluarPindah->id)}}"><span class="fa fa-eye"></span></a> <a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/keluarpindah/'.$keluarPindah->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
                         <form  style="display: inline-block" method="post" class="form-delete" action="{{url('admin/keluarpindah/'.$keluarPindah->id)}}">
                           {{ method_field('DELETE') }}{{ csrf_field() }}
