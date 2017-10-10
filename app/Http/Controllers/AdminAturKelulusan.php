@@ -213,6 +213,7 @@ class AdminAturKelulusan extends Controller
 				else{
 					$daftarKelas->status_lulus=0;
 				}
+				$daftarKelas->save();
 			}
 			return back()->with('status','Proses Kelulusan telah dilakukan');
         }
