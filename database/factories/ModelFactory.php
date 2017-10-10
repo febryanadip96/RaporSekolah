@@ -28,7 +28,7 @@ $factory->define(App\Siswa::class, function ($faker) {
 		'nis' =>$faker->numerify('####'),
 		'nisn'=>$faker->numerify('####'),
 		'jenis_kelamin'=>$faker->randomElement($array = array (0,1)),
-		'tanggal_lahir'=>\Carbon\Carbon::now(),
+		'tanggal_lahir'=>$faker->date($format = 'Y-m-d', $max = 'now'),
 		'tempat_lahir_id'=>1,
 		'alamat' =>$faker->address,
 		'agama' =>$faker->randomElement($array = array (0,1,2,3,4,5)),
@@ -41,9 +41,9 @@ $factory->define(App\Siswa::class, function ($faker) {
 		'ayah' =>$faker->name,
 		'ibu' =>$faker->name,
 		'wali' =>$faker->name,
-		'pekerjaan_ayah_id' =>1,
-		'pekerjaan_ibu_id' =>$faker->randomElement($array = array (1,2,3)),
-		'pekerjaan_wali_id' =>$faker->randomElement($array = array (1,2,3)),
+		'pekerjaan_ayah_id' =>$faker->randomElement($array = array (1,3,4,5)),
+		'pekerjaan_ibu_id' =>$faker->randomElement($array = array (1,2,3,4,5)),
+		'pekerjaan_wali_id' =>$faker->randomElement($array = array (1,2,3,4,5)),
 		'alamat_ortu'=>$faker->address,
 		'alamat_wali' =>$faker->address,
 		'telpon_rumah_ortu' =>$faker->phoneNumber,
@@ -51,7 +51,7 @@ $factory->define(App\Siswa::class, function ($faker) {
 		'user_id' =>function () {
 			return factory(App\User::class)->create([
 				'role'=>3,
-				])->id;
+			])->id;
 		},
     ];
 });
@@ -66,11 +66,11 @@ $factory->define(App\Karyawan::class, function ($faker) {
 		'nik'=>$faker->numerify('####'),
 		'super'=>0,
 		'jenis_kelamin' =>$faker->randomElement($array = array (0,1)),
-		'tanggal_lahir' =>\Carbon\Carbon::now(),
+		'tanggal_lahir' =>$faker->date($format = 'Y-m-d', $max = 'now'),
 		'tempat_lahir_id' =>1,
 		'alamat' =>$faker->address,
 		'no_telp' =>$faker->phoneNumber,
-		'ijazah_id' =>$faker->randomElement($array = array (1,3,4,5,6,7)),
+		'ijazah_id' =>$faker->randomElement($array = array (1,3,4,5,6,7,8,9,10,11,12,13,14)),
 		'agama' =>$faker->randomElement($array = array (0,1,2,3,4,5)),
     ];
 });
