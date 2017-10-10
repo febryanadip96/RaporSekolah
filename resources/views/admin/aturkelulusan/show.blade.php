@@ -13,7 +13,7 @@
         <li><i class="fa fa-book"></i> Kelas</li>
         <li>Kelas</li>
         <li><a href="{{url('admin/aturkelulusan')}}">Atur Kelulusan</a></li>
-        <li class="active">Atur Kelulusan (show)</li>
+        <li class="active">Atur Kelulusan {{$kelasBuka->nama}} ({{$kelasBuka->tahunAjar->nama}})</li>
       </ol>
     </section>
   <!-- Main content -->
