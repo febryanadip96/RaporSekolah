@@ -8,6 +8,7 @@ use App\TahunAjar;
 use App\KelasBuka;
 use App\Karyawan;
 use App\Semester;
+use Carbon\Carbon;
 
 class AdminKelasBukaController extends Controller
 {
@@ -65,6 +66,14 @@ class AdminKelasBukaController extends Controller
 			'tahun_ajar_id.required'=>'Tahun ajar tidak valid',
 			'wali_kelas_id.required' =>'Guru wali kelas tidak valid',
 		]);
+		//cek waktu tutup tahun ajar
+		$tahunAjar = TahunAjar::findOrFail($request['tahun_ajar_id']);
+		$tutupTahunAjar = strtotime($tahunAjar->tutup);
+        //waktu sekarang GMT+7
+        $sekarang =strtotime(Carbon::now()->addHours(7));
+		if($tutupTahunAjar<=$sekarang){
+			return back()->with('status', 'Tidak dapat menambah kelas buka karena tahun ajar sudah tutup');
+		}
         KelasBuka::create([
             'nama' => $request['nama'],
             'kelas_id' => $request['kelas_id'],
@@ -94,8 +103,17 @@ class AdminKelasBukaController extends Controller
     public function edit($id)
     {
         $kelasBuka = KelasBuka::findOrFail($id);
+		//cek waktu tutup tahun ajar
+		$tahunAjar = TahunAjar::findOrFail($kelasBuka->tahunAjar->id);
+		$tutupTahunAjar = strtotime($tahunAjar->tutup);
+        //waktu sekarang GMT+7
+        $sekarang =strtotime(Carbon::now()->addHours(7));
+		if($tutupTahunAjar<=$sekarang){
+			return back()->with('status', 'Tidak dapat mengedit kelas buka karena tahun ajar sudah tutup');
+		}
+		//cek sudah ada yang terdaftar atau belum
 		if(!$kelasBuka->daftarKelas->isEmpty()){
-			return back()->with('status', 'Tidak dapat mengedit karena sudah ada siswa yang terdaftar dalam kelas ini');
+			return back()->with('status', 'Tidak dapat mengedit kelas buka karena sudah ada siswa yang terdaftar dalam kelas buka');
 		}
         $kelas = Kelas::all();
         $karyawanException = KelasBuka::where('tahun_ajar_id',$kelasBuka->tahun_ajar_id)->pluck('wali_kelas_id');

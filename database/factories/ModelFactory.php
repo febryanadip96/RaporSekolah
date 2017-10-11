@@ -37,6 +37,7 @@ $factory->define(App\Siswa::class, function ($faker) {
 		'telpon_rumah' =>$faker->phoneNumber,
 		'sekolah_asal_id' =>1,
 		'kelas_awal_id' =>1,
+		'status'=>1,
 		'anak_ke' =>$faker->randomElement($array = array (1,2,3)),
 		'ayah' =>$faker->name,
 		'ibu' =>$faker->name,
