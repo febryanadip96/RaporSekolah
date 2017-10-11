@@ -8,7 +8,7 @@ class TahunAjar extends Model
 {
     protected $table = 'tahun_ajars';
     protected $primaryKey = 'id';
-	protected $fillable=['nama','total_hari_efektif','siswa_id'];
+	protected $fillable=['nama','total_hari_efektif','tutup'];
 	public $timestamps=true;
 	protected $guarded=['id'];
 

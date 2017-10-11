@@ -14,6 +14,7 @@ use App\NilaiSikap;
 use App\Predikat;
 use App\Ekstrakulikuler;
 use App\NilaiEkstrakulikuler;
+use Carbon\Carbon;
 
 class AdminAturKelasController extends Controller
 {
@@ -110,6 +111,14 @@ class AdminAturKelasController extends Controller
     {
         $kelasBuka = KelasBuka::findOrFail($id);
         $tahunAjar = TahunAjar::findOrFail($kelasBuka->tahun_ajar_id);
+
+        //cek waktu tutup tahun ajar
+        //waktu sekarang GMT+7
+        $sekarang =strtotime(Carbon::now()->addHours(7));
+		$tutupTahunAjar = strtotime($tahunAjar->tutup);
+		if($tutupTahunAjar<=$sekarang){
+			return back()->with('status', 'Tidak dapat mengatur siswa dalam kelas buka karena tahun ajar sudah tutup');
+		}
         $kelasBukaTahunIni = KelasBuka::where('tahun_ajar_id', $tahunAjar->id)->pluck('id');
         $siswaException = DaftarKelas::whereIn('kelas_buka_id',$kelasBukaTahunIni)->pluck('siswa_id');
         $siswas = Siswa::whereNotIn('id',$siswaException)->where('status',$kelasBuka->kelas->id)->get();

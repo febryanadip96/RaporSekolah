@@ -17,6 +17,7 @@ class CreateTahunAjarsTable extends Migration
             $table->increments('id');
             $table->string('nama',30);
             $table->unsignedInteger('total_hari_efektif');
+			$table->date('tutup');
             $table->timestamps();
         });
     }

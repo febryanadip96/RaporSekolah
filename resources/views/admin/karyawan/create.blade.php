@@ -65,7 +65,7 @@
 	                    	<div class="input-group-addon">
 	                      	<i class="fa fa-calendar"></i>
 	                    </div>
-	                    <input type="text" name="tanggal_lahir" value="{{old('tanggal_lahir')}}" class="form-control pull-right datepicker" required>
+	                    <input type="text" name="tanggal_lahir" value="{{old('tanggal_lahir') ? date('m/d/Y',strtotime( old('tanggal_lahir') )) : date('m/d/Y',strtotime('now'))}}" class="form-control pull-right datepicker" required>
 	                  </div>
 	                  <!-- /.input group -->
 	                </div>

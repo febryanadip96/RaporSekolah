@@ -93,7 +93,10 @@ class AdminKelasBukaController extends Controller
      */
     public function edit($id)
     {
-        $kelasBuka = KelasBuka::whereId($id)->where('')->firstOrFail();
+        $kelasBuka = KelasBuka::findOrFail($id);
+		if(!$kelasBuka->daftarKelas->isEmpty()){
+			return back()->with('status', 'Tidak dapat mengedit karena sudah ada siswa yang terdaftar dalam kelas ini');
+		}
         $kelas = Kelas::all();
         $karyawanException = KelasBuka::where('tahun_ajar_id',$kelasBuka->tahun_ajar_id)->pluck('wali_kelas_id');
         $karyawans = Karyawan::whereNotIn('id',$karyawanException)->get();

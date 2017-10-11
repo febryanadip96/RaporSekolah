@@ -51,10 +51,17 @@ class AdminTahunAjarController extends Controller
 		$this->validate($request,[
 			'nama'=>'required',
 			'total_hari_efektif'=>'required|numeric',
+			'tutup'=>'required',
 		],[
-			'total_hari_efektif'=>'Total hari efektif harus berisi angka',
+			'total_hari_efektif.required'=>'Total hari efektif harus diisi',
+			'total_hari_efektif.numeric'=>'Total hari efektif harus berisi angka',
+			'tutup.required'=>'Tanggal tutup harus diisi',
 		]);
-        $idTahunAjar = TahunAjar::create($request->all())->id;
+        $idTahunAjar = TahunAjar::create([
+			'nama'=>$request['nama'],
+			'total_hari_efektif'=>$request['total_hari_efektif'],
+			'tutup'=>date("Y-m-d",strtotime($request['tutup'])),
+			])->id;
         Semester::where('status',1)->update(['status'=>0]);
         Semester::create([
             'tahun_ajar_id' => $idTahunAjar,
@@ -111,11 +118,17 @@ class AdminTahunAjarController extends Controller
 		$this->validate($request,[
 			'nama'=>'required',
 			'total_hari_efektif'=>'required|numeric',
+			'tutup'=>'required',
 		],[
-			'total_hari_efektif'=>'Total hari efektif harus berisi angka',
+			'total_hari_efektif.required'=>'Total hari efektif harus diisi',
+			'total_hari_efektif.numeric'=>'Total hari efektif harus berisi angka',
+			'tutup.required'=>'Tanggal tutup harus diisi',
 		]);
         $tahunAjar=TahunAjar::findOrFail($id);
-        $tahunAjar->update($request->all());
+        $tahunAjar->nama=$request['nama'];
+		$tahunAjar->total_hari_efektif=$request['total_hari_efektif'];
+		$tahunAjar->tutup=date("Y-m-d",strtotime($request['tutup']));
+		$tahunAjar->save();
         return redirect(action('AdminTahunAjarController@edit',['id' => $id]))->with('status','Tahun ajar telah diperbaharui');
     }
 

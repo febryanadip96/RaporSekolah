@@ -39,6 +39,17 @@
                 <label for="total_hari_efektif">Total Hari Efektif</label>
                 <input type="number" name="total_hari_efektif" class="form-control" id="total_hari_efektif" placeholder="Total Hari Efektif" value="{{$tahunAjar->total_hari_efektif}}" required>
               </div>
+			  <!-- Date -->
+			  <div class="form-group">
+				<label>Tanggal Tutup:</label>
+				<div class="input-group date">
+				  <div class="input-group-addon">
+					<i class="fa fa-calendar"></i>
+				  </div>
+				  <input type="text" name="tutup" class="form-control pull-right datepicker" value="{{date('m/d/Y',strtotime($tahunAjar->tutup))}}" required>
+				</div>
+				<!-- /.input group -->
+			  </div>
             </div>
             <!-- /.box-body -->
 

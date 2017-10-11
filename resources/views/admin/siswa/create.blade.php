@@ -69,7 +69,7 @@
 	                    <div class="input-group-addon">
 	                      <i class="fa fa-calendar"></i>
 	                    </div>
-	                    <input type="text" name="tanggal_lahir" class="form-control pull-right datepicker" value="{{ old('tanggal_lahir') }}" required>
+	                    <input type="text" name="tanggal_lahir" class="form-control pull-right datepicker" value="{{ old('tanggal_lahir') ? date('m/d/Y',strtotime( old('tanggal_lahir') )) : date('m/d/Y',strtotime('now')) }}" required>
 	                  </div>
 	                  <!-- /.input group -->
 	                </div>
@@ -119,7 +119,7 @@
 	                    <div class="input-group-addon">
 	                      <i class="fa fa-calendar"></i>
 	                    </div>
-	                    <input type="text" name="tanggal_masuk" value="{{ old('tanggal_masuk') }}" class="form-control pull-right datepicker" required>
+	                    <input type="text" name="tanggal_masuk" value="{{ old('tanggal_masuk') ? date('m/d/Y',strtotime( old('tanggal_masuk') )) : date('m/d/Y',strtotime('now')) }}" class="form-control pull-right datepicker" required>
 	                  </div>
 	                </div>
 	                <div class="form-group">
