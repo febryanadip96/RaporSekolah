@@ -328,7 +328,7 @@ class AdminAturKelulusan extends Controller
 			//saran kelulusan
 			$saran = "";
 			if($lulus){
-				$saran="Siswa boleh dilulus";
+				$saran="Siswa boleh diluluskan";
 			}
 			else{
 				$saran ="Siswa harus tinggal kelas";

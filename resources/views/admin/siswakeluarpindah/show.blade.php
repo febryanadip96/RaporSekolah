@@ -51,8 +51,8 @@
                     <input type="text" name="status" class="form-control" id="status" placeholder="Status" value="@if($keluarPindah->status==0) Keluar @elseif($keluarPindah->status==1) Pindah @endif" readonly>
                   </div>
                   <div class="form-group">
-                    <label for="alasan">Alasan</label>
-                    <textarea class="form-control" name="alasan" rows="3" id="alasan" placeholder="Alasan" readonly>{{$keluarPindah->alasan}}</textarea>
+                    <label for="alasan">Keterangan</label>
+                    <textarea class="form-control" name="alasan" rows="3" id="alasan" placeholder="Alasan" readonly>{{$keluarPindah->keterangan}}</textarea>
                   </div>
               </div>
             <!-- /.box-body -->
