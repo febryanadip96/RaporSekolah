@@ -14,6 +14,7 @@ use App\Predikat;
 use App\Ekstrakulikuler;
 use App\NilaiEkstrakulikuler;
 use App\DaftarKelas;
+use App\Siswa;
 
 class AdminAturKelulusan extends Controller
 {
@@ -207,13 +208,18 @@ class AdminAturKelulusan extends Controller
 				}
 
 				//tentukan kelulusan
+				$siswa=Siswa::findOrFail($daftarKelas->siswa->id);
 				if($lulus){
 					$daftarKelas->status_lulus=1;
+					$siswa->status=$daftarKelas->kelasBuka->kelas->id+1;
+
 				}
 				else{
 					$daftarKelas->status_lulus=0;
+					$siswa->status=$daftarKelas->kelasBuka->kelas->id;
 				}
 				$daftarKelas->save();
+				$siswa->save();
 			}
 			return back()->with('status','Proses Kelulusan telah dilakukan');
         }
@@ -225,13 +231,17 @@ class AdminAturKelulusan extends Controller
 	public function lulustidak($id)
 	{
 		$daftarKelas = DaftarKelas::findOrFail($id);
+		$siswa=Siswa::findOrFail($daftarKelas->siswa->id);
 		if($daftarKelas->status_lulus){
 			$daftarKelas->status_lulus=0;
+			$siswa->status=$daftarKelas->kelasBuka->kelas->id;
 		}
 		else{
 			$daftarKelas->status_lulus=1;
+			$siswa->status=$daftarKelas->kelasBuka->kelas->id+1;
 		}
 		$daftarKelas->save();
+		$siswa->save();
 		return back();
 	}
 
@@ -357,8 +367,16 @@ class AdminAturKelulusan extends Controller
 
 	public function ubahKelulusan(Request $request, $id){
         $daftarKelas=DaftarKelas::findOrFail($id);
+		$siswa=Siswa::findOrFail($daftarKelas->siswa->id);
         $daftarKelas->status_lulus=$request['lulus'];
+		if($daftarKelas->status_lulus){
+			$siswa->status=$daftarKelas->kelasBuka->kelas->id+1;
+		}
+		else{
+			$siswa->status=$daftarKelas->kelasBuka->kelas->id;
+		}
         $daftarKelas->save();
+		$siswa->save();
         return redirect(action('AdminAturKelulusan@lihat',['id'=>$id]))->with('status','Data Kelulusan telah diperbarui');
     }
 

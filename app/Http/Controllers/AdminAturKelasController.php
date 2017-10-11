@@ -112,7 +112,7 @@ class AdminAturKelasController extends Controller
         $tahunAjar = TahunAjar::findOrFail($kelasBuka->tahun_ajar_id);
         $kelasBukaTahunIni = KelasBuka::where('tahun_ajar_id', $tahunAjar->id)->pluck('id');
         $siswaException = DaftarKelas::whereIn('kelas_buka_id',$kelasBukaTahunIni)->pluck('siswa_id');
-        $siswas = Siswa::whereNotIn('id',$siswaException)->get();
+        $siswas = Siswa::whereNotIn('id',$siswaException)->where('status',$kelasBuka->kelas->id)->get();
         return view('admin.aturkelas.show',['siswas'=>$siswas, 'kelasBuka' => $kelasBuka]);
     }
 

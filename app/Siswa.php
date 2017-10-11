@@ -17,7 +17,7 @@ class Siswa extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'siswas';
     protected $primaryKey = 'id';
-	protected $fillable=['user_id','nis','nisn','jenis_kelamin','tanggal_lahir','tempat_lahir_id','alamat','agama','tanggal_masuk','tahun_ajar_id','telpon_rumah','sekolah_asal_id','kelas_awal_id','anak_ke','ayah','ibu','wali','pekerjaan_ayah_id','pekerjaan_ibu_id','pekerjaan_wali_id','alamat_ortu','alamat_wali','telpon_rumah_ortu','telpon_rumah_wali'];
+	protected $fillable=['user_id','nis','nisn','jenis_kelamin','tanggal_lahir','tempat_lahir_id','alamat','agama','tanggal_masuk','tahun_ajar_id','telpon_rumah','sekolah_asal_id','kelas_awal_id','status','anak_ke','ayah','ibu','wali','pekerjaan_ayah_id','pekerjaan_ibu_id','pekerjaan_wali_id','alamat_ortu','alamat_wali','telpon_rumah_ortu','telpon_rumah_wali'];
     public $timestamps=true;
 	protected $guarded=['id'];
 

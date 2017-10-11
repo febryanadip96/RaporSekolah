@@ -19,7 +19,7 @@
     <div class="row">
       @include('includes.common.status')
       @include('includes.common.errors')
-      <div class="col-xs-8">
+      <div class="col-xs-12">
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Tabel Kelas</h3>
@@ -31,7 +31,6 @@
                 <tr>
                   <th>No</th>
                   <th>Tingkat</th>
-                  <th class="no-sort">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,7 +38,6 @@
                     <tr>
                     <td>{{$index+1}}</td>
                     <td>{{$kelas1->tingkat}}</td>
-                    <td><a data-toggle="tooltip" title="Edit" class="btn btn-warning btn-xs" href="{{url('admin/kelas/'.$kelas1->id.'/edit')}}"><span class="fa fa-pencil"></span></a></td>
                     </tr>
                   @endforeach
                 </tbody>
@@ -49,32 +47,6 @@
           </div>
           <!-- /.box -->
       </div>
-      <div class="col-xs-4">
-        <!-- general form elements -->
-        <div class="box box-success">
-          <div class="box-header with-border">
-            <h3 class="box-title">Kelas Baru</h3>
-          </div>
-          <!-- /.box-header -->
-          <!-- form start -->
-          <form role="form" action="{{url('admin/kelas')}}" method="post">
-            {{ csrf_field() }}
-            <div class="box-body">
-              <div class="form-group">
-                <label for="tingkat">Tingkat</label>
-                <input type="number" name="tingkat" class="form-control" id="tingkat" placeholder="Tingkat kelas" required>
-              </div>
-            </div>
-            <!-- /.box-body -->
-
-            <div class="box-footer">
-              <button type="submit" class="btn btn-success">Simpan</button>
-            </div>
-          </form>
-        </div>
-        <!-- /.box -->
-      </div>
-      <!-- /.col -->
     </div>
     <!-- /.row -->
   </section>

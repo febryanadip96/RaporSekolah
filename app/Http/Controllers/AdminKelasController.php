@@ -35,7 +35,7 @@ class AdminKelasController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -46,15 +46,7 @@ class AdminKelasController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'tingkat' => 'required|numeric',
-		],[
-			'tingkat.numeric'=>'Tingkat harus diisi angka',
-		]);
-        Kelas::create([
-            'tingkat'=>$request['tingkat'],
-            ]);
-        return redirect(action('AdminKelasController@index'))->with('status','Data kelas baru telah disimpan');
+        abort(404);
     }
 
     /**
@@ -65,7 +57,7 @@ class AdminKelasController extends Controller
      */
     public function show($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -76,8 +68,7 @@ class AdminKelasController extends Controller
      */
     public function edit($id)
     {
-        $kelas = Kelas::whereId($id)->firstOrFail();
-        return view('admin.kelas.edit',['kelas'=>$kelas]);
+        abort(404);
     }
 
     /**
@@ -89,12 +80,7 @@ class AdminKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'tingkat' => 'required|numeric',
-            ]);
-        $kelas = Kelas::whereId($id)->firstOrFail();
-        $kelas->update($request->all());
-        return redirect(action('AdminKelasController@edit',['id' => $id]))->with('status','Data kelas telah diperbaharui');
+        abort(404);
     }
 
     /**
@@ -105,6 +91,6 @@ class AdminKelasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort(404);
     }
 }

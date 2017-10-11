@@ -33,6 +33,7 @@ class CreateSiswasTable extends Migration
             $table->foreign('sekolah_asal_id')->references('id')->on('sekolahs');
             $table->integer('kelas_awal_id')->unsigned();
             $table->foreign('kelas_awal_id')->references('id')->on('kelas');
+			$table->enum('status', ['7', '8', '9' , 'Lulus']);
             $table->integer('anak_ke');
             $table->string('ayah');
             $table->string('ibu');

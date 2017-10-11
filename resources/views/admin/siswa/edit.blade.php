@@ -103,7 +103,14 @@
 	                      <option value="6"@if($siswa->agama==6) selected @endif>Konghucu</option>
 	                  </select>
 	                </div>
-
+					<div class="form-group">
+	                  <label>Sekolah Asal</label>
+	                  <select name="sekolah_asal_id" class="form-control">
+	                    @foreach($sekolahs as $sekolah)
+	                      <option value="{{$sekolah->id}}" @if($siswa->sekolah_asal_id===$sekolah->id) selected @endif>{{$sekolah->nama}}</option>
+	                    @endforeach
+	                  </select>
+	                </div>
 	                <!-- Date -->
 	                <div class="form-group">
 	                  <label>Tanggal Masuk:</label>
@@ -188,14 +195,6 @@
 	                <div class="form-group has-warning">
 	                  <label for="alamat_wali">Alamat Wali (Tidak harus diisi)</label>
 	                  <textarea class="form-control" name="alamat_wali" rows="3" id="alamat_wali" placeholder="Alamat wali">{{$siswa->alamat_wali}}</textarea>
-	                </div>
-	                <div class="form-group">
-	                  <label>Sekolah Asal</label>
-	                  <select name="sekolah_asal_id" class="form-control">
-	                    @foreach($sekolahs as $sekolah)
-	                      <option value="{{$sekolah->id}}" @if($siswa->sekolah_asal_id===$sekolah->id) selected @endif>{{$sekolah->nama}}</option>
-	                    @endforeach
-	                  </select>
 	                </div>
 				</div>
             </div>

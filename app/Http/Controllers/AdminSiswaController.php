@@ -103,6 +103,7 @@ class AdminSiswaController extends Controller
             'telpon_rumah' =>$request['telpon_rumah'],
             'sekolah_asal_id' =>$request['sekolah_asal_id'],
             'kelas_awal_id' =>$request['kelas_awal_id'],
+			'status'=>$request['kelas_awal_id'],
             'anak_ke' =>$request['anak_ke'],
             'ayah' =>$request['ayah'],
             'ibu' =>$request['ibu'],
@@ -202,7 +203,6 @@ class AdminSiswaController extends Controller
             'pekerjaan_wali_id'=>'required',
             ]);
         }
-
         $siswa=Siswa::whereId($id)->firstOrFail();
         $siswa->nis =$request['nis'];
         $siswa->nisn=$request['nisn'];
@@ -216,7 +216,8 @@ class AdminSiswaController extends Controller
         $siswa->telpon_rumah =$request['telpon_rumah'];
         $siswa->sekolah_asal_id =$request['sekolah_asal_id'];
         $siswa->kelas_awal_id =$request['kelas_awal_id'];
-        $siswa->anak_ke =$request['anak_ke'];
+		$siswa->statuts = $request['kelas_awal_id'];
+        $siswa->anak_ke = $request['anak_ke'];
         $siswa->ayah =$request['ayah'];
         $siswa->ibu=$request['ibu'];
         $siswa->wali =$request['wali'];
