@@ -11,6 +11,6 @@ class KaryawanSeeder extends Seeder
      */
     public function run()
     {
-		$karyawans = factory(App\Karyawan::class,25)->create();
+		$karyawans = factory(App\Karyawan::class,6)->create();
     }
 }

@@ -11,6 +11,6 @@ class SiswaSeeder extends Seeder
      */
     public function run()
     {
-		$siswas = factory(App\Siswa::class,130)->create();
+		$siswas = factory(App\Siswa::class,10)->create();
     }
 }
