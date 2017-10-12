@@ -203,7 +203,7 @@ class AdminSiswaController extends Controller
             'pekerjaan_wali_id'=>'required',
             ]);
         }
-        $siswa=Siswa::whereId($id)->firstOrFail();
+        $siswa=Siswa::findOrfail($id);
         $siswa->nis =$request['nis'];
         $siswa->nisn=$request['nisn'];
         $siswa->jenis_kelamin=$request['jenis_kelamin'];
@@ -228,7 +228,7 @@ class AdminSiswaController extends Controller
         $siswa->alamat_wali =$request['alamat_wali'];
         $siswa->telpon_rumah_ortu =$request['telpon_rumah_ortu'];
         $siswa->telpon_rumah_wali =$request['telpon_rumah_wali'];
-        $user=User::whereId($siswa->user->id)->firstOrFail();
+        $user=User::findOrFail($siswa->user->id);
         $user->name = $request['name'];
         if($request['password']!=null)
         {
@@ -275,7 +275,7 @@ class AdminSiswaController extends Controller
 			//dapatkan status lulus
 			$daftarKelas=DaftarKelas::where('siswa_id',$semesterSiswa->siswa->id)->where('kelas_buka_id',$semesterSiswa->kelasBuka->id)->first();
 			if($daftarKelas->status_lulus){
-				if(!empty(Kelas::where('tingkat',($daftarKelas->kelasBuka->kelas->tingkat+1))->first())){
+				if($daftarKelas->kelasBuka->kelas->tingkat==7 || $daftarKelas->kelasBuka->kelas->tingkat==8){
  					$statusKelulusan.="Berdasar hasil perolehan nilai semester 1 dan semester 2, siswa dinyatakan NAIK KE KELAS ".($daftarKelas->kelasBuka->kelas->tingkat+1);
  				}
  				else{

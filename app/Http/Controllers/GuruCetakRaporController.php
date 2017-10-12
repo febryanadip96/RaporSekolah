@@ -42,7 +42,7 @@ class GuruCetakRaporController extends Controller
             //dapatkan status lulus
             $daftarKelas=DaftarKelas::where('siswa_id',$semesterSiswa->siswa->id)->where('kelas_buka_id',$semesterSiswa->kelasBuka->id)->first();
 			if($daftarKelas->status_lulus){
-				if(!empty(Kelas::where('tingkat',($daftarKelas->kelasBuka->kelas->tingkat+1))->first())){
+				if($daftarKelas->kelasBuka->kelas->tingkat==7 || $daftarKelas->kelasBuka->kelas->tingkat==8){
  					$statusKelulusan.="Berdasar hasil perolehan nilai semester 1 dan semester 2, siswa dinyatakan NAIK KE KELAS ".($daftarKelas->kelasBuka->kelas->tingkat+1);
  				}
  				else{
