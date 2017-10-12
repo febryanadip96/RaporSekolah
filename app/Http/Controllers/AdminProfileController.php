@@ -25,7 +25,7 @@ class AdminProfileController extends Controller
      */
     public function index()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -35,7 +35,7 @@ class AdminProfileController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -46,7 +46,7 @@ class AdminProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -57,7 +57,7 @@ class AdminProfileController extends Controller
      */
     public function show($id)
     {
-		//
+        abort(404);
     }
 
     /**
@@ -108,6 +108,6 @@ class AdminProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort(404);
     }
 }

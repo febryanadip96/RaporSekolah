@@ -29,7 +29,7 @@ class AdminDaftarSiswaMapelController extends Controller
      */
     public function index()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -39,7 +39,7 @@ class AdminDaftarSiswaMapelController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -103,7 +103,7 @@ class AdminDaftarSiswaMapelController extends Controller
      */
     public function edit($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -115,7 +115,7 @@ class AdminDaftarSiswaMapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        abort(404);
     }
 
     /**

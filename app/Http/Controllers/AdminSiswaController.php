@@ -34,7 +34,7 @@ class AdminSiswaController extends Controller
      */
     public function index()
     {
-        $siswas = Siswa::orderBy('created_at', 'DESC')->get();
+        $siswas = Siswa::orderBy('status', 'ASC')->get();
         return view('admin.siswa.index',['siswas'=>$siswas]);
     }
 
@@ -216,7 +216,7 @@ class AdminSiswaController extends Controller
         $siswa->telpon_rumah =$request['telpon_rumah'];
         $siswa->sekolah_asal_id =$request['sekolah_asal_id'];
         $siswa->kelas_awal_id =$request['kelas_awal_id'];
-		$siswa->statuts = $request['kelas_awal_id'];
+		$siswa->status = $request['kelas_awal_id'];
         $siswa->anak_ke = $request['anak_ke'];
         $siswa->ayah =$request['ayah'];
         $siswa->ibu=$request['ibu'];

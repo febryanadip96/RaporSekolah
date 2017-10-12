@@ -27,7 +27,7 @@ class GuruEkskulController extends Controller
      */
     public function index()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -37,7 +37,7 @@ class GuruEkskulController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**

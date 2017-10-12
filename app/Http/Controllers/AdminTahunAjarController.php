@@ -37,7 +37,7 @@ class AdminTahunAjarController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -84,7 +84,7 @@ class AdminTahunAjarController extends Controller
      */
     public function show($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -140,6 +140,6 @@ class AdminTahunAjarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort(404);
     }
 }

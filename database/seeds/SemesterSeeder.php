@@ -15,7 +15,7 @@ class SemesterSeeder extends Seeder
 			[
 				'tahun_ajar_id' => 1,
 				'gasal_genap'=>1,
-				'status'=>1,
+				'status'=>0,
 			],
 			[
 				'tahun_ajar_id' => 1,
@@ -25,7 +25,7 @@ class SemesterSeeder extends Seeder
 			[
 				'tahun_ajar_id' => 2,
 				'gasal_genap'=>1,
-				'status'=>0,
+				'status'=>1,
 			],
 			[
 				'tahun_ajar_id' => 2,

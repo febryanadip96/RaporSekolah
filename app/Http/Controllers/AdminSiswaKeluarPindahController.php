@@ -36,7 +36,7 @@ class AdminSiswaKeluarPindahController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**

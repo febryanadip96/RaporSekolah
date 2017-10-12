@@ -35,7 +35,7 @@ class AdminAturKelasController extends Controller
      */
     public function index()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -45,7 +45,7 @@ class AdminAturKelasController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -119,6 +119,7 @@ class AdminAturKelasController extends Controller
 		if($tutupTahunAjar<=$sekarang){
 			return back()->with('status', 'Tidak dapat mengatur siswa dalam kelas buka karena tahun ajar sudah tutup');
 		}
+
         $kelasBukaTahunIni = KelasBuka::where('tahun_ajar_id', $tahunAjar->id)->pluck('id');
         $siswaException = DaftarKelas::whereIn('kelas_buka_id',$kelasBukaTahunIni)->pluck('siswa_id');
         $siswas = Siswa::whereNotIn('id',$siswaException)->where('status',$kelasBuka->kelas->id)->get();
@@ -133,7 +134,7 @@ class AdminAturKelasController extends Controller
      */
     public function edit($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -145,7 +146,7 @@ class AdminAturKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        abort(404);
     }
 
     /**

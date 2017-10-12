@@ -18,7 +18,7 @@ class GuruPrestasiController extends Controller
     {
         $this->middleware('guru');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +26,7 @@ class GuruPrestasiController extends Controller
      */
     public function index()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -36,7 +36,7 @@ class GuruPrestasiController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**

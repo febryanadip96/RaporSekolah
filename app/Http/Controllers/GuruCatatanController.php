@@ -55,6 +55,6 @@ class GuruCatatanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort(404);
     }
 }

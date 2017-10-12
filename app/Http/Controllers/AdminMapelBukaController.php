@@ -113,7 +113,7 @@ class AdminMapelBukaController extends Controller
      */
     public function show($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -157,7 +157,7 @@ class AdminMapelBukaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort(404);
     }
 
 	private function getNilaiPredikat($nilai)
