@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Daftar Siswa dalam Kelas {{$kelasBuka->nama}} <small>(Wali Kelas : {{$kelasBuka->waliKelas->user->name}})</smal>
+        Daftar Siswa dalam Kelas {{$kelasBuka->nama}} <small>(Wali Kelas : {{$kelasBuka->waliKelas->user->name}})</small>
       </h1>
       <ol class="breadcrumb">
             <li><i class="fa fa-book"></i> Kelas</li>
