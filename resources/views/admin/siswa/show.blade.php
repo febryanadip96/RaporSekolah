@@ -48,7 +48,7 @@
 	                </div>
 	                <div class="form-group">
 	                  <label>Jenis Kelamin</label>
-	                  <input type="text" name="jenis_kelamin" class="form-control" value="@if($siswa->jenis_kelamin===0)Laki-laki @elseif($siswa->jenis_kelamin===1)Perempuan @endif">
+	                  <input type="text" name="jenis_kelamin" class="form-control" value="@if($siswa->jenis_kelamin===0)Laki-laki @elseif($siswa->jenis_kelamin===1)Perempuan @endif" readonly>
 	                </div>
 	                <!-- Date -->
 	                <div class="form-group">
@@ -58,13 +58,13 @@
 	                    <div class="input-group-addon">
 	                      <i class="fa fa-calendar"></i>
 	                    </div>
-	                    <input type="text" name="tanggal_lahir" class="form-control pull-right" value="{{date('m/d/Y',strtotime($siswa->tanggal_lahir))}}" readonly="">
+	                    <input type="text" name="tanggal_lahir" class="form-control pull-right" value="{{date('m/d/Y',strtotime($siswa->tanggal_lahir))}}" readonly>
 	                  </div>
 	                  <!-- /.input group -->
 	                </div>
 	                <div class="form-group">
 	                  <label>Tempat Lahir</label>
-	                  <input type="text" name="tempat_lahir_id" class="form-control" value="{{$siswa->asal->nama}}">
+	                  <input type="text" name="tempat_lahir_id" class="form-control" value="{{$siswa->asal->nama}}" readonly>
 	                </div>
 	                <div class="form-group">
 	                  <label for="alamat">Alamat</label>
@@ -79,7 +79,7 @@
 	                <div class="form-group">
 	                  <label>Agama</label>
 	                  <input type="text" name="agama" class="form-control" readonly value="@if($siswa->agama===1)Islam @elseif($siswa->agama===2)Kristen Protestan @elseif($siswa->agama===3)Katolik @elseif($siswa->agama===4)Hindu @elseif($siswa->agama===5)Budha @elseif($siswa->agama===6)Konghucu @endif
-	                  ">
+	                  " readonly>
 	                </div>
 
 	                <div class="form-group">
@@ -154,10 +154,6 @@
 				</div>
             </div>
             <!-- /.box-body -->
-
-            <div class="box-footer">
-              <a href="{{url('admin/siswa')}}" class="btn btn-default">Kembali</a>
-            </div>
           </form>
         </div>
         <!-- /.box -->
