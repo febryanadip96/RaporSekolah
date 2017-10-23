@@ -4,7 +4,7 @@
 
 <div class="login-box">
   <div class="login-logo">
-    <p><b>RAPOR SMP KARTIKA NASIONAL</b></p>
+    <p><img src="{{asset('img/logo_sekolah.png')}}" width="150" height="150"><br><b>RAPOR ONLINE</b></p>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

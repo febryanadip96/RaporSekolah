@@ -44,12 +44,13 @@
 			<section class="invoice">
   		    	<!-- info row -->
 				<div class="row">
-				<div class="col-xs-12 table-responsive">
+					<div class="col-xs-12">
+					<img class="center-block" src="{{asset('img/logo_sekolah.png')}}" height="150" width="150"><br>
 					<h4 class="text-center">LAPORAN</h4>
 					<h4 class="text-center">HASIL CAPAIAN KOMPETENSI PESERTA DIDIK</h4>
 					<h4 class="text-center">SEKOLAH MENENGAH PERTAMA</h4>
 					<h4 class="text-center">(SMP)</h4><br>
-					<table class="table table-responsive">
+					<table class="col-xs-12">
 						<tr>
 							<td class="text-right col-xs-6">Nama Sekolah:</td><td>{{$sekolah->nama}}</td>
 						</tr>
@@ -79,7 +80,7 @@
 						</tr>
 					</table>
 				</div>
-			</div>
+				</div>
 			</section>
 	  	</div>
 	</div>
@@ -89,20 +90,20 @@
 			<section class="invoice">
   		    	<!-- info row -->
 				<div class="row">
-					<div class="col-xs-12 table-responsive">
+					<div class="col-xs-12">
 					<h4 class="text-center">KETERANGAN TENTANG DIRI PESERTA DIDIK</h4><br>
-					<table class="table table-striped">
+					<table class="col-xs-12">
 						<tr>
-							<td class="col-xs-4">Nama Peserta Didik (Lengkap):</td><td>{{$semesterSiswa->siswa->user->name}}</td>
+							<td class="col-xs-6">Nama Peserta Didik (Lengkap):</td><td>{{$semesterSiswa->siswa->user->name}}</td>
 						</tr>
 						<tr>
-							<td>Nomor Induk/NISN:</td><td>{{$semesterSiswa->siswa->nisn}}</td>
+							<td class="col-xs-6">Nomor Induk/NISN:</td><td>{{$semesterSiswa->siswa->nisn}}</td>
 						</tr>
 						<tr>
-							<td>Tempat Tanggal Lahir:</td><td>{{$semesterSiswa->siswa->asal->nama}}, {{date('d-m-Y',strtotime($semesterSiswa->siswa->tanggal_lahir))}}</td>
+							<td class="col-xs-6">Tempat Tanggal Lahir:</td><td>{{$semesterSiswa->siswa->asal->nama}}, {{date('d-m-Y',strtotime($semesterSiswa->siswa->tanggal_lahir))}}</td>
 						</tr>
 						<tr>
-							<td>Jenis Kelamin:</td>
+							<td class="col-xs-6">Jenis Kelamin:</td>
 							<td>
 								@if ($semesterSiswa->siswa->jenis_kelamin == 0)
 		                          Laki-laki
@@ -112,7 +113,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td>Agama:</td>
+							<td class="col-xs-6">Agama:</td>
 							<td>
 								@if ($semesterSiswa->siswa->agama == 0)
 		                          	Islam
@@ -130,61 +131,61 @@
 							</td>
 						</tr>
 						<tr>
-							<td>Anak Ke:</td><td>{{$semesterSiswa->siswa->anak_ke}}</td>
+							<td class="col-xs-6">Anak Ke:</td><td>{{$semesterSiswa->siswa->anak_ke}}</td>
 						</tr>
 						<tr>
-							<td>Alamat Peserta Didik:</td><td>{{$semesterSiswa->siswa->alamat}}</td>
+							<td class="col-xs-6">Alamat Peserta Didik:</td><td>{{$semesterSiswa->siswa->alamat}}</td>
 						</tr>
 						<tr>
-							<td>Nomor Telpon Rumah:</td><td>{{$semesterSiswa->siswa->telpon_rumah}}</td>
+							<td class="col-xs-6">Nomor Telpon Rumah:</td><td>{{$semesterSiswa->siswa->telpon_rumah}}</td>
 						</tr>
 						<tr>
-							<td>Sekolah Asal:</td><td>{{$semesterSiswa->siswa->sekolahAsal->nama}}</td>
+							<td class="col-xs-6">Sekolah Asal:</td><td>{{$semesterSiswa->siswa->sekolahAsal->nama}}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Diterima Di Sekolah ini:</td>
+							<th colspan="2">Diterima Di Sekolah ini:</th>
 						</tr>
 						<tr>
-							<td>Di Kelas:</td><td>{{$semesterSiswa->siswa->masukKelasAwal->tingkat}}</td>
+							<td class="col-xs-6">Di Kelas:</td><td>{{$semesterSiswa->siswa->masukKelasAwal->tingkat}}</td>
 						</tr>
 						<tr>
-							<td>Pada Tanggal:</td><td>{{date('d-m-Y',strtotime($semesterSiswa->siswa->tanggal_masuk))}}</td>
+							<td class="col-xs-6">Pada Tanggal:</td><td>{{date('d-m-Y',strtotime($semesterSiswa->siswa->tanggal_masuk))}}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Nama Orang Tua:</td>
+							<th colspan="2">Nama Orang Tua:</th>
 						</tr>
 						<tr>
-							<td>Ayah:</td><td>{{$semesterSiswa->siswa->ayah}}</td>
+							<td class="col-xs-6">Ayah:</td><td>{{$semesterSiswa->siswa->ayah}}</td>
 						</tr>
 						<tr>
-							<td>Ibu:</td><td>{{$semesterSiswa->siswa->ibu}}</td>
+							<td class="col-xs-6">Ibu:</td><td>{{$semesterSiswa->siswa->ibu}}</td>
 						</tr>
 						<tr>
-							<td>Alamat Orang Tua:</td><td>{{$semesterSiswa->siswa->alamat_ortu}}</td>
+							<td class="col-xs-6">Alamat Orang Tua:</td><td>{{$semesterSiswa->siswa->alamat_ortu}}</td>
 						</tr>
 						<tr>
-							<td>Nomor Telpon Rumah:</td><td>{{$semesterSiswa->siswa->telpon_rumah_ortu}}</td>
+							<td class="col-xs-6">Nomor Telpon Rumah:</td><td>{{$semesterSiswa->siswa->telpon_rumah_ortu}}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Pekerjaan Orang Tua:</td>
+							<th colspan="2">Pekerjaan Orang Tua:</th>
 						</tr>
 						<tr>
-							<td>Ayah:</td><td>{{$semesterSiswa->siswa->pekerjaanAyah->nama}}</td>
+							<td class="col-xs-6">Ayah:</td><td>{{$semesterSiswa->siswa->pekerjaanAyah->nama}}</td>
 						</tr>
 						<tr>
-							<td>Ibu:</td><td>{{$semesterSiswa->siswa->pekerjaanIbu->nama}}</td>
+							<td class="col-xs-6">Ibu:</td><td>{{$semesterSiswa->siswa->pekerjaanIbu->nama}}</td>
 						</tr>
 						<tr>
-							<td>Nama Wali Peserta Didik:</td><td>{{$semesterSiswa->siswa->wali}}</td>
+							<td class="col-xs-6">Nama Wali Peserta Didik:</td><td>{{$semesterSiswa->siswa->wali}}</td>
 						</tr>
 						<tr>
-							<td>Alamat Wali Peserta Didik:</td><td>{{$semesterSiswa->siswa->alamat_wali}}</td>
+							<td class="col-xs-6">Alamat Wali Peserta Didik:</td><td>{{$semesterSiswa->siswa->alamat_wali}}</td>
 						</tr>
 						<tr>
-							<td>Nomor Telpon Rumah:</td><td>{{$semesterSiswa->siswa->telpon_rumah_wali}}</td>
+							<td class="col-xs-6">Nomor Telpon Rumah:</td><td>{{$semesterSiswa->siswa->telpon_rumah_wali}}</td>
 						</tr>
 						<tr>
-							<td>Pekerjaan Wali Peserta Didik:</td><td>{{$semesterSiswa->siswa->pekerjaanWali->nama}}</td>
+							<td class="col-xs-6">Pekerjaan Wali Peserta Didik:</td><td>{{$semesterSiswa->siswa->pekerjaanWali->nama}}</td>
 						</tr>
 					</table>
 				</div>
